@@ -9,8 +9,8 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 1** - [Melany Meichtri](https://github.com/melanymeichtri)
 * **Integrante 2** - [Facundo Nicolas Arballo](https://github.com/Farballo)
 * **Integrante 3** - [Francisco Sobral](https://github.com/fransobral)
-* **Integrante 4** - [Claudia Liz ](https://github.com/integrante4)
-* **Integrante 5** - [Luan Corrionero](https://github.com/Luansair)
+* **Integrante 4** - [Claudia Liz](https://github.com/integrante4)
+* **Integrante 5** - [Luan Shair Corrionero](https://github.com/Luansair)
 
 Corrector: **{Corrector}**   
 
