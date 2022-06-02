@@ -9,14 +9,14 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 1** - [Melany Meichtri](https://github.com/melanymeichtri)
 * **Integrante 2** - [Facundo Nicolas Arballo](https://github.com/Farballo)
 * **Integrante 3** - [Francisco Sobral](https://github.com/fransobral)
-* **Integrante 4** - [Claudia Liz](https://github.com/integrante4)
+* **Integrante 4** - [Claudia Ramos Sarzuri](https://github.com/claudia-ramos)
 * **Integrante 5** - [Luan Shair Corrionero](https://github.com/Luansair)
 
 Corrector: **{Corrector}**   
 
 ## Aplicación
 
-La versión más reciente de la aplicación puede encontrarse en la pestaña [releases](https://github.com/Luansair/2c2022_algo3_tp2/releases/latest) y ejecutarse en Linux, Windows o Mac de esta forma:
+La versión más reciente de la aplicación puede encontrarse  en la pestaña [releases](https://github.com/Luansair/2c2022_algo3_tp2/releases/latest) y ejecutarse en Linux, Windows o Mac de esta forma:
 
 ```bash
 $ java -jar <archivo.jar>
