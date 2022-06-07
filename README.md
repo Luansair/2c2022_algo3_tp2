@@ -12,7 +12,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 4** - [Claudia Ramos Sarzuri](https://github.com/claudia-ramos)
 * **Integrante 5** - [Luan Shair Corrionero](https://github.com/Luansair)
 
-Corrector: **{Corrector}**   
+Corrector: **{Thiago Kovnat}**   
 
 ## Aplicación
 
