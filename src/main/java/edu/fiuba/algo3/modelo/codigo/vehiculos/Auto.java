@@ -11,8 +11,4 @@ public class Auto extends Vehiculo{
         this.jugador = unJugador;
         this.posicion = unaEsquina;
     }
-    
-    public void chocar(Vehiculo vehiculo) {
-        vehiculo.sumarMovimientos(3);
-    }
 }

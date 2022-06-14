@@ -24,8 +24,5 @@ public abstract class Vehiculo {
         cantidadPozos.aumentar(1);
     }
 
-    public void chocar(Vehiculo vehiculo) {
-    	vehiculo.chocar(vehiculo);
-    }
 
 }
