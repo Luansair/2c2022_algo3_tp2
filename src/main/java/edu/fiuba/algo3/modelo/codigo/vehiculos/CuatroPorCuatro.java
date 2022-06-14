@@ -12,4 +12,10 @@ public class CuatroPorCuatro extends Vehiculo{
         this.jugador = unJugador;
         this.posicion = unaEsquina;
     }
+    
+    public void chocar(Vehiculo vehiculo) {
+        vehiculo.cantidadPozos.aumentar(1);
+        if(vehiculo.cantidadPozos.valor() % 3 == 0 && vehiculo.cantidadPozos.valor() != 0)
+            vehiculo.sumarMovimientos(2);
+    }
 }

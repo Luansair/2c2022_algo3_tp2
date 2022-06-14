@@ -13,4 +13,8 @@ public class Moto extends Vehiculo{
     }
 
 
+    public void chocar(Vehiculo vehiculo) {
+        vehiculo.sumarMovimientos(3);
+    }
+
 }
