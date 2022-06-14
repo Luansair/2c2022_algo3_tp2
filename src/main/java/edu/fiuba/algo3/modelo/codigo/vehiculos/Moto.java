@@ -12,5 +12,9 @@ public class Moto extends Vehiculo{
         this.posicion = unaEsquina;
     }
 
+    public void chocar(Vehiculo vehiculo) {
+        vehiculo.sumarMovimientos(3);
+    }
+
 
 }
