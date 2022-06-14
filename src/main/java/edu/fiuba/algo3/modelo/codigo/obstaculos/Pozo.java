@@ -7,7 +7,7 @@ import edu.fiuba.algo3.modelo.codigo.vehiculos.CuatroPorCuatro;
 public class Pozo implements Obstaculo {
     public void activar(Vehiculo vehiculo) {
         if(vehiculo.getClass() == Moto.class) {
-            chocarMoto(vehiculo);
+            chocarMoto(vehiculo); //a
         }
 
         if(vehiculo.getClass() == Auto.class) {
