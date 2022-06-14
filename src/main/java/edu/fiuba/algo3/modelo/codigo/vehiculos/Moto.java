@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.codigo.Direccion;
 import edu.fiuba.algo3.modelo.codigo.Esquina;
 import edu.fiuba.algo3.modelo.codigo.Jugador;
 import edu.fiuba.algo3.modelo.codigo.Contador;
+import edu.fiuba.algo3.modelo.codigo.obstaculos.Pozo;
 
 public class Moto extends Vehiculo{
     public Moto(Esquina unaEsquina, Jugador unJugador) {
@@ -12,5 +13,8 @@ public class Moto extends Vehiculo{
         this.posicion = unaEsquina;
     }
 
-
+    @Override
+    public void chocar(Pozo pozo) {
+        pozo.activar(this);
+    }
 }
