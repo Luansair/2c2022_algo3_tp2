@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.codigo.obstaculos.Pozo;
 
 public class CuatroPorCuatro extends Vehiculo{
 
-    public ContadorPozo contadorPozo; //a
+    public ContadorPozo contadorPozo; //ab
 
     public CuatroPorCuatro(Esquina unaEsquina, Jugador unJugador) {
         this.cantidadPozos = new Contador();
