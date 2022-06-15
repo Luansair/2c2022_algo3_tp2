@@ -11,4 +11,8 @@ public class Auto extends Vehiculo{
         this.jugador = unJugador;
         this.posicion = unaEsquina;
     }
+
+    public Vehiculo obtenerSiguiente() {
+        return new CuatroPorCuatro(super.posicion, super.jugador);
+    }
 }

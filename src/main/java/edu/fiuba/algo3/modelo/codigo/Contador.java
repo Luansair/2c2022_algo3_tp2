@@ -13,4 +13,6 @@ public class Contador {
     public void aumentar(int movimientos) {
         valor = valor + movimientos;
     }
+
+    public void aumentarPorcentaje(double porcentaje) {valor = (int)(valor + porcentaje * valor);}
 }

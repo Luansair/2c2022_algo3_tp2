@@ -12,5 +12,7 @@ public class Moto extends Vehiculo{
         this.posicion = unaEsquina;
     }
 
-
+    public Vehiculo obtenerSiguiente() {
+        return new Auto(super.posicion, super.jugador);
+    }
 }
