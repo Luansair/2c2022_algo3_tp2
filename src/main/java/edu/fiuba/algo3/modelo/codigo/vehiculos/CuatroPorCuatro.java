@@ -12,4 +12,8 @@ public class CuatroPorCuatro extends Vehiculo{
         this.jugador = unJugador;
         this.posicion = unaEsquina;
     }
+
+    public Vehiculo obtenerSiguiente() {
+        return new Moto(super.posicion, super.jugador);
+    }
 }

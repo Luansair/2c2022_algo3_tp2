@@ -20,9 +20,6 @@ public abstract class Vehiculo {
     public void mover(Direccion unaDireccion) {
         unaDireccion.mover(posicion);
     }
-    public void chocarPozo() {
-        cantidadPozos.aumentar(1);
-    }
 
-
+    public abstract Vehiculo obtenerSiguiente();
 }

@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.codigo;
 
-import edu.fiuba.algo3.modelo.Message;
 import edu.fiuba.algo3.modelo.codigo.obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.codigo.vehiculos.CuatroPorCuatro;
 import edu.fiuba.algo3.modelo.codigo.vehiculos.Moto;
@@ -9,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PruebasIntegrales {
+public class PruebasObstaculos {
 
     @Test
     public void test01MotoDoblaALaDerechaYSeEncuentraConUnPozo() {
