@@ -23,4 +23,8 @@ public class CuatroPorCuatro extends Vehiculo{
     public void sumarMovimientos(int movimientos) {
         contadorPozo.sumarMovimientos(movimientos);
     }
+
+    public Vehiculo obtenerSiguiente() {
+        return new Moto(super.posicion, super.jugador);
+    }
 }

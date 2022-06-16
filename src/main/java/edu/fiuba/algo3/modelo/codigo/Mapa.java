@@ -20,6 +20,16 @@ public class Mapa {
 
     }
 
+    public void aplicarSorpresas(Jugador unJugador, Esquina esquinaUno, Esquina esquinaDos) {
+        for (int i = 0; i < cuadras.size(); i++) {
+            Cuadra cuadra = cuadras.get(i);
+            if (cuadra.mismaCuadra(esquinaUno, esquinaDos)) {
+                cuadra.aplicarSorpresas(unJugador);
+            }
+        }
+
+    }
+
     public void agregarCuadra(Cuadra cuadra) {
         this.cuadras.add(cuadra);
     }
