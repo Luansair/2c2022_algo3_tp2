@@ -17,7 +17,7 @@ public class Moto extends Vehiculo{
     @Override
     public void chocar(Pozo pozo) {
         pozo.activar(this);
-
+    }
     public Vehiculo obtenerSiguiente() {
         return new Auto(super.posicion, super.jugador);
 

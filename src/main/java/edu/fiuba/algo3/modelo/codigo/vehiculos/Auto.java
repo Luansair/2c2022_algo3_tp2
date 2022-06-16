@@ -16,7 +16,7 @@ public class Auto extends Vehiculo{
     @Override
     public void chocar(Pozo pozo) {
         pozo.activar(this);
-
+    }
     public Vehiculo obtenerSiguiente() {
         return new CuatroPorCuatro(super.posicion, super.jugador);
 
