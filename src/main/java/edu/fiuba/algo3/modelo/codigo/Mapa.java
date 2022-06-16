@@ -12,8 +12,7 @@ public class Mapa {
         cuadras = new ArrayList<>();
     }
     public void aplicarObstaculos(Vehiculo unVehiculo, Esquina esquinaUno, Esquina esquinaDos) {
-        for (int i = 0; i < cuadras.size(); i++) {
-            Cuadra cuadra = cuadras.get(i);
+        for (Cuadra cuadra : cuadras) {
             if (cuadra.mismaCuadra(esquinaUno, esquinaDos)) {
                 cuadra.aplicarObstaculos(unVehiculo);
             }

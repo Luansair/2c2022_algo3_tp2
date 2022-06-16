@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.codigo.Direccion;
 import edu.fiuba.algo3.modelo.codigo.Esquina;
 import edu.fiuba.algo3.modelo.codigo.Jugador;
 import edu.fiuba.algo3.modelo.codigo.Contador;
+import edu.fiuba.algo3.modelo.codigo.obstaculos.Pozo;
 
 public abstract class Vehiculo {
     protected Jugador jugador;
@@ -20,6 +21,13 @@ public abstract class Vehiculo {
     public void mover(Direccion unaDireccion) {
         unaDireccion.mover(posicion);
     }
+
+    public void chocarPozo() {
+        cantidadPozos.aumentar(1);
+    }
+    public abstract void chocar(Pozo pozo);
+
+
 
     public abstract Vehiculo obtenerSiguiente();
 }

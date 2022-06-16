@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.modelo.codigo;
 
 import edu.fiuba.algo3.modelo.codigo.obstaculos.Obstaculo;
+import edu.fiuba.algo3.modelo.codigo.vehiculos.Auto;
+import edu.fiuba.algo3.modelo.codigo.vehiculos.CuatroPorCuatro;
+import edu.fiuba.algo3.modelo.codigo.vehiculos.Moto;
 import edu.fiuba.algo3.modelo.codigo.vehiculos.Vehiculo;
 import edu.fiuba.algo3.modelo.codigo.sorpresas.Sorpresa;
 
@@ -29,8 +32,8 @@ public class Cuadra {
     }
 
     public void aplicarObstaculos(Vehiculo unVehiculo) {
-        for (int i = 0; i < obstaculos.size(); i++) {
-            (obstaculos.get(i)).activar(unVehiculo);
+        for (Obstaculo obstaculo : obstaculos) {
+            obstaculo.activar(unVehiculo);
         }
     }
 
