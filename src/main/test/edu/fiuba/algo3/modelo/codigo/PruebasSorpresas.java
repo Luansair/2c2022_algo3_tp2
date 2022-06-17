@@ -10,6 +10,8 @@ import edu.fiuba.algo3.modelo.codigo.vehiculos.Moto;
 import edu.fiuba.algo3.modelo.codigo.vehiculos.Vehiculo;
 import org.junit.jupiter.api.Test;
 
+import com.tngtech.archunit.thirdparty.com.google.common.net.HttpHeaders;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PruebasSorpresas {
@@ -137,7 +139,7 @@ public class PruebasSorpresas {
     }
 
     @Test
-    public void test05MotoSeEncuentraConTresSorpresasDesfavorablesYVuelveASerMoto() {
+    public void test05MotoSeEncuentraConTresSorpresasCambioDeVehiculoYVuelveASerMoto() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
