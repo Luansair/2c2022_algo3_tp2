@@ -42,8 +42,8 @@ public class Cuadra {
     }
 
     public void aplicarSorpresas(Jugador unJugador) {
-        for (int i = 0; i < sorpresas.size(); i++) {
-            (sorpresas.get(i)).activar(unJugador);
+        for (Sorpresa sorpresa : sorpresas) {
+            sorpresa.activar(unJugador);
         }
     }
 }

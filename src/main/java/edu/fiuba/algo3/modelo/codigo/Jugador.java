@@ -4,13 +4,13 @@ import edu.fiuba.algo3.modelo.codigo.vehiculos.Vehiculo;
 
 public class Jugador {
     private String nombre;
-    private Contador cantidadMovimientos;
+    private ContadorMovimiento cantidadMovimientos;
     private Vehiculo vehiculo;
     private Mapa mapa;
 
     public Jugador(Mapa unMapa, String unNombre) {
         this.nombre = unNombre;
-        this.cantidadMovimientos = new Contador();
+        this.cantidadMovimientos = new ContadorMovimiento();
         this.mapa = unMapa;
     }
 

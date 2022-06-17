@@ -8,7 +8,7 @@ public class CuatroPorCuatro extends Vehiculo{
     public ContadorPozo contadorPozo;
 
     public CuatroPorCuatro(Esquina unaEsquina, Jugador unJugador) {
-        this.cantidadPozos = new Contador();
+        this.cantidadPozos = new ContadorMovimiento();
         this.jugador = unJugador;
         this.posicion = unaEsquina;
         this.contadorPozo = new ContadorPozo(unJugador, 3);

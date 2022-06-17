@@ -1,12 +1,12 @@
 package edu.fiuba.algo3.modelo.codigo;
 
-public class Contador {
+public class ContadorMovimiento {
     private int valor;
     public int valor() {
         return this.valor;
     }
 
-    public Contador() {
+    public ContadorMovimiento() {
         valor = 0;
     }
 
