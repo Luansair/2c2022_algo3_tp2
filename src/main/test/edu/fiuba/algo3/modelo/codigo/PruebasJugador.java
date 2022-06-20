@@ -74,7 +74,7 @@ public class PruebasJugador {
     }
 
     @Test
-    public void test03JugadorDoblaALaDerechaCon4x4YSeEncuentraConUnPozoDeberiaSumarCeroMovimientos() {
+    public void test03JugadorDoblaALaDerechaCon4x4YSeEncuentraConUnPozoDeberiaSumarUnMovimiento() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -104,7 +104,7 @@ public class PruebasJugador {
     }
 
     @Test
-    public void test044x4DoblaALaDerechaYSeEncuentraConTresPozosSumaTres() {
+    public void test04JugadorCon4x4DoblaALaDerechaYSeEncuentraConTresPozosDeberiaSumarSoloTresMovimientos() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -136,7 +136,7 @@ public class PruebasJugador {
     }
 
     @Test
-    public void test05MotoDoblaALaDerechaYLuegoALaIzquierdaYChocaDosVecesConElMismoPozo() {
+    public void test05JugadorConMotoDoblaALaDerechaYLuegoALaIzquierdaYChocaDosVecesConElMismoPozoDeberiaSumar8Movimientos() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -168,7 +168,7 @@ public class PruebasJugador {
     }
 
     @Test
-    public void test06MuevoAutoTresCuadrasALaDerechaConUnPozoEnLasPrimerasDosYDeberiaSumar9Movimientos(){
+    public void test06JugadorMueveAutoTresCuadrasALaDerechaConUnPozoEnLasPrimerasDosYDeberiaSumar9Movimientos(){
         int movTotal = 9; // 3 movimientos por pozo -> 2 * 3 = 6 + 3 movimientos = 9 movimientos totales.
 
         Esquina esquina1 = new Esquina(0,0);
@@ -198,7 +198,7 @@ public class PruebasJugador {
         assertEquals(movTotal,jugador.cantidadDeMovimientos());
     }
     @Test
-    public void test07MotoSeEncuentraConSorpresaCambioDeVehiculoYSeVuelveUnAuto() {
+    public void test07JugadorConMotoSeEncuentraConSorpresaCambioDeVehiculoYSeVuelveUnAuto() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -227,7 +227,7 @@ public class PruebasJugador {
     }
 
     @Test
-    public void test08AutoSeEncuentraConSorpresaFavorable() {
+    public void test08JugadorConAutoSeEncuentraConSorpresaFavorableYDeberiaReducirUn25PorcientoSusMovimientos() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -259,7 +259,7 @@ public class PruebasJugador {
     }
 
     @Test
-    public void test09AutoSeEncuentraConSorpresaDesfavorable() {
+    public void test09JugadorConAutoSeEncuentraConSorpresaDesfavorableYDeberiaAumentarUn25PorcientoSusMovimientos() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -291,7 +291,7 @@ public class PruebasJugador {
     }
 
     @Test
-    public void test10AutoSeEncuentraConUnaSorpresaDeCambioDeVehiculoYSeVuelveUna4x4() {
+    public void test10JugadorConAutoSeEncuentraConUnaSorpresaDeCambioDeVehiculoYSeVuelveUna4x4() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -320,7 +320,7 @@ public class PruebasJugador {
     }
 
     @Test
-    public void test11MotoSeEncuentraConTresSorpresasCambioDeVehiculoYVuelveASerMoto() {
+    public void test11JugadorConMotoSeEncuentraConTresSorpresasCambioDeVehiculoYVuelveATenerUnaMoto() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -350,7 +350,7 @@ public class PruebasJugador {
         assertEquals(Moto.class, jugador.obtenerVehiculo().getClass());
     }
     @Test
-    public void test12ChocoDosPozosConUnaMotoYUnCambioDeVehiculoLuegoChocoUnPozoConElAutoYUnCambioDeVehiculoLuegoChocoDosPozosConLaCamionetaTodoEn7MovimientosALaDerechaDeberiaDarme18MovimientosEnTotal(){
+    public void test12JugadorConMotoChocaDosPozosYUnCambioDeVehiculoLuegoChocaUnPozoYUnCambioDeVehiculoLuegoChocoDosPozosTodoEn7MovimientosALaDerechaDeberiaDarme18MovimientosEnTotal(){
         int movTotal = 18;
 
         Mapa mapa = new Mapa();
