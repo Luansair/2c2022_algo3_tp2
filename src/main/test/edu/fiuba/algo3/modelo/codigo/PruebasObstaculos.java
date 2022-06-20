@@ -163,4 +163,35 @@ public class PruebasObstaculos {
         // Verifico que haya chocado
         assertEquals(8, movimientos);
     }
+
+    @Test
+    public void test06MuevoAutoTresCuadrasALaDerechaConUnPozoEnLasPrimerasDosYDeberiaSumar9Movimientos(){
+        int movTotal = 9; // 3 movimientos por pozo -> 2 * 3 = 6 + 3 movimientos = 9 movimientos totales.
+
+        Esquina esquina1 = new Esquina(0,0);
+        Esquina esquina2 = new Esquina(1,0);
+        Esquina esquina3 = new Esquina(2,0);
+        Esquina esquina4 = new Esquina(3,0);
+        Esquina esquinaActual = new Esquina(0,0);
+
+        Cuadra cuadra1 = new Cuadra(esquina1, esquina2);
+        Cuadra cuadra2 = new Cuadra(esquina2, esquina3);
+        Cuadra cuadra3 = new Cuadra(esquina3, esquina4);
+        cuadra1.agregarObstaculo(new Pozo());
+        cuadra2.agregarObstaculo(new Pozo());
+
+        Mapa mapa = new Mapa();
+        mapa.agregarCuadra(cuadra1);
+        mapa.agregarCuadra(cuadra2);
+        mapa.agregarCuadra(cuadra3);
+
+        Jugador jugador = new Jugador(mapa, "a");
+        jugador.asignarVehiculo(new Auto(esquinaActual, jugador));
+
+        jugador.moverVehiculo(new DireccionDerecha(mapa));
+        jugador.moverVehiculo(new DireccionDerecha(mapa));
+        jugador.moverVehiculo(new DireccionDerecha(mapa));
+
+        assertEquals(movTotal,jugador.cantidadDeMovimientos());
+    }
 }
