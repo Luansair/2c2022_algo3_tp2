@@ -128,4 +128,12 @@ public class EsquinaTest {
 
         assertTrue(esquina1.mismaEsquina(esquina2) && esquina2.mismaEsquina(esquina1));
     }
+
+    @Test
+    public void test16SiUnaEsquinaEsDistintaAOtraLaSegundaDeberiaSerDistintaALaPrimera(){
+        Esquina esquina1 = new Esquina(-1,3);
+        Esquina esquina2 = new Esquina(12,-7);
+
+        assertFalse(esquina1.mismaEsquina(esquina2) || esquina2.mismaEsquina(esquina1));
+    }
 }
