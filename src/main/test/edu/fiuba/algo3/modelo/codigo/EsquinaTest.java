@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo.codigo;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class EsquinaTest {
     @Test
     public void test01CrearEsquinaConCoordenadasPositivasNoDeberiaDarError(){
@@ -30,7 +32,7 @@ public class EsquinaTest {
     public void test05UnaEsquinaDeberiaSerIgualASiMisma(){
         Esquina esquina = new Esquina(13, -15);
 
-        assert esquina.mismaEsquina(esquina);
+        assertTrue(esquina.mismaEsquina(esquina));
     }
 
     @Test
@@ -38,7 +40,7 @@ public class EsquinaTest {
         Esquina esquina1 = new Esquina(4,5);
         Esquina esquina2 = new Esquina(4,5);
 
-        assert esquina1.mismaEsquina(esquina2);
+        assertTrue(esquina1.mismaEsquina(esquina2));
     }
 
     @Test
@@ -46,7 +48,7 @@ public class EsquinaTest {
         Esquina esquina1 = new Esquina(4,5);
         Esquina esquina2 = new Esquina(-2,7);
 
-        assert !esquina1.mismaEsquina(esquina2);
+        assertFalse(esquina1.mismaEsquina(esquina2));
     }
 
     @Test
@@ -63,7 +65,7 @@ public class EsquinaTest {
         Esquina esquina = new Esquina(0,0);
         esquina.actualizar(15,-9);
 
-        assert esquina.mismaEsquina(esquina);
+        assertTrue(esquina.mismaEsquina(esquina));
     }
 
     @Test
@@ -73,7 +75,7 @@ public class EsquinaTest {
 
         esquina1.actualizar(1,0);
 
-        assert !esquina1.mismaEsquina(esquina2);
+        assertFalse(esquina1.mismaEsquina(esquina2)) ;
     }
 
     @Test
@@ -83,7 +85,7 @@ public class EsquinaTest {
 
         esquina1.actualizar(0,0);
 
-        assert esquina1.mismaEsquina(esquina2);
+        assertTrue(esquina1.mismaEsquina(esquina2));
     }
 
     @Test
@@ -93,7 +95,7 @@ public class EsquinaTest {
 
         esquina1.actualizar(-1,0);
 
-        assert esquina1.mismaEsquina(esquina2);
+        assertTrue(esquina1.mismaEsquina(esquina2));
     }
 
     @Test
@@ -102,8 +104,28 @@ public class EsquinaTest {
         Esquina esquina2 = new Esquina(-15,13);
 
         esquina1.actualizar(-15,-13);
-        esquina1.actualizar(-15,13);
+        esquina1.actualizar(-7,6);
+        esquina1.actualizar(-8,7);
 
-        assert esquina1.mismaEsquina(esquina2);
+        assertTrue(esquina1.mismaEsquina(esquina2));
+    }
+
+    @Test
+    public void test14ActualizoDosEsquinasAUnMismoPuntoYDeberianSerIguales(){
+        Esquina esquina1 = new Esquina(0,0);
+        Esquina esquina2 = new Esquina(4,0);
+
+        esquina1.actualizar(2,2);
+        esquina2.actualizar(-2,2);
+
+        assertTrue(esquina1.mismaEsquina(esquina2));
+    }
+
+    @Test
+    public void test15SiUnaEsquinaEsIgualAOtraLaSegundaDeberiaSerIgualALaPrimera(){
+        Esquina esquina1 = new Esquina(2,1);
+        Esquina esquina2 = new Esquina(2,1);
+
+        assertTrue(esquina1.mismaEsquina(esquina2) && esquina2.mismaEsquina(esquina1));
     }
 }
