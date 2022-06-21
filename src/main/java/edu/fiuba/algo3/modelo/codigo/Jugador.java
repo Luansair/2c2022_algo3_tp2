@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.codigo;
 
+import edu.fiuba.algo3.modelo.codigo.Direccion.Direccion;
 import edu.fiuba.algo3.modelo.codigo.vehiculos.Vehiculo;
 
 public class Jugador {
