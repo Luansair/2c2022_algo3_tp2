@@ -22,10 +22,4 @@ public class Pozo implements Obstaculo{
         un4x4.sumarMovimientos(2);
     }
 
-
-    public void chocarCuatroPorCuatro(Vehiculo vehiculo) {
-        vehiculo.cantidadPozos.aumentar(1);
-        if(vehiculo.cantidadPozos.valor() % 3 == 0 && vehiculo.cantidadPozos.valor() != 0)
-            vehiculo.sumarMovimientos(2);
-    }
 }
