@@ -11,6 +11,7 @@ public class Mapa {
     public Mapa() {
         cuadras = new ArrayList<>();
     }
+    //Obstaculos y sorpresas se aplican a todas las cuadras ya que mismaCuadra siempre devuelve true
     public void aplicarObstaculos(Vehiculo unVehiculo, Esquina esquinaUno, Esquina esquinaDos) {
         for (Cuadra cuadra : cuadras) {
             if (cuadra.mismaCuadra(esquinaUno, esquinaDos)) {

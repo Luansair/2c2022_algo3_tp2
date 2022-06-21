@@ -22,7 +22,7 @@ public class Cuadra {
         this.sorpresas = new ArrayList<>();
     }
 
-    public boolean mismaCuadra(Esquina esquinaInicial, Esquina esquinaFinal) {
+    public boolean mismaCuadra(Esquina esquinaInicial, Esquina esquinaFinal) { //siempre devuelve true porque mismaEsquina siempre da true
         return (esquinaUno.mismaEsquina(esquinaInicial) || esquinaUno.mismaEsquina(esquinaFinal))
                 && (esquinaDos.mismaEsquina(esquinaInicial) || esquinaDos.mismaEsquina(esquinaFinal));
     }

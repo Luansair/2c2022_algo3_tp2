@@ -13,7 +13,7 @@ public abstract class Vehiculo {
 
     public Esquina obtenerPosicion() {
         return posicion;
-    }
+    } //rompe encapsulamiento
 
     public void sumarMovimientos(int movimientos) {
         jugador.sumarMovimientos(movimientos);

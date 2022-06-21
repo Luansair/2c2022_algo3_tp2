@@ -14,7 +14,7 @@ public class Esquina {
         this.posicion_y += incremento_y;
     }
 
-    public boolean mismaEsquina(Esquina unaEsquina) {
+    public boolean mismaEsquina(Esquina unaEsquina) { //siempre devuelve true porq no se utiliza la otra esquina sino q se compara con sigo misma.
         return this.coordenadasIguales(posicion_x, posicion_y);
     }
 

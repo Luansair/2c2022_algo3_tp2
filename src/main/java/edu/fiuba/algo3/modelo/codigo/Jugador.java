@@ -26,7 +26,7 @@ public class Jugador {
 
     public int cantidadDeMovimientos() {
         return cantidadMovimientos.valor();
-    }
+    } //Rompe encapsulamiento
 
     public void sumarPorcentaje(double porcentaje) {
         cantidadMovimientos.aumentarPorcentaje(porcentaje);
@@ -34,9 +34,9 @@ public class Jugador {
 
     public void moverVehiculo(Direccion unaDireccion) {
         sumarMovimientos(1);
-        Esquina posicionInicial = vehiculo.obtenerPosicion();
+        Esquina posicionInicial = vehiculo.obtenerPosicion(); //Rompe encapsulamiento
         vehiculo.mover(unaDireccion);
-        Esquina posicionFinal = vehiculo.obtenerPosicion();
+        Esquina posicionFinal = vehiculo.obtenerPosicion(); //Guarda la misma esquina que posicionInicial
 
         mapa.aplicarObstaculos(vehiculo, posicionInicial, posicionFinal);
         mapa.aplicarSorpresas(this, posicionInicial, posicionFinal);
