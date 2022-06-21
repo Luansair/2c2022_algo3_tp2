@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.codigo.vehiculos;
 
 import edu.fiuba.algo3.modelo.codigo.*;
+import edu.fiuba.algo3.modelo.codigo.obstaculos.ControlPolicial;
+import edu.fiuba.algo3.modelo.codigo.obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.codigo.obstaculos.Pozo;
 
 public class CuatroPorCuatro extends Vehiculo{
@@ -15,10 +17,19 @@ public class CuatroPorCuatro extends Vehiculo{
     }
 
     @Override
-    public void chocar(Pozo pozo) {
+    public void chocarPozo(Pozo pozo) {
         pozo.activar(this);
     }
 
+    @Override
+    public void chocarPiquete(Piquete piquete) {
+        piquete.activar(this);
+    }
+
+    @Override
+    public void chocarControlPolicial(ControlPolicial controlPolicial) {
+        controlPolicial.activar(this);
+    }
     @Override
     public void sumarMovimientos(int movimientos) {
         contadorPozo.sumarMovimientos(movimientos);

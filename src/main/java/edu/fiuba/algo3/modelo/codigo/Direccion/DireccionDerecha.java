@@ -12,4 +12,7 @@ public class DireccionDerecha extends Direccion{
     public void mover(Esquina esquina) {
         esquina.actualizar(1, 0);
     }
+
+    @Override
+    public Esquina obtenerSiguiente(Esquina unaEsquina) { return unaEsquina.obtenerSiguiente(1, 0); }
 }

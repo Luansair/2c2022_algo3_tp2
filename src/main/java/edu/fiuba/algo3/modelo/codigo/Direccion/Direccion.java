@@ -8,4 +8,6 @@ public abstract class Direccion {
     protected Mapa mapa; //deberia ser para evitar sobrepasar los limites, pero por ahora no se usa...
 
     abstract public void mover(Esquina unaEsquina);
+
+    abstract public Esquina obtenerSiguiente(Esquina unaEsquina);
 }

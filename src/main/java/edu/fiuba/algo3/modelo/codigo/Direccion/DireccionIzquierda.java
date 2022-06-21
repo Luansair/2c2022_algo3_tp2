@@ -12,4 +12,6 @@ public class DireccionIzquierda extends Direccion{
     public void mover(Esquina esquina) {
         esquina.actualizar(-1, 0);
     }
+
+    public Esquina obtenerSiguiente(Esquina unaEsquina) { return unaEsquina.obtenerSiguiente(-1, 0); }
 }

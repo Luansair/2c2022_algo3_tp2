@@ -6,4 +6,8 @@ public class SorpresaCambioVehiculo implements Sorpresa{
     public void activar(Jugador jugador) {
         jugador.cambiarVehiculo();
     }
+
+    public void imprimir(){
+        System.out.println("SorpresaCambioVehiculo");
+    }
 }

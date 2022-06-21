@@ -11,5 +11,7 @@ public class DireccionInferior extends Direccion{
     public void mover(Esquina esquina) {
         esquina.actualizar(0, -1);
     }
+
+    public Esquina obtenerSiguiente(Esquina unaEsquina) { return unaEsquina.obtenerSiguiente(0, -1); }
 }
 

@@ -158,13 +158,15 @@ public class PruebasJugador {
         assertEquals(3, movimientos);
     }
 
+
     @Test
     public void test06JugadorConMotoDoblaALaDerechaYLuegoALaIzquierdaYChocaDosVecesConElMismoPozoDeberiaTener8Movimientos() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
 
-        // Creo un mapa con 2 Esquinas, 1 Cuadra y 3 Pozo
+        // Creo un mapa con 2 Esquinas, 1 Cuadra y 1 Pozo
+        Esquina esquinaOrigen = new Esquina(1, 1);
         Esquina esquinaUno = new Esquina(1, 1);
         Esquina esquinaDos = new Esquina(2, 1);
 
@@ -419,10 +421,12 @@ public class PruebasJugador {
 
     @Test
     public void test15JugadorConMotoChocaDosPozosYUnCambioDeVehiculoLuegoChocaUnPozoYUnCambioDeVehiculoLuegoChocoDosPozosTodoEn7MovimientosALaDerechaDeberiaTener18MovimientosEnTotal(){
-        int movTotal = 18;
+        // Moto choca 2 pozos = 6 movs      +       Auto choca 1 pozo = 3 movs      +       7 movs totales      =   16!
+        int movTotal = 16;
 
         Mapa mapa = new Mapa();
 
+        Esquina origen = new Esquina(0, 0);
         Esquina esquina1 = new Esquina(0,0);
         Esquina esquina2 = new Esquina(1,0); Cuadra cuadra1 = new Cuadra(esquina1, esquina2); cuadra1.agregarObstaculo(new Pozo());
         Esquina esquina3 = new Esquina(2,0); Cuadra cuadra2 = new Cuadra(esquina2, esquina3); cuadra2.agregarObstaculo(new Pozo());
@@ -441,7 +445,7 @@ public class PruebasJugador {
         mapa.agregarCuadra(cuadra7);
 
         Jugador jugador = new Jugador(mapa, "Ghengis");
-        jugador.asignarVehiculo(new Moto(new Esquina(0,0),jugador));
+        jugador.asignarVehiculo(new Moto(origen,jugador));
 
         for (int i = 0; i < 7; i++) {
             jugador.moverVehiculo(new DireccionDerecha(mapa));
@@ -450,6 +454,12 @@ public class PruebasJugador {
         assertEquals(movTotal, jugador.cantidadDeMovimientos());
     }
 
+    @Test
+    public void test98MapaRandom() {
+        Mapa mapa = new Mapa();
+        mapa = mapa.crearMapa(3, 3);
+        mapa.imprimirMapa();
+    }
     @Test
     public void test99CreacionDeUnMapa(){
 

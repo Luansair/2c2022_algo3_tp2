@@ -6,4 +6,8 @@ public class SorpresaFavorable implements Sorpresa{
     public void activar(Jugador jugador) {
         jugador.sumarPorcentaje(-0.2);
     }
+
+    public void imprimir(){
+        System.out.println("SorpresaFavorable");
+    }
 }

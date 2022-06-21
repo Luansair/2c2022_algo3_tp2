@@ -33,13 +33,14 @@ public class Jugador {
     }
 
     public void moverVehiculo(Direccion unaDireccion) {
+        // Al mover se crea una nueva instancia de Esquina en lugar de actualizar la existente
         sumarMovimientos(1);
-        Esquina posicionInicial = vehiculo.obtenerPosicion(); //Rompe encapsulamiento
+        //Esquina posicionInicial = vehiculo.obtenerPosicion(); //Rompe encapsulamiento
         vehiculo.mover(unaDireccion);
-        Esquina posicionFinal = vehiculo.obtenerPosicion(); //Guarda la misma esquina que posicionInicial
+        //Esquina posicionFinal = vehiculo.obtenerPosicion();
 
-        mapa.aplicarObstaculos(vehiculo, posicionInicial, posicionFinal);
-        mapa.aplicarSorpresas(this, posicionInicial, posicionFinal);
+        mapa.aplicarObstaculos(vehiculo, vehiculo.obtenerPosicion(), vehiculo.obtenerPosicionAnterior());
+        mapa.aplicarSorpresas(this, vehiculo.obtenerPosicion(), vehiculo.obtenerPosicionAnterior());
     }
     public void sumarMovimientos(int movimientos) {
         cantidadMovimientos.aumentar(movimientos);
