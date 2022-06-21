@@ -18,7 +18,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PruebasJugador {
 
     @Test
-    public void test01JugadorDoblaALaDerechaConMotoYSeEncuentraConUnPozoDeberiaTener4Movimientos() {
+    public void test01JugadorConAutoSeMueveHaciaAbajoLuegoHaciaArribaDeberiaTener2MovimientosEnTotal(){
+        int movTotal = 2;
+
+        Mapa mapa = new Mapa();
+        Jugador jugador = new Jugador(mapa, "Boadicea");
+        jugador.asignarVehiculo(new Auto(new Esquina(0,0),jugador));
+
+        Esquina esquina1 = new Esquina(0,0);
+        Esquina esquina2 = new Esquina(0,-1); Cuadra cuadra1 = new Cuadra(esquina1, esquina2);
+
+        mapa.agregarCuadra(cuadra1);
+
+        jugador.moverVehiculo(new DireccionInferior(mapa)); //o direccion abajo
+        jugador.moverVehiculo(new DireccionSuperior(mapa)); //o direccion arriba
+
+        assertEquals(movTotal, jugador.cantidadDeMovimientos());
+    }
+
+    @Test
+    public void test02JugadorDoblaALaDerechaConMotoYSeEncuentraConUnPozoDeberiaTener4Movimientos() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -48,7 +67,7 @@ public class PruebasJugador {
     }
 
     @Test
-    public void test02JugadorDoblaALaDerechaConAutoYSeEncuentraConUnPozoDeberiaTener4Movimientos() {
+    public void test03JugadorDoblaALaDerechaConAutoYSeEncuentraConUnPozoDeberiaTener4Movimientos() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -78,7 +97,7 @@ public class PruebasJugador {
     }
 
     @Test
-    public void test03JugadorDoblaALaDerechaCon4x4YSeEncuentraConUnPozoDeberiaTenerUnMovimiento() {
+    public void test04JugadorDoblaALaDerechaCon4x4YSeEncuentraConUnPozoDeberiaTenerUnMovimiento() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -108,7 +127,7 @@ public class PruebasJugador {
     }
 
     @Test
-    public void test04JugadorCon4x4DoblaALaDerechaYSeEncuentraConTresPozosDeberiaTenerSoloTresMovimientos() {
+    public void test05JugadorCon4x4DoblaALaDerechaYSeEncuentraConTresPozosDeberiaTenerSoloTresMovimientos() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -140,7 +159,7 @@ public class PruebasJugador {
     }
 
     @Test
-    public void test05JugadorConMotoDoblaALaDerechaYLuegoALaIzquierdaYChocaDosVecesConElMismoPozoDeberiaTener8Movimientos() {
+    public void test06JugadorConMotoDoblaALaDerechaYLuegoALaIzquierdaYChocaDosVecesConElMismoPozoDeberiaTener8Movimientos() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -172,7 +191,30 @@ public class PruebasJugador {
     }
 
     @Test
-    public void test06JugadorMueveAutoTresCuadrasALaDerechaConUnPozoEnLasPrimerasDosYDeberiaTener9Movimientos(){
+    public void test07Agrego3CuadrasConUnObstaculoEnLaUltimaMuevoJugadorConMotoPorLaPrimeraDeberiaTener1Movimiento(){
+
+        int movTotal = 1;
+
+        Mapa mapa = new Mapa();
+        Jugador jugador = new Jugador(mapa, "Ned");
+        jugador.asignarVehiculo(new Auto(new Esquina(0,0),jugador));
+
+        Esquina esquina1 = new Esquina(0,0);
+        Esquina esquina2 = new Esquina(1,0); Cuadra cuadra1 = new Cuadra(esquina1, esquina2);
+        Esquina esquina3 = new Esquina(1,1); Cuadra cuadra2 = new Cuadra(esquina2, esquina3);
+        Esquina esquina4 = new Esquina(0,1); Cuadra cuadra3 = new Cuadra(esquina3, esquina4); cuadra3.agregarObstaculo(new Pozo());
+
+        mapa.agregarCuadra(cuadra1);
+        mapa.agregarCuadra(cuadra2);
+        mapa.agregarCuadra(cuadra3);
+
+        jugador.moverVehiculo(new DireccionDerecha(mapa));
+
+        assertEquals(movTotal, jugador.cantidadDeMovimientos());
+    }
+
+    @Test
+    public void test08JugadorMueveAutoTresCuadrasALaDerechaConUnPozoEnLasPrimerasDosYDeberiaTener9Movimientos(){
         int movTotal = 9; // 3 movimientos por pozo -> 2 * 3 = 6 + 3 movimientos = 9 movimientos totales.
 
         Esquina esquina1 = new Esquina(0,0);
@@ -202,7 +244,7 @@ public class PruebasJugador {
         assertEquals(movTotal,jugador.cantidadDeMovimientos());
     }
     @Test
-    public void test07JugadorConMotoSeEncuentraConSorpresaCambioDeVehiculoYSeVuelveUnAuto() {
+    public void test09JugadorConMotoSeEncuentraConSorpresaCambioDeVehiculoYSeVuelveUnAuto() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -231,7 +273,7 @@ public class PruebasJugador {
     }
 
     @Test
-    public void test08JugadorConAutoSeEncuentraConSorpresaFavorableYDeberiaReducirUn25PorcientoSusMovimientos() {
+    public void test10JugadorConAutoSeEncuentraConSorpresaFavorableYDeberiaReducirUn25PorcientoSusMovimientos() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -263,7 +305,7 @@ public class PruebasJugador {
     }
 
     @Test
-    public void test09JugadorConAutoSeEncuentraConSorpresaDesfavorableYDeberiaAumentarUn25PorcientoSusMovimientos() {
+    public void test11JugadorConAutoSeEncuentraConSorpresaDesfavorableYDeberiaAumentarUn25PorcientoSusMovimientos() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -295,7 +337,7 @@ public class PruebasJugador {
     }
 
     @Test
-    public void test10JugadorConAutoSeEncuentraConUnaSorpresaDeCambioDeVehiculoYSeVuelveUna4x4() {
+    public void test12JugadorConAutoSeEncuentraConUnaSorpresaDeCambioDeVehiculoYSeVuelveUna4x4() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -324,7 +366,7 @@ public class PruebasJugador {
     }
 
     @Test
-    public void test11JugadorConMotoSeEncuentraConTresSorpresasCambioDeVehiculoYVuelveATenerUnaMoto() {
+    public void test13JugadorConMotoSeEncuentraConTresSorpresasCambioDeVehiculoYVuelveATenerUnaMoto() {
         /* Este test posee la perspectiva de la clase Juego. En el juego real muchas de las instancias y mensajes
         que se detallan a continuación quedarán encapsulados dentro de otras clases
         */
@@ -353,8 +395,30 @@ public class PruebasJugador {
         // Verifico que haya cambiado de vehiculo a una nueva instancia de moto
         assertEquals(Moto.class, jugador.obtenerVehiculo().getClass());
     }
+
     @Test
-    public void test12JugadorConMotoChocaDosPozosYUnCambioDeVehiculoLuegoChocaUnPozoYUnCambioDeVehiculoLuegoChocoDosPozosTodoEn7MovimientosALaDerechaDeberiaTener18MovimientosEnTotal(){
+    public void test14JugadorConAutoSeEncuentraSorpresaCambioVehiculoYChocaUnPozoEnDosMovimientosALaDerechaDeberiaTener2MovimientosEnTotal(){
+        int movTotal = 2;
+
+        Mapa mapa = new Mapa();
+        Jugador jugador = new Jugador(mapa, "Atila");
+        jugador.asignarVehiculo(new Auto(new Esquina(0,0),jugador));
+
+        Esquina esquina1 = new Esquina(0,0);
+        Esquina esquina2 = new Esquina(1,0); Cuadra cuadra1 = new Cuadra(esquina1, esquina2); cuadra1.agregarSorpresa(new SorpresaCambioVehiculo());
+        Esquina esquina3 = new Esquina(2,0); Cuadra cuadra2 = new Cuadra(esquina2, esquina3); cuadra2.agregarObstaculo(new Pozo());
+
+        mapa.agregarCuadra(cuadra1);
+        mapa.agregarCuadra(cuadra2);
+
+        jugador.moverVehiculo(new DireccionDerecha(mapa));
+        jugador.moverVehiculo(new DireccionDerecha(mapa));
+
+        assertEquals(movTotal, jugador.cantidadDeMovimientos());
+    }
+
+    @Test
+    public void test15JugadorConMotoChocaDosPozosYUnCambioDeVehiculoLuegoChocaUnPozoYUnCambioDeVehiculoLuegoChocoDosPozosTodoEn7MovimientosALaDerechaDeberiaTener18MovimientosEnTotal(){
         int movTotal = 18;
 
         Mapa mapa = new Mapa();
@@ -385,47 +449,9 @@ public class PruebasJugador {
 
         assertEquals(movTotal, jugador.cantidadDeMovimientos());
     }
+
     @Test
-    public void test13JugadorConAutoSeEncuentraSorpresaCambioVehiculoYChocaUnPozoEnDosMovimientosALaDerechaDeberiaTener2MovimientosEnTotal(){
-        int movTotal = 2;
-
-        Mapa mapa = new Mapa();
-        Jugador jugador = new Jugador(mapa, "Atila");
-        jugador.asignarVehiculo(new Auto(new Esquina(0,0),jugador));
-
-        Esquina esquina1 = new Esquina(0,0);
-        Esquina esquina2 = new Esquina(1,0); Cuadra cuadra1 = new Cuadra(esquina1, esquina2); cuadra1.agregarSorpresa(new SorpresaCambioVehiculo());
-        Esquina esquina3 = new Esquina(2,0); Cuadra cuadra2 = new Cuadra(esquina2, esquina3); cuadra2.agregarObstaculo(new Pozo());
-
-        mapa.agregarCuadra(cuadra1);
-        mapa.agregarCuadra(cuadra2);
-
-        jugador.moverVehiculo(new DireccionDerecha(mapa));
-        jugador.moverVehiculo(new DireccionDerecha(mapa));
-
-        assertEquals(movTotal, jugador.cantidadDeMovimientos());
-    }
-    @Test
-    public void test14JugadorConAutoSeMueveHaciaAbajoLuegoHaciaArribaDeberiaTener2MovimientosEnTotal(){
-        int movTotal = 2;
-
-        Mapa mapa = new Mapa();
-        Jugador jugador = new Jugador(mapa, "Boadicea");
-        jugador.asignarVehiculo(new Auto(new Esquina(0,0),jugador));
-
-        Esquina esquina1 = new Esquina(0,0);
-        Esquina esquina2 = new Esquina(0,-1); Cuadra cuadra1 = new Cuadra(esquina1, esquina2);
-
-        mapa.agregarCuadra(cuadra1);
-
-        jugador.moverVehiculo(new DireccionInferior(mapa)); //o direccion abajo
-        jugador.moverVehiculo(new DireccionSuperior(mapa)); //o direccion arriba
-
-        assertEquals(movTotal, jugador.cantidadDeMovimientos());
-    }
-    @Test
-    public void test15JugadorConAutoSeMueveVariasVecesEnDistintasEncuentraVariosPozosYSorpresas(){
-        int movTotal = 2;
+    public void test99CreacionDeUnMapa(){
 
         Esquina[][] matriz = new Esquina[10][10];
 
@@ -450,6 +476,7 @@ public class PruebasJugador {
                 cuadras.add(new Cuadra(matriz[i][j-1], matriz[i][j]));
             }
         }
+        Mapa mapa = new Mapa();
 
         for (Cuadra cuadra:cuadras){
             int maxElementos = new Random().nextInt(4); //determina la cantidad de cosas en una misma cuadra
@@ -465,7 +492,8 @@ public class PruebasJugador {
                     cuadra.agregarObstaculo(new Pozo());
                 }
             }
+            mapa.agregarCuadra(cuadra);
+            //mapa.tamanio = 100.
         }
-
     }
 }
