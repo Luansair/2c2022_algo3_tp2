@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.codigo.vehiculos.Vehiculo;
 
 public class Jugador {
     private String nombre;
+    public int id;
     private ContadorMovimiento cantidadMovimientos;
     private Vehiculo vehiculo;
     private Mapa mapa;
@@ -35,9 +36,7 @@ public class Jugador {
     public void moverVehiculo(Direccion unaDireccion) {
         // Al mover se crea una nueva instancia de Esquina en lugar de actualizar la existente
         sumarMovimientos(1);
-        //Esquina posicionInicial = vehiculo.obtenerPosicion(); //Rompe encapsulamiento
         vehiculo.mover(unaDireccion);
-        //Esquina posicionFinal = vehiculo.obtenerPosicion();
 
         mapa.aplicarObstaculos(vehiculo, vehiculo.obtenerPosicion(), vehiculo.obtenerPosicionAnterior());
         mapa.aplicarSorpresas(this, vehiculo.obtenerPosicion(), vehiculo.obtenerPosicionAnterior());
@@ -49,4 +48,6 @@ public class Jugador {
     public void cambiarVehiculo(){
         this.vehiculo = vehiculo.obtenerSiguiente();
     }
+
+    public String nombre() {return nombre;}
 }

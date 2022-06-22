@@ -454,12 +454,14 @@ public class PruebasJugador {
         assertEquals(movTotal, jugador.cantidadDeMovimientos());
     }
 
+    /*
     @Test
     public void test98MapaRandom() {
         Mapa mapa = new Mapa();
         mapa = mapa.crearMapa(3, 3);
         mapa.imprimirMapa();
-    }
+    }*/
+
     @Test
     public void test99CreacionDeUnMapa(){
 
