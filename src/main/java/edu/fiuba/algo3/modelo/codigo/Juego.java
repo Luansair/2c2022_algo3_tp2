@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.codigo.Direccion.Direccion;
 import edu.fiuba.algo3.modelo.codigo.obstaculos.Obstaculo;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+
 public class Juego {
     private ArrayList<Jugador> jugadores;
     private Jugador jugadorTurno;
@@ -12,8 +12,13 @@ public class Juego {
 
     public Juego(String[] nombresJugadores) {
         Mapa mapa = new Mapa();
+        mapa = mapa.crearMapa(4, 4); // Hardcodeado, hay que ver donde se crea el mapa
         jugadores = new ArrayList<>();
         cantidadJugadores = nombresJugadores.length;
+
+        if(cantidadJugadores == 0) {
+            throw new RuntimeException("Debe haber al menos un jugador");
+        }
 
         for(int i = 0; i < cantidadJugadores; i++) {
             jugadores.add(new Jugador(mapa, nombresJugadores[i]));
@@ -39,14 +44,4 @@ public class Juego {
     public Jugador getJugadorTurno() {
         return jugadorTurno;
     }
-    /*public static void main(String[] args) {
-        String[] nombres = {"FACUNDO", "FELIPE", "FRANCO"};
-        Juego juego = new Juego(nombres);
-        juego.siguienteTurno();
-        juego.siguienteTurno();
-        juego.siguienteTurno();
-        juego.siguienteTurno();
-
-        System.out.println(juego.jugadorTurno.nombre());
-    }*/
 }

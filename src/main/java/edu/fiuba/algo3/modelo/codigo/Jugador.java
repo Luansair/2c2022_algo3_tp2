@@ -5,7 +5,6 @@ import edu.fiuba.algo3.modelo.codigo.vehiculos.Vehiculo;
 
 public class Jugador {
     private String nombre;
-    public int id;
     private ContadorMovimiento cantidadMovimientos;
     private Vehiculo vehiculo;
     private Mapa mapa;
@@ -21,9 +20,7 @@ public class Jugador {
         return this.vehiculo;
     }
 
-    public void asignarVehiculo(Vehiculo unVehiculo) {
-        this.vehiculo = unVehiculo;
-    }
+    public void asignarVehiculo(Vehiculo unVehiculo) { this.vehiculo = unVehiculo; }
 
     public int cantidadDeMovimientos() {
         return cantidadMovimientos.valor();

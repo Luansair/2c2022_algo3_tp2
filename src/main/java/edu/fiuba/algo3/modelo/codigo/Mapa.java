@@ -46,14 +46,14 @@ public class Mapa {
 
         for (Cuadra cuadra:mapa.cuadras){
             // Es probable que la cuadra no tenga nada basandonos en la imagen de la consigna
-            if(Math.random() < 0.5) { continue; }
+            if(Math.random() < 0.7) { continue; }
 
             double numero = Math.random();
             int maxElementos; //determina la cantidad de cosas en una misma cuadra
 
-            if(numero < 0.5){
+            if(numero < 0.8){
                 maxElementos = 1;
-            } else if(numero < 0.9){
+            } else if(numero < 0.95){
                 maxElementos = 2;
             } else {
                 maxElementos = 3;

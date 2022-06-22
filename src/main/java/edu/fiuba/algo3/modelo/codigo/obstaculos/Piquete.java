@@ -21,7 +21,7 @@ public class Piquete implements Obstaculo{
         un4x4.pegarLaVuelta();
     }
     public void imprimir(){
-        System.out.println("Piquete");
+        System.out.print(" Piquete ");
     }
 
 }

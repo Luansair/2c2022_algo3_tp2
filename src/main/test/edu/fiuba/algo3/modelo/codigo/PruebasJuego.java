@@ -44,4 +44,12 @@ public class PruebasJuego {
 
         assertEquals(juego.getJugadorTurno().nombre(), jugadores[0]);
     }
+
+    /* Da bien el siguiente test pero no se como hacer el assert
+    @Test
+    public void test04SeCreaUnJuegoConCeroJugadoresYLanzaExcepcion() {
+        String[] jugadores = {};
+        Juego juego = new Juego(jugadores);
+    }
+     */
 }

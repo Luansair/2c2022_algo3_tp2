@@ -33,6 +33,7 @@ public class Cuadra {
         }
 
         esquinaDos.imprimirEsquina();
+        System.out.println("");
     }
 
     public boolean mismaCuadra(Esquina esquinaInicial, Esquina esquinaFinal) { //siempre devuelve true porque mismaEsquina siempre da true

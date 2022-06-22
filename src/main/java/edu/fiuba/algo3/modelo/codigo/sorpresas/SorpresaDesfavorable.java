@@ -8,6 +8,6 @@ public class SorpresaDesfavorable implements Sorpresa{
     }
 
     public void imprimir(){
-        System.out.println("SorpresaDesfavorable");
+        System.out.print(" SorpresaDesfavorable ");
     }
 }

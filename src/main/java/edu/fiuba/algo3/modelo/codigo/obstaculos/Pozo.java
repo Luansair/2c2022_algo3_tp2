@@ -22,7 +22,7 @@ public class Pozo implements Obstaculo{
     }
 
     public void imprimir(){
-        System.out.println("Pozo");
+        System.out.print(" Pozo ");
     }
 
 }

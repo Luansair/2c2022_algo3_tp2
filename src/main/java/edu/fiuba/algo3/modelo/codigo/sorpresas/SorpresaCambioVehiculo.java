@@ -8,6 +8,6 @@ public class SorpresaCambioVehiculo implements Sorpresa{
     }
 
     public void imprimir(){
-        System.out.println("SorpresaCambioVehiculo");
+        System.out.print(" SorpresaCambioVehiculo ");
     }
 }

@@ -10,7 +10,7 @@ public class Esquina {
     }
 
     public void imprimirEsquina() {
-        System.out.println(posicion_x + "," + posicion_y);
+        System.out.print("" + posicion_x + "," + posicion_y + " ");
     }
 
     public void actualizar(int incremento_x, int incremento_y) {

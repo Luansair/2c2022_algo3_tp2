@@ -30,7 +30,7 @@ public class ControlPolicial implements Obstaculo{
     }
 
     public void imprimir(){
-        System.out.println("ControlPolicial");
+        System.out.print(" ControlPolicial ");
     }
 
 }
