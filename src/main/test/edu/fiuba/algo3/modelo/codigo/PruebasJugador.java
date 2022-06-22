@@ -458,7 +458,7 @@ public class PruebasJugador {
     /*@Test
     public void test98MapaRandom() {
         Mapa mapa = new Mapa();
-        mapa = mapa.crearMapa(2, 2);
+        mapa = mapa.crearMapa(3, 3);
         mapa.imprimirMapa();
     }*/
 
@@ -509,3 +509,13 @@ public class PruebasJugador {
         }
     }
 }
+
+/*
+Cosas que faltan:
+VisionJugador
+AsignarVehiculos
+Meta
+TablaPuntajes
+FinalizarJuego (¿Java fx?)
+Supuesto Borde mapa
+* */

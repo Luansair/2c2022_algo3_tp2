@@ -27,9 +27,7 @@ public class Juego {
         jugadorTurno = jugadores.get(0);
     }
 
-    public void moverVehiculo(Direccion unaDireccion) {
-        jugadorTurno.moverVehiculo(unaDireccion);
-    }
+    public void moverVehiculo(Direccion unaDireccion) { jugadorTurno.moverVehiculo(unaDireccion); }
     public void siguienteTurno() {
         int indice = jugadores.indexOf(jugadorTurno);
 
@@ -45,3 +43,5 @@ public class Juego {
         return jugadorTurno;
     }
 }
+
+

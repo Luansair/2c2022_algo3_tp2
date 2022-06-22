@@ -46,14 +46,14 @@ public class Mapa {
 
         for (Cuadra cuadra:mapa.cuadras){
             // Es probable que la cuadra no tenga nada basandonos en la imagen de la consigna
-            if(Math.random() < 0.7) { continue; }
+            if(Math.random() < 0.65) { continue; }
 
             double numero = Math.random();
             int maxElementos; //determina la cantidad de cosas en una misma cuadra
 
-            if(numero < 0.8){
+            if(numero < 0.8) {
                 maxElementos = 1;
-            } else if(numero < 0.95){
+            } else if(numero < 0.95) {
                 maxElementos = 2;
             } else {
                 maxElementos = 3;
@@ -70,7 +70,7 @@ public class Mapa {
                 } else if(elemento == 4) {
                     cuadra.agregarObstaculo(new Pozo());
                 } else if(elemento == 5) {
-                    cuadra.agregarObstaculo(new Piquete());
+                    cuadra.agregarObstaculo(new Piquete()); // Agregar boolean para que no haya 2 piquetes en misma cuadra
                 } else if(elemento == 6) {
                     cuadra.agregarObstaculo(new ControlPolicial());
                 }
