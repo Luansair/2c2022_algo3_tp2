@@ -47,4 +47,16 @@ public class Jugador {
     }
 
     public String nombre() {return nombre;}
+
+    public Jugador(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void asignarMapa(Mapa mapa) {
+        this.mapa = mapa;
+    }
+
+    public Boolean igualNombre(String nombre) {
+        return this.nombre.equals(nombre);
+    }
 }
