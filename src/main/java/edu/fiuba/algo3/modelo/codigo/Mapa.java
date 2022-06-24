@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.codigo;
 
 import edu.fiuba.algo3.modelo.codigo.obstaculos.ControlPolicial;
-import edu.fiuba.algo3.modelo.codigo.obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.codigo.obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.codigo.obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.codigo.sorpresas.SorpresaCambioVehiculo;
@@ -78,6 +77,11 @@ public class Mapa {
         }
 
         return mapa;
+    }
+
+    //Getter para dibujar el mapa
+    public ArrayList<Cuadra> getCuadras() {
+        return cuadras;
     }
 
     public void imprimirMapa() {
