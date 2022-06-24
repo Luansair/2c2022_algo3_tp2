@@ -13,9 +13,11 @@ import java.util.Random;
 
 public class Mapa {
     private ArrayList<Cuadra> cuadras;
+    private ArrayList<Esquina> esquinas;
 
     public Mapa() {
         cuadras = new ArrayList<>();
+        esquinas = new ArrayList<>();
     }
 
     public Mapa crearMapa(int dimension_x, int dimension_y) {
@@ -25,7 +27,7 @@ public class Mapa {
         Esquina [][] esquinas = new Esquina[dimension_x][dimension_y];
         for(int x = 0; x < dimension_x; x++) {
             for(int y = 0; y < dimension_y; y++) {
-                esquinas[x][y] = new Esquina(x, y);
+                mapa.agregarEsquina(esquinas[x][y] = new Esquina(x, y));
             }
         }
 
@@ -109,4 +111,14 @@ public class Mapa {
     public void agregarCuadra(Cuadra cuadra) {
         this.cuadras.add(cuadra);
     }
+
+    public void agregarEsquina(Esquina esquina) {
+        this.esquinas.add(esquina);
+    }
+
+    public Esquina getEsquinaIncial()  {
+        return esquinas.get(0);
+    }
+
+
 }
