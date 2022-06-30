@@ -76,9 +76,10 @@ public class Juego {
 
     public void asignaCuatroPorCuatro()  {
         getJugadorTurno().asignarVehiculo(new CuatroPorCuatro(mapa.getEsquinaIncial(),jugadorTurno));
+
+
+
     }
-
-
 
 
 

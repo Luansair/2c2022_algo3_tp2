@@ -27,7 +27,8 @@ public class Mapa {
         Esquina [][] esquinas = new Esquina[dimension_x][dimension_y];
         for(int x = 0; x < dimension_x; x++) {
             for(int y = 0; y < dimension_y; y++) {
-                mapa.agregarEsquina(esquinas[x][y] = new Esquina(x, y));
+                esquinas[x][y] = new Esquina(x, y);
+                mapa.agregarEsquina(esquinas[x][y]);
             }
         }
 

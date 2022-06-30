@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.codigo.Juego;
-import edu.fiuba.algo3.vista.eventos.BotonContinuarEventHandler;
 import edu.fiuba.algo3.vista.eventos.BotonCreditosEventHandler;
+import edu.fiuba.algo3.vista.eventos.OpcionEntrarEventHandler;
 import edu.fiuba.algo3.vista.eventos.OpcionSalirEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -49,9 +49,8 @@ public class ContenedorBienvenidos extends VBox {
         botonSalir.getStyleClass().add("boton-comienzo");
         botonSalir.setMinSize(75,25);
 
-        ContenedorMapa contenedorMapa = new ContenedorMapa(stage, juego);
-        BotonContinuarEventHandler botonContinuarEventHandler = new BotonContinuarEventHandler(contenedorMapa,stage);
-        botonEntrar.setOnAction(botonContinuarEventHandler);
+        OpcionEntrarEventHandler opcionEntrarEventHandler = new OpcionEntrarEventHandler(stage, juego);
+        botonEntrar.setOnAction(opcionEntrarEventHandler);
 
         BotonCreditosEventHandler botonCreditosEventHandler = new BotonCreditosEventHandler();
         botonCreditos.setOnAction(botonCreditosEventHandler);
