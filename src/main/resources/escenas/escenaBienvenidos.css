@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+
+.boton-comienzo {
+    -fx-background-color: rgba(255, 255, 255,0);
+    -fx-border-color: rgb(255,255,255);
+    -fx-border-radius: 30px;
+    -fx-text-fill: rgb(255,255,255);
+    -fx-font-size: 30;
+    -fx-font-family: Arial;
+    -fx-cursor: pointer;
+    -fx-border-width: 5px;
+}
+
+.label {
+    -fx-spacing: 10;
+    -fx-font-size: 60;
+    -fx-text-fill: rgb(255,255,255);
+    -fx-font-family: 'Titan One', cursive;
+    -fx-label-padding: 5;
+    -fx-effect: dropshadow(three-pass-box,black, 0,0,0,3);
+
+}

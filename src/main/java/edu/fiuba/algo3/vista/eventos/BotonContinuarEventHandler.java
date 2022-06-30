@@ -17,7 +17,8 @@ public class BotonContinuarEventHandler implements EventHandler<ActionEvent>{
     }
     @Override
     public void handle(ActionEvent actionEvent) {
-        Scene escenaProxima = new Scene(siguienteContenedor, 1000, 900);
+        Scene escenaProxima = new Scene(siguienteContenedor, 1100, 700);
+        escenaProxima.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
         stage.setScene(escenaProxima);
         stage.setFullScreenExitHint("");
         stage.setFullScreen(false);

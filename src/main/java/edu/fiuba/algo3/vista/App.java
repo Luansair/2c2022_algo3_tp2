@@ -23,7 +23,8 @@ public class App extends Application {
         Juego juego = crearModelo();
 
         ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, juego);
-        Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 1000, 900);
+        Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 1100,  700);
+        escenaBienvenidos.getStylesheets().add(getClass().getResource("/escenas/escenaBienvenidos.css").toExternalForm());
 
         stage.setScene(escenaBienvenidos);
         stage.show();
