@@ -10,10 +10,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class ContenedorJugador extends BorderPane {
     private Stage stage;
@@ -37,36 +42,43 @@ public class ContenedorJugador extends BorderPane {
 
         VBox pantallaPrincipal = new VBox();
 
+
         //INGRESAR NOMBRE
         VBox pantallaNombre = new VBox();
+        pantallaNombre.setPadding(new Insets(0,200,0,80));
 
         Label etiquetaNombre = new Label("Jugador:");
         etiquetaNombre.getStyleClass().add("texto-predeterminado");
+
         TextField textoNombre = new TextField();
-        textoNombre.setPromptText("Ingresar nombre del jugador:");
+        textoNombre.setPromptText("Ingresar nombre del jugador");
+
+        textoNombre.getStyleClass().add("textfill-nombre");
 
         pantallaNombre.getChildren().addAll(etiquetaNombre,textoNombre);
 
 
         //ELEGIR VEHICULO
         GridPane pantallaVehiculo = new GridPane();
+        pantallaVehiculo.getStyleClass().add("panel-semitransparente");
+        pantallaVehiculo.setPadding(new Insets(0,120,0,120));
 
-        Button botonAuto = new Button("Auto");
-        botonAuto.getStyleClass().add("boton-vehiculo");
+        Button botonAuto = new Button("");
+        botonAuto.getStyleClass().add("boton-auto");
 
-        Button botonMoto = new Button("Moto");
-        botonMoto.getStyleClass().add("boton-vehiculo");
+        Button botonMoto = new Button("");
+        botonMoto.getStyleClass().add("boton-moto");
 
-        Button botonCuatroPorCuatro = new Button("4x4");
-        botonCuatroPorCuatro.getStyleClass().add("boton-vehiculo");
+        Button botonCuatroPorCuatro = new Button("");
+        botonCuatroPorCuatro.getStyleClass().add("boton-cuatroPorCuatro");
 
         pantallaVehiculo.add(botonMoto,0,0);
         pantallaVehiculo.add(botonAuto,2,0);
         pantallaVehiculo.add(botonCuatroPorCuatro,1,1);
 
         pantallaVehiculo.setAlignment(Pos.CENTER);
-        pantallaVehiculo.setVgap(100);
-        pantallaVehiculo.setHgap(100);
+        pantallaVehiculo.setVgap(30);
+        pantallaVehiculo.setHgap(30);
 
 
         BotonAutoEventHandler botonAutoEventHandler = new BotonAutoEventHandler(juego);

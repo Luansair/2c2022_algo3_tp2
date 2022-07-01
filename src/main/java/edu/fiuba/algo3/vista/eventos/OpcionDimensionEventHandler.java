@@ -29,10 +29,13 @@ public class OpcionDimensionEventHandler implements EventHandler<ActionEvent> {
         if (comboBoxDerecha.getValue() != null & comboBoxIzquierda.getValue() != null) {
 
             juego.crearMapa(comboBoxIzquierda.getValue(), comboBoxDerecha.getValue() );
+            comboBoxIzquierda.setEditable(false);
+            comboBoxDerecha.setEditable(false);
             ContenedorJugador contenedorJugador = new ContenedorJugador(stage, juego);
             Scene escenaJugador = new Scene(contenedorJugador,1100,700);
             escenaJugador.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
             stage.setScene(escenaJugador);
+
         }
         else {
             Alert alertInfo = new Alert(Alert.AlertType.ERROR);

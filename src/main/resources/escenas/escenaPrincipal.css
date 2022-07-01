@@ -19,6 +19,12 @@
     -fx-background-color: rgb(255,255,255);
     -fx-font-size: 20;
     -fx-font-family: 'Secular One', sans-serif;
+    -fx-prompt-text-fill: rgb(255,255,255);
+    -fx-text-fill: rgb(255,255,255);
+    -fx-highlight-text-fill: rgb(255,255,255);
+
+
+
 
 }
 
@@ -26,18 +32,89 @@
     -fx-background-image: url('../imagenes/pantallaComienzo.png');
 }
 
-.boton-vehiculo {
-    -fx-min-height: 100px;
-    -fx-min-width: 100px;
+.panel-semitransparente {
+    -fx-background-color: rgba(0,0,0,0.4);
 }
 
+.boton-auto {
+    -fx-min-height: 100px;
+    -fx-min-width: 100px;
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/auto.png');
+}
 
+.boton-auto:hover {
+    -fx-border-color: rgb(239, 21, 106);
+    -fx-border-width: 3px;
+    -fx-border-radius: 2px;
+}
+
+.boton-auto:pressed {
+    -fx-border-color: rgb(239, 21, 106);
+    -fx-border-width: 3px;
+    -fx-border-radius: 2px;
+}
+.boton-moto {
+    -fx-min-height: 100px;
+    -fx-min-width: 100px;
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/moto.png');
+}
+
+.boton-moto:hover {
+    -fx-border-color: rgb(239, 21, 106);
+    -fx-border-width: 3px;
+    -fx-border-radius: 2px;
+}
+
+.boton-moto:pressed {
+    -fx-border-color: rgb(239, 21, 106);
+    -fx-border-width: 3px;
+    -fx-border-radius: 2px;
+}
+
+.boton-cuatroPorCuatro {
+    -fx-min-height: 100px;
+    -fx-min-width: 100px;
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/CuatroPorCuatro.png');
+}
+
+.boton-cuatroPorCuatro:hover {
+    -fx-border-color: rgb(239, 21, 106);
+    -fx-border-width: 3px;
+    -fx-border-radius: 2px;
+}
+
+.boton-cuatroPorCuatro:pressed {
+    -fx-border-color: rgb(239, 21, 106);
+    -fx-border-width: 3px;
+    -fx-border-radius: 2px;
+}
 .boton-continuar {
-    -fx-background-color: rgb(0, 0, 0);
+    -fx-background-color: rgba(0, 0, 0,0.5);
     -fx-border-color: rgb(255,255,255);
     -fx-border-radius: 40px;
     -fx-text-fill: rgb(255,255,255);
     -fx-font-size: 45;
     -fx-font-family: 'Titan One', cursiva;
     -fx-border-width: 8px;
+}
+
+.textfill-nombre {
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-text-alignment: center;
+    -fx-border-color: rgb(255,255,255);
+    -fx-border-width: 5px;
+    -fx-border-radius: 5px;
+    -fx-prompt-text-fill: rgb(255,255,255);
+    -fx-highlight-text-fill: rgb(255,255,255);
+    -fx-text-fill: rgb(255,255,255);
+    -fx-font-family: 'Secular One', sans-serif;
+    -fx-border-style: hidden hidden solid hidden;
+
+
+
+
+
 }
