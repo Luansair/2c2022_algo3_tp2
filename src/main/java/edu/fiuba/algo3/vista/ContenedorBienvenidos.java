@@ -24,13 +24,11 @@ public class ContenedorBienvenidos extends VBox {
         this.stage = stage;
         this.juego = juego;
 
+        this.getStyleClass().add("border-vox");
         this.setAlignment(Pos.TOP_CENTER);
         this.setPadding(new Insets(95,20,20,20));
         this.setSpacing(60);
 
-        Image imagen = new Image("file:imagenes/pantallaComienzo.png");
-        BackgroundImage backgroundImage = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        this.setBackground(new Background(backgroundImage));
 
         Label label = new Label("Bienvenidos a GPS");
 

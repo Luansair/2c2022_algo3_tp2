@@ -25,7 +25,6 @@ public class ContenedorPrincipal extends BorderPane {
     }
 
     private void setCentro() {
-        ContenedorNombreJugadores contenedorNombreJugadores = new ContenedorNombreJugadores(stage, juego);
-        this.setCenter(contenedorNombreJugadores);
+
     }
 }

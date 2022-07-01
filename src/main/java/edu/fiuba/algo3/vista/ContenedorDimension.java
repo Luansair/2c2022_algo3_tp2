@@ -35,9 +35,7 @@ public class ContenedorDimension extends BorderPane {
         pantallaDimension.setAlignment(Pos.TOP_CENTER);
         pantallaDimension.setSpacing(70);
         pantallaDimension.setPadding(new Insets(50,50,50,50));
-        Image imagen = new Image("file:imagenes/pantallaComienzo.png");
-        BackgroundImage backgroundImage = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        pantallaDimension.setBackground(new Background(backgroundImage));
+        this.getStyleClass().add("border-vox");
 
 
         Label label = new Label("Ingresar la dimension del mapa");
@@ -48,25 +46,32 @@ public class ContenedorDimension extends BorderPane {
         pantallaOpciones.setAlignment(Pos.CENTER);
         pantallaOpciones.setPadding(new Insets(30,40,40,10));
         pantallaOpciones.setSpacing(60);
+
         ComboBox<Integer> opcionesDimensionIzquierda = new ComboBox<>();
         opcionesDimensionIzquierda.getItems().addAll(2,3,4,5,6,7);
         opcionesDimensionIzquierda.getStyleClass().add("opcion");
 
         ComboBox<Integer> opcionesDimensionDerecha = new ComboBox<>();
         opcionesDimensionDerecha.getItems().addAll(2,3,4,5,6,7);
+        opcionesDimensionDerecha.getStyleClass().add("opcion");
 
         Label separador = new Label("X");
         separador.getStyleClass().add("texto-predeterminado");
         pantallaOpciones.getChildren().addAll(opcionesDimensionIzquierda, separador, opcionesDimensionDerecha);
 
-
-        Button botonContinuar = new Button("Continuar");
-        OpcionDimensionEventHandler opcionDimensionEventHandler = new OpcionDimensionEventHandler(opcionesDimensionIzquierda, opcionesDimensionDerecha, juego, stage);
-        botonContinuar.setOnAction(opcionDimensionEventHandler);
-
-
-        pantallaDimension.getChildren().addAll(label, pantallaOpciones,botonContinuar);
+        pantallaDimension.getChildren().addAll(label, pantallaOpciones);
         this.setCenter(pantallaDimension);
 
+
+        HBox pantallaContinuar = new HBox();
+        pantallaContinuar.setAlignment(Pos.BOTTOM_RIGHT);
+        Button botonContinuar = new Button(">");
+        botonContinuar.getStyleClass().add("boton-continuar");
+        OpcionDimensionEventHandler opcionDimensionEventHandler = new OpcionDimensionEventHandler(opcionesDimensionIzquierda, opcionesDimensionDerecha, juego, stage);
+        botonContinuar.setOnAction(opcionDimensionEventHandler);
+        pantallaContinuar.getChildren().add(botonContinuar);
+        pantallaContinuar.setPadding(new Insets(0,60,60,60));
+
+        this.setBottom(pantallaContinuar);
     }
 }
