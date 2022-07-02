@@ -22,7 +22,7 @@ public class Juego {
 
     public Juego(String[] nombresJugadores) {
         Mapa mapa = new Mapa();
-        mapa = mapa.crearMapa(); // Hardcodeado, hay que ver donde se crea el mapa
+        //mapa = mapa.crearMapa(); // Hardcodeado, hay que ver donde se crea el mapa
         jugadores = new ArrayList<>();
         cantidadJugadores = nombresJugadores.length;
 
@@ -43,7 +43,7 @@ public class Juego {
     public void siguienteTurno() {
         int indice = jugadores.indexOf(jugadorTurno);
 
-        if(indice == cantidadJugadores - 1) {
+        if(indice == jugadores.size() - 1) {
             jugadorTurno = jugadores.get(0);
         } else {
             jugadorTurno = jugadores.get(indice + 1);
@@ -67,21 +67,20 @@ public class Juego {
     }
 
     public void asignarMoto()  {
-        getJugadorTurno().asignarVehiculo(new Moto(mapa.getEsquinaIncial(),jugadorTurno));
+        getJugadorTurno().asignarVehiculo(new Moto(mapa.getEsquinaIncial(), jugadorTurno));
     }
 
     public void asignarAuto()  {
-        getJugadorTurno().asignarVehiculo(new Auto(mapa.getEsquinaIncial(),jugadorTurno));
+        getJugadorTurno().asignarVehiculo(new Auto(mapa.getEsquinaIncial(), jugadorTurno));
     }
 
     public void asignaCuatroPorCuatro()  {
         getJugadorTurno().asignarVehiculo(new CuatroPorCuatro(mapa.getEsquinaIncial(),jugadorTurno));
-
-
-
     }
 
-
+    public boolean juegoTerminado() {
+        return jugadores.size() == 0;
+    }
 
 }
 

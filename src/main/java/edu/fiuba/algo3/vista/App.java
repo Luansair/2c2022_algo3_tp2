@@ -22,17 +22,22 @@ public class App extends Application {
 
         Juego juego = crearModelo();
 
-        ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, juego);
-        Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 1100,  700);
-        escenaBienvenidos.getStylesheets().add(getClass().getResource("/escenas/escenaBienvenidos.css").toExternalForm());
+        //ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, juego);
+        //Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 1100,  700);
+        //escenaBienvenidos.getStylesheets().add(getClass().getResource("/escenas/escenaBienvenidos.css").toExternalForm());
+        //stage.setScene(escenaBienvenidos);
 
-        stage.setScene(escenaBienvenidos);
+
+        ContenedorMapa contenedorMapa = new ContenedorMapa(stage, juego);
+        Scene escenaMapa = new Scene(contenedorMapa, 1100, 700);
+        escenaMapa.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
+        stage.setScene(escenaMapa);
+
         stage.show();
     }
 
     private Juego crearModelo() {
-        Juego juego = new Juego();
-        return juego;
+        return new Juego();
     }
 
     public static void main(String[] args) {

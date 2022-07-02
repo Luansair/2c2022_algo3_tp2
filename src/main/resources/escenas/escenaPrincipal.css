@@ -36,11 +36,40 @@
     -fx-background-color: rgba(0,0,0,0.4);
 }
 
-.boton-auto {
+.boton-esquina {
+    -fx-min-height: 25px;
+    -fx-min-width: 25px;
+    -fx-background-image: url('../imagenes/interseccion.png');
+}
+
+.boton-calleVertical {
+    -fx-min-height: 100px;
+    -fx-min-width: 25px;
+    -fx-background-image: url('../imagenes/calleVertical.png');
+}
+
+.boton-calleHorizontal {
+    -fx-min-height: 25px;
+    -fx-min-width: 100px;
+    -fx-background-image: url('../imagenes/calleHorizontal.png');
+}
+
+.boton-manzana {
     -fx-min-height: 100px;
     -fx-min-width: 100px;
-    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/casa.png');
+}
+
+.boton-auto {
+    -fx-min-height: 25px;
+    -fx-min-width: 25px;
     -fx-background-image: url('../imagenes/auto.png');
+}
+
+.boton-autoFeo {
+    -fx-min-height: 25px;
+    -fx-min-width: 25px;
+    -fx-background-image: url('../imagenes/autoTransparente.png');
 }
 
 .boton-auto:hover {
