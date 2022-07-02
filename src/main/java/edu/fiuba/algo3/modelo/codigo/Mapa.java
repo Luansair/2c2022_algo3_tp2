@@ -20,32 +20,97 @@ public class Mapa {
         esquinas = new ArrayList<>();
     }
 
-    public Mapa crearMapa(int dimension_x, int dimension_y) {
+    public Mapa crearMapa() {
         Mapa mapa = new Mapa();
 
         // Me creo la matriz de esquinas
-        Esquina [][] esquinas = new Esquina[dimension_x][dimension_y];
-        for(int x = 0; x < dimension_x; x++) {
-            for(int y = 0; y < dimension_y; y++) {
+        Esquina [][] esquinas = new Esquina[10][10];
+        for(int x = 0; x < 10; x++) {
+            for(int y = 0; y < 10; y++) {
                 esquinas[x][y] = new Esquina(x, y);
                 mapa.agregarEsquina(esquinas[x][y]);
             }
         }
 
         // Me creo las cuadras horizontales
-        for(int y = 0; y < dimension_y; y++) {
-            for(int x = 0; x < dimension_x - 1; x++) {
+        for(int y = 0; y < 10; y++) {
+            for(int x = 0; x < 10 - 1; x++) {
                 mapa.agregarCuadra(new Cuadra(esquinas[x][y], esquinas[x+1][y]));
             }
         }
 
         // Me creo las cuadras verticales
-        for(int x = 0; x < dimension_x; x++) {
-            for(int y = 0; y < dimension_y - 1; y++) {
+        for(int x = 0; x < 10; x++) {
+            for(int y = 0; y < 10 - 1; y++) {
                 mapa.agregarCuadra(new Cuadra(esquinas[x][y], esquinas[x][y+1]));
             }
         }
 
+        cuadras.get(2).agregarObstaculo(new Pozo());
+        cuadras.get(11).agregarObstaculo(new Pozo());
+        cuadras.get(104).agregarObstaculo(new Pozo());
+        cuadras.get(107).agregarObstaculo(new Pozo());
+        cuadras.get(116).agregarObstaculo(new Pozo());
+        cuadras.get(130).agregarObstaculo(new Pozo());
+        cuadras.get(43).agregarObstaculo(new Pozo());
+        cuadras.get(55).agregarObstaculo(new Pozo());
+        cuadras.get(167).agregarObstaculo(new Pozo());
+        cuadras.get(82).agregarObstaculo(new Pozo());
+        cuadras.get(85).agregarObstaculo(new Pozo());
+        cuadras.get(89).agregarObstaculo(new Pozo());
+
+        cuadras.get(5).agregarObstaculo(new ControlPolicial());
+        cuadras.get(8).agregarObstaculo(new ControlPolicial());
+        cuadras.get(18).agregarObstaculo(new ControlPolicial());
+        cuadras.get(101).agregarObstaculo(new ControlPolicial());
+        cuadras.get(108).agregarObstaculo(new ControlPolicial());
+        cuadras.get(21).agregarObstaculo(new ControlPolicial());
+        cuadras.get(112).agregarObstaculo(new ControlPolicial());
+        cuadras.get(34).agregarObstaculo(new ControlPolicial());
+        cuadras.get(45).agregarObstaculo(new ControlPolicial());
+        cuadras.get(136).agregarObstaculo(new ControlPolicial());
+        cuadras.get(47).agregarObstaculo(new ControlPolicial());
+        cuadras.get(50).agregarObstaculo(new ControlPolicial());
+        cuadras.get(156).agregarObstaculo(new ControlPolicial());
+        cuadras.get(159).agregarObstaculo(new ControlPolicial());
+        cuadras.get(161).agregarObstaculo(new ControlPolicial());
+        cuadras.get(168).agregarObstaculo(new ControlPolicial());
+        cuadras.get(77).agregarObstaculo(new ControlPolicial());
+        cuadras.get(173).agregarObstaculo(new ControlPolicial());
+
+        cuadras.get(14).agregarObstaculo(new Piquete());
+        cuadras.get(111).agregarObstaculo(new Piquete());
+        cuadras.get(30).agregarObstaculo(new Piquete());
+        cuadras.get(119).agregarObstaculo(new Piquete());
+        cuadras.get(125).agregarObstaculo(new Piquete());
+        cuadras.get(52).agregarObstaculo(new Piquete());
+        cuadras.get(144).agregarObstaculo(new Piquete());
+        cuadras.get(63).agregarObstaculo(new Piquete());
+        cuadras.get(152).agregarObstaculo(new Piquete());
+        cuadras.get(67).agregarObstaculo(new Piquete());
+        cuadras.get(179).agregarObstaculo(new Piquete());
+        cuadras.get(87).agregarObstaculo(new Piquete());
+
+        cuadras.get(94).agregarSorpresa(new SorpresaCambioVehiculo());
+        cuadras.get(11).agregarSorpresa(new SorpresaFavorable());
+        cuadras.get(12).agregarSorpresa(new SorpresaCambioVehiculo());
+        cuadras.get(110).agregarSorpresa(new SorpresaDesfavorable());
+        cuadras.get(117).agregarSorpresa(new SorpresaFavorable());
+        cuadras.get(37).agregarSorpresa(new SorpresaDesfavorable());
+        cuadras.get(39).agregarSorpresa(new SorpresaCambioVehiculo());
+        cuadras.get(46).agregarSorpresa(new SorpresaCambioVehiculo());
+        cuadras.get(52).agregarSorpresa(new SorpresaFavorable());
+        cuadras.get(147).agregarSorpresa(new SorpresaDesfavorable());
+        cuadras.get(62).agregarSorpresa(new SorpresaCambioVehiculo());
+        cuadras.get(141).agregarSorpresa(new SorpresaFavorable());
+        cuadras.get(143).agregarSorpresa(new SorpresaCambioVehiculo());
+        cuadras.get(146).agregarSorpresa(new SorpresaFavorable());
+        cuadras.get(72).agregarSorpresa(new SorpresaDesfavorable());
+        cuadras.get(75).agregarSorpresa(new SorpresaCambioVehiculo());
+        cuadras.get(86).agregarSorpresa(new SorpresaFavorable());
+
+
+        /*
         for (Cuadra cuadra:mapa.cuadras){
             // Es probable que la cuadra no tenga nada basandonos en la imagen de la consigna
             if(Math.random() < 0.65) { continue; }
@@ -78,6 +143,7 @@ public class Mapa {
                 }
             }
         }
+        */
 
         return mapa;
     }

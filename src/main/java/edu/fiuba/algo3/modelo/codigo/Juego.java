@@ -22,7 +22,7 @@ public class Juego {
 
     public Juego(String[] nombresJugadores) {
         Mapa mapa = new Mapa();
-        mapa = mapa.crearMapa(4, 4); // Hardcodeado, hay que ver donde se crea el mapa
+        mapa = mapa.crearMapa(); // Hardcodeado, hay que ver donde se crea el mapa
         jugadores = new ArrayList<>();
         cantidadJugadores = nombresJugadores.length;
 
@@ -58,8 +58,8 @@ public class Juego {
     public Juego() {
         this.mapa = new Mapa();
     }
-    public void crearMapa(int dimension_x, int dimension_y) {
-        mapa.crearMapa(dimension_x,dimension_y);
+    public void crearMapa() {
+        mapa.crearMapa();
     }
 
     public void getNombreJugador(String nombre)  {

@@ -28,7 +28,7 @@ public class OpcionDimensionEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         if (comboBoxDerecha.getValue() != null & comboBoxIzquierda.getValue() != null) {
 
-            juego.crearMapa(comboBoxIzquierda.getValue(), comboBoxDerecha.getValue() );
+            juego.crearMapa(/*comboBoxIzquierda.getValue(), comboBoxDerecha.getValue()*/ );
             comboBoxIzquierda.setEditable(false);
             comboBoxDerecha.setEditable(false);
             ContenedorJugador contenedorJugador = new ContenedorJugador(stage, juego);
