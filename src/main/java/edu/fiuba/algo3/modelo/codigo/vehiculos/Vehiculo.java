@@ -16,7 +16,7 @@ public abstract class Vehiculo {
 
     public Esquina obtenerPosicion() {
         return posicion;
-    } //rompe encapsulamiento
+    }
 
     public Esquina obtenerPosicionAnterior() {
         return posicion_anterior;
@@ -25,6 +25,7 @@ public abstract class Vehiculo {
     public void sumarMovimientos(int movimientos) {
         jugador.sumarMovimientos(movimientos);
     }
+
     public void mover(Direccion unaDireccion) {
         posicion_anterior = posicion;
         posicion = unaDireccion.obtenerSiguiente(posicion);

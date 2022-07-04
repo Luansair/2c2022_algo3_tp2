@@ -14,5 +14,6 @@ public class DireccionDerecha extends Direccion{
     }
 
     @Override
-    public Esquina obtenerSiguiente(Esquina unaEsquina) { return unaEsquina.obtenerSiguiente(1, 0); }
+    public Esquina obtenerSiguiente(Esquina unaEsquina) {
+        return unaEsquina.obtenerSiguiente(1, 0); }
 }

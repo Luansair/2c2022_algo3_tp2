@@ -26,24 +26,24 @@ public class Mapa {
 
     public void crearMapa() {
         // Me creo la matriz de esquinas
-        Esquina [][] esquinas = new Esquina[10][10];
-        for(int x = 0; x < 10; x++) {
-            for(int y = 0; y < 10; y++) {
+        Esquina [][] esquinas = new Esquina[dimension_x][dimension_y];
+        for(int x = 0; x < dimension_x; x++) {
+            for(int y = 0; y < dimension_y; y++) {
                 esquinas[x][y] = new Esquina(x, y);
                 this.agregarEsquina(esquinas[x][y]);
             }
         }
 
         // Me creo las cuadras horizontales
-        for(int y = 0; y < 10; y++) {
-            for(int x = 0; x < 10 - 1; x++) {
+        for(int y = 0; y < dimension_y; y++) {
+            for(int x = 0; x < dimension_x - 1; x++) {
                 this.agregarCuadra(new Cuadra(esquinas[x][y], esquinas[x+1][y]));
             }
         }
 
         // Me creo las cuadras verticales
-        for(int x = 0; x < 10; x++) {
-            for(int y = 0; y < 10 - 1; y++) {
+        for(int x = 0; x < dimension_x; x++) {
+            for(int y = 0; y < dimension_y - 1; y++) {
                 this.agregarCuadra(new Cuadra(esquinas[x][y], esquinas[x][y+1]));
             }
         }
