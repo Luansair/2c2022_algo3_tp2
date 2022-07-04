@@ -21,6 +21,7 @@ public class Jugador {
     }
 
     public void asignarVehiculo(Vehiculo unVehiculo) { this.vehiculo = unVehiculo; }
+    public void asignarNombre(String unNombre) {this.nombre = unNombre;}
 
     public int cantidadDeMovimientos() {
         return cantidadMovimientos.valor();

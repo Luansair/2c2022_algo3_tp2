@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.codigo;
 
 public class Esquina {
-    private int posicion_x;
-    private int posicion_y;
+    public int posicion_x;
+    public int posicion_y;
 
     public Esquina(int x, int y) {
         this.posicion_x = x;

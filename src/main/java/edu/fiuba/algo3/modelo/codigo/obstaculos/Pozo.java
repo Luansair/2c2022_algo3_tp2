@@ -21,8 +21,8 @@ public class Pozo implements Obstaculo{
         un4x4.sumarMovimientos(2);
     }
 
-    public void imprimir(){
-        System.out.print(" Pozo ");
+    public String imprimir(){
+        return ("boton-pozo");
     }
 
 }

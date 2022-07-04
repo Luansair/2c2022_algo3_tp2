@@ -20,29 +20,27 @@ public class Mapa {
         esquinas = new ArrayList<>();
     }
 
-    public Mapa crearMapa() {
-        Mapa mapa = new Mapa();
-
+    public void crearMapa() {
         // Me creo la matriz de esquinas
         Esquina [][] esquinas = new Esquina[10][10];
         for(int x = 0; x < 10; x++) {
             for(int y = 0; y < 10; y++) {
                 esquinas[x][y] = new Esquina(x, y);
-                mapa.agregarEsquina(esquinas[x][y]);
+                this.agregarEsquina(esquinas[x][y]);
             }
         }
 
         // Me creo las cuadras horizontales
         for(int y = 0; y < 10; y++) {
             for(int x = 0; x < 10 - 1; x++) {
-                mapa.agregarCuadra(new Cuadra(esquinas[x][y], esquinas[x+1][y]));
+                this.agregarCuadra(new Cuadra(esquinas[x][y], esquinas[x+1][y]));
             }
         }
 
         // Me creo las cuadras verticales
         for(int x = 0; x < 10; x++) {
             for(int y = 0; y < 10 - 1; y++) {
-                mapa.agregarCuadra(new Cuadra(esquinas[x][y], esquinas[x][y+1]));
+                this.agregarCuadra(new Cuadra(esquinas[x][y], esquinas[x][y+1]));
             }
         }
 
@@ -145,7 +143,6 @@ public class Mapa {
         }
         */
 
-        return mapa;
     }
 
     //Getter para dibujar el mapa
@@ -153,11 +150,7 @@ public class Mapa {
         return cuadras;
     }
 
-    public void imprimirMapa() {
-        for(Cuadra cuadra : cuadras) {
-            cuadra.imprimirCuadra();
-        }
-    }
+
 
     public void aplicarObstaculos(Vehiculo unVehiculo, Esquina esquinaUno, Esquina esquinaDos) {
         for (Cuadra cuadra : cuadras) {

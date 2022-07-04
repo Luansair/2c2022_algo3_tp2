@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.vista.eventos;
 
 import edu.fiuba.algo3.modelo.codigo.Juego;
+import edu.fiuba.algo3.vista.ContenedorJugadores;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 
 public class BotonMotoEventHandler implements EventHandler<ActionEvent> {
 
@@ -14,7 +16,6 @@ public class BotonMotoEventHandler implements EventHandler<ActionEvent> {
         @Override
     public void handle(ActionEvent actionEvent) {
         juego.asignarMoto();
-
-
+        System.out.println("Moto Asignada");
     }
 }

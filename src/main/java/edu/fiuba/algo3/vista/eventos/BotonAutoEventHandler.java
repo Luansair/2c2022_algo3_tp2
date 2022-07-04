@@ -15,6 +15,6 @@ public class BotonAutoEventHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         juego.asignarAuto();
-
+        System.out.println("Auto Asignado");
     }
 }

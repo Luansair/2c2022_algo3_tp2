@@ -1,10 +1,19 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.modelo.codigo.Juego;
+import edu.fiuba.algo3.modelo.codigo.*;
+import edu.fiuba.algo3.modelo.codigo.sorpresas.Sorpresa;
+import edu.fiuba.algo3.modelo.codigo.vehiculos.Vehiculo;
+import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverAbajo;
+import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverArriba;
+import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverDerecha;
+import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverIzquierda;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class ContenedorMapa extends BorderPane {
     private Stage stage;
@@ -15,41 +24,48 @@ public class ContenedorMapa extends BorderPane {
         this.stage = stage;
         this.juego = juego;
 
-        this.setCentro();
+        this.setCentro(juego.obtenerMapa());
     }
 
-    private void setCentro() {
+    private void setCentro(Mapa mapa) {
         GridPane gridPane = new GridPane();
         int dimension_x = 10;
         int dimension_y = 10;
 
-        for(int i = 0; i < 2 * dimension_x; i++) {
-            for(int j = 0; j < 2 * dimension_y; j++) {
+        for(int i = 0; i < 2 * dimension_x - 1; i++) {
+            for(int j = 0; j < 2 * dimension_y - 1; j++) {
                 if (i % 2 == 0 && j % 2 == 0) {
                     Button boton = new Button("");
-                    boton.getStyleClass().add("boton-manzana");
-                    boton.setDisable(true);
+                    boton.getStyleClass().add("boton-esquina");
                     gridPane.add(boton, i, j);
                 }
 
                 else if (i % 2 != 0 && j % 2 != 0) {
                     Button boton = new Button("");
-                    boton.getStyleClass().add("boton-esquina");
-                    boton.setDisable(true);
-                    gridPane.add(boton, j, i);
-                }
-
-                else if (i % 2 != 0 && j % 2 == 0) {
-                    Button boton = new Button("");
-                    boton.getStyleClass().add("boton-calleHorizontal");
-                    boton.setDisable(true);
+                    int numero = i + j;
+                    if(numero < 10)
+                        boton.getStyleClass().add("boton-manzana");
+                    else if(numero < 20)
+                        boton.getStyleClass().add("boton-manzana2");
+                    else if(numero < 30)
+                        boton.getStyleClass().add("boton-manzana3");
+                    else
+                        boton.getStyleClass().add("boton-manzana4");
+                    //boton.setDisable(true);
                     gridPane.add(boton, j, i);
                 }
 
                 else if (i % 2 == 0 && j % 2 != 0) {
                     Button boton = new Button("");
+                    boton.getStyleClass().add("boton-calleHorizontal");
+                    //boton.setDisable(true);
+                    gridPane.add(boton, j, i);
+                }
+
+                else if (i % 2 != 0 && j % 2 == 0) {
+                    Button boton = new Button("");
                     boton.getStyleClass().add("boton-calleVertical");
-                    boton.setDisable(true);
+                    //boton.setDisable(true);
                     gridPane.add(boton, j, i);
                 }
 
@@ -57,97 +73,61 @@ public class ContenedorMapa extends BorderPane {
             }
         }
 
-        VBox caja0 = new VBox();
-        caja0.getStyleClass().add("boton-autoFeo");
-        gridPane.add(caja0, 5, 5);
+        ArrayList<Cuadra> cuadras = mapa.getCuadras();
 
-        /*
-        Button boton = new Button("");
-        boton.getStyleClass().add("boton-esquina");
-        boton.setDisable(true);
-        gridPane.add(boton, 0, 0);
+        int contador = 0;
+        for(int fila = 0; fila < 10; fila++) {
+            for(int columna = 0; columna < 9; columna++) {
+                String dibujoBoton = cuadras.get(contador).imprimirCuadra();
+                if (!Objects.equals(dibujoBoton, "Nada")) {
+                    VBox caja = new VBox();
+                    caja.getStyleClass().add(cuadras.get(contador).imprimirCuadra());
+                    gridPane.add(caja, 2 * columna + 1, 2 * fila);
+                }
+                contador ++;
+            }
+        }
 
-        Button boton1 = new Button("");
-        boton1.getStyleClass().add("boton-calleHorizontal");
-        boton1.setDisable(true);
-        gridPane.add(boton1, 1, 0);
+        for(int i = 0; i < 10; i++) {
+            for(int j = 0; j < 9; j++) {
+                String dibujoBoton = cuadras.get(contador).imprimirCuadra();
+                if (!Objects.equals(dibujoBoton, "Nada")) {
+                    VBox caja = new VBox();
+                    caja.getStyleClass().add(cuadras.get(contador).imprimirCuadra());
+                    gridPane.add(caja, 2 * i, 2 * j + 1);
+                }
+                contador ++;
+            }
+        }
 
-        Button boton2 = new Button("");
-        boton2.getStyleClass().add("boton-esquina");
-        boton2.setDisable(true);
-        gridPane.add(boton2, 2, 0);
+        for(Jugador jugador:juego.getJugadores()) {
+            VBox caja0 = new VBox();
+            Vehiculo vehiculo = jugador.obtenerVehiculo();
+            Esquina posicion = vehiculo.obtenerPosicion();
 
-        Button boton3 = new Button("");
-        boton3.getStyleClass().add("boton-calleVertical");
-        boton3.setDisable(true);
-        gridPane.add(boton3, 0, 1);
+            caja0.getStyleClass().add(vehiculo.imprimir());
+            gridPane.add(caja0, 2 * posicion.posicion_x, 2 * posicion.posicion_y);
+        }
 
-        Button boton4 = new Button("");
-        boton4.getStyleClass().add("boton-esquina");
-        boton4.setDisable(true);
-        gridPane.add(boton4, 0, 2);
+        Button botonArriba = new Button("Arriba");
+        BotonMoverArriba opcionArriba = new BotonMoverArriba(juego, stage);
+        botonArriba.setOnAction(opcionArriba);
+        gridPane.add(botonArriba, 21, 1);
 
-        Button boton5 = new Button("");
-        boton5.getStyleClass().add("boton-manzana");
-        boton5.setDisable(true);
-        gridPane.add(boton5, 1, 1);
+        Button botonAbajo = new Button("Abajo");
+        BotonMoverAbajo opcionAbajo = new BotonMoverAbajo(juego, stage);
+        botonAbajo.setOnAction(opcionAbajo);
+        gridPane.add(botonAbajo, 21, 2);
 
-        Button boton6 = new Button("");
-        boton6.getStyleClass().add("boton-esquina");
-        boton6.setDisable(true);
-        gridPane.add(boton6, 2, 2);
+        Button botonDerecha = new Button("Derecha");
+        BotonMoverDerecha opcionDerecha = new BotonMoverDerecha(juego, stage);
+        botonDerecha.setOnAction(opcionDerecha);
+        gridPane.add(botonDerecha, 22, 2);
 
-        Button boton7 = new Button("");
-        boton7.getStyleClass().add("boton-calleHorizontal");
-        boton7.setDisable(true);
-        gridPane.add(boton7, 1, 2);
-
-        Button boton8 = new Button("");
-        boton8.getStyleClass().add("boton-calleVertical");
-        boton8.setDisable(true);
-        gridPane.add(boton8, 2, 1);
-
-
-
-
-        /*VBox caja0 = new VBox();
-        caja0.getStyleClass().add("boton-esquina");
-        gridPane.add(caja0, 0, 0);
-
-
-        VBox caja1 = new VBox();
-        caja1.getStyleClass().add("boton-calleHorizontal");
-        gridPane.add(caja1, 0, 1);
-
-        VBox caja2 = new VBox();
-        caja2.getStyleClass().add("boton-esquina");
-        gridPane.add(caja2, 0, 2);
-
-        VBox caja3 = new VBox();
-        caja3.getStyleClass().add("boton-calleVertical");
-        gridPane.add(caja3, 1, 0);
-
-        VBox caja4 = new VBox();
-        caja4.getStyleClass().add("boton-esquina");
-        gridPane.add(caja4, 2, 0);
-
-        VBox caja5 = new VBox();
-        caja5.getStyleClass().add("boton-calleHorziontal");
-        gridPane.add(caja5, 1, 2);
-
-        VBox caja6 = new VBox();
-        caja6.getStyleClass().add("boton-calleVertical");
-        gridPane.add(caja6, 2, 1);
-
-        VBox caja7 = new VBox();
-        caja7.getStyleClass().add("boton-esquina");
-        gridPane.add(caja7, 2, 2);
-
-        VBox caja8 = new VBox();
-        caja8.getStyleClass().add("boton-manzana");
-        gridPane.add(caja8, 1, 1);
-
-         */
+        Button botonIzquierda = new Button("Izquierda");
+        BotonMoverIzquierda opcionIzquierda = new BotonMoverIzquierda(juego, stage);
+        botonIzquierda.setOnAction(opcionIzquierda);
+        gridPane.add(botonIzquierda, 20, 2);
 
         this.setCenter(gridPane);
     }

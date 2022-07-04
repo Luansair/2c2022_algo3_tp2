@@ -29,7 +29,6 @@ public class ContenedorBienvenidos extends VBox {
         this.setPadding(new Insets(95,20,20,20));
         this.setSpacing(60);
 
-
         Label label = new Label("Bienvenidos a GPS");
 
         Button botonEntrar = new Button();

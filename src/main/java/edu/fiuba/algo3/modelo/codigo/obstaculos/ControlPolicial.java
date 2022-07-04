@@ -29,8 +29,8 @@ public class ControlPolicial implements Obstaculo{
         }
     }
 
-    public void imprimir(){
-        System.out.print(" ControlPolicial ");
+    public String imprimir(){
+        return ("boton-control");
     }
 
 }

@@ -36,6 +36,8 @@ public abstract class Vehiculo {
 
     public abstract Vehiculo obtenerSiguiente();
 
+    public abstract String imprimir();
+
     public void pegarLaVuelta() {
         Esquina aux = posicion;
         posicion = posicion_anterior;

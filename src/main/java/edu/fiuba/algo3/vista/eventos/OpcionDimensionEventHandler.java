@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.vista.eventos;
 
 import edu.fiuba.algo3.modelo.codigo.Juego;
-import edu.fiuba.algo3.vista.ContenedorJugador;
-import edu.fiuba.algo3.vista.ContenedorPrincipal;
+import edu.fiuba.algo3.vista.ContenedorAgregarJugador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -28,10 +27,10 @@ public class OpcionDimensionEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         if (comboBoxDerecha.getValue() != null & comboBoxIzquierda.getValue() != null) {
 
-            juego.crearMapa(/*comboBoxIzquierda.getValue(), comboBoxDerecha.getValue()*/ );
+            //juego.crearMapa(/*comboBoxIzquierda.getValue(), comboBoxDerecha.getValue()*/ );
             comboBoxIzquierda.setEditable(false);
             comboBoxDerecha.setEditable(false);
-            ContenedorJugador contenedorJugador = new ContenedorJugador(stage, juego);
+            ContenedorAgregarJugador contenedorJugador = new ContenedorAgregarJugador(stage, juego);
             Scene escenaJugador = new Scene(contenedorJugador,1100,700);
             escenaJugador.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
             stage.setScene(escenaJugador);

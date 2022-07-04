@@ -16,6 +16,6 @@ public class TextoNombreEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-       juego.getNombreJugador(textoNombre.getText());
+       juego.agregarJugador(textoNombre.getText());
     }
 }

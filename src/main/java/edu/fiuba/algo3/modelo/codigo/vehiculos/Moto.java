@@ -33,4 +33,8 @@ public class Moto extends Vehiculo{
         return new Auto(super.posicion, super.jugador);
 
     }
+
+    public String imprimir(){
+        return ("boton-moto");
+    }
 }

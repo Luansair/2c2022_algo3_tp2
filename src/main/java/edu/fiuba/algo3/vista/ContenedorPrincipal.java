@@ -17,6 +17,7 @@ public class ContenedorPrincipal extends BorderPane {
 
         this.setMenu();
         this.setCentro();
+
     }
 
     private void setMenu() {

@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.SystemInfo;
 import edu.fiuba.algo3.modelo.codigo.Juego;
+import edu.fiuba.algo3.modelo.codigo.Mapa;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -22,22 +23,20 @@ public class App extends Application {
 
         Juego juego = crearModelo();
 
-        //ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, juego);
-        //Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 1100,  700);
-        //escenaBienvenidos.getStylesheets().add(getClass().getResource("/escenas/escenaBienvenidos.css").toExternalForm());
-        //stage.setScene(escenaBienvenidos);
-
-
-        ContenedorMapa contenedorMapa = new ContenedorMapa(stage, juego);
-        Scene escenaMapa = new Scene(contenedorMapa, 1100, 700);
-        escenaMapa.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
-        stage.setScene(escenaMapa);
+        ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, juego);
+        Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 1100,  700);
+        escenaBienvenidos.getStylesheets().add(getClass().getResource("/escenas/escenaBienvenidos.css").toExternalForm());
+        stage.setScene(escenaBienvenidos);
 
         stage.show();
+
     }
 
     private Juego crearModelo() {
-        return new Juego();
+        Juego juego = new Juego();
+        Mapa mapa = juego.obtenerMapa();
+        mapa.crearMapa();
+        return juego;
     }
 
     public static void main(String[] args) {

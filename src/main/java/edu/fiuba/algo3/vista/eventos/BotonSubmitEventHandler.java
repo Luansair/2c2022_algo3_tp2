@@ -6,17 +6,27 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.control.TextField;
+import org.w3c.dom.Text;
 
-public class OpcionEntrarEventHandler implements EventHandler<ActionEvent> {
+import java.awt.*;
+
+public class BotonSubmitEventHandler implements EventHandler<ActionEvent> {
+
     private Stage stage;
     private Juego juego;
+    private TextField text;
 
-    public OpcionEntrarEventHandler(Stage stage, Juego juego) {
+    public BotonSubmitEventHandler(Stage stage, Juego juego, TextField nombre) {
         this.stage = stage;
         this.juego = juego;
+        this.text = nombre;
     }
+
     @Override
     public void handle(ActionEvent actionEvent) {
+        juego.asignarNombre(text.getText());
+
         ContenedorJugadores contenedorJugadores = new ContenedorJugadores(stage, juego);
 
         Scene escenaJugadores = new Scene(contenedorJugadores,1100,700);

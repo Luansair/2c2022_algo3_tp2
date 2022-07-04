@@ -31,6 +31,10 @@ public class Auto extends Vehiculo{
 
     public Vehiculo obtenerSiguiente() {
         return new CuatroPorCuatro(super.posicion, super.jugador);
-
     }
+
+    public String imprimir(){
+        return ("boton-auto");
+    }
+
 }

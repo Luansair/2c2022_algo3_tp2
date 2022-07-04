@@ -1,31 +1,24 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.codigo.Juego;
-import edu.fiuba.algo3.vista.eventos.BotonAutoEventHandler;
-import edu.fiuba.algo3.vista.eventos.BotonCuatroPorCuatroEventHandler;
-import edu.fiuba.algo3.vista.eventos.BotonMotoEventHandler;
+import edu.fiuba.algo3.vista.eventos.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-import java.awt.*;
-
-public class ContenedorJugador extends BorderPane {
+public class ContenedorAgregarJugador extends BorderPane {
     private Stage stage;
     private Juego juego;
     private MenuBar menuBar;
 
-    public ContenedorJugador(Stage stage, Juego juego ) {
+    public ContenedorAgregarJugador(Stage stage, Juego juego) {
         this.stage = stage;
         this.juego = juego;
         this.getStyleClass().add("border-vox");
@@ -72,9 +65,15 @@ public class ContenedorJugador extends BorderPane {
         Button botonCuatroPorCuatro = new Button("");
         botonCuatroPorCuatro.getStyleClass().add("boton-cuatroPorCuatro");
 
+        Button submit = new Button();
+        submit.setText("Agregar");
+        submit.getStyleClass().add("boton-comienzo");
+        submit.setMinSize(75,25);
+
         pantallaVehiculo.add(botonMoto,0,0);
         pantallaVehiculo.add(botonAuto,2,0);
         pantallaVehiculo.add(botonCuatroPorCuatro,1,1);
+        pantallaVehiculo.add(submit,3,3);
 
         pantallaVehiculo.setAlignment(Pos.CENTER);
         pantallaVehiculo.setVgap(30);
@@ -90,6 +89,8 @@ public class ContenedorJugador extends BorderPane {
         BotonCuatroPorCuatroEventHandler botonCuatroPorCuatroEventHandler = new BotonCuatroPorCuatroEventHandler(juego);
         botonCuatroPorCuatro.setOnAction(botonCuatroPorCuatroEventHandler);
 
+        BotonSubmitEventHandler botonSubmitEventHandler = new BotonSubmitEventHandler(stage, juego, textoNombre);
+        submit.setOnAction(botonSubmitEventHandler);
 
         pantallaPrincipal.getChildren().addAll(pantallaNombre, pantallaVehiculo);
         pantallaPrincipal.setPadding(new Insets(70,100,100,100));

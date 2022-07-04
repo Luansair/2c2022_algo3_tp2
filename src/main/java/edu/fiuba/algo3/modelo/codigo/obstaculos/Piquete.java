@@ -20,8 +20,8 @@ public class Piquete implements Obstaculo{
     public void activar(CuatroPorCuatro un4x4){
         un4x4.pegarLaVuelta();
     }
-    public void imprimir(){
-        System.out.print(" Piquete ");
+    public String imprimir(){
+        return ("boton-piquete");
     }
 
 }

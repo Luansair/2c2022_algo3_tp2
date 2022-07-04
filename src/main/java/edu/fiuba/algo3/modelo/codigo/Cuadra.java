@@ -22,18 +22,15 @@ public class Cuadra {
         this.sorpresas = new ArrayList<>();
     }
 
-    public void imprimirCuadra() {
-        esquinaUno.imprimirEsquina();
-
+    public String imprimirCuadra() {
         for(Obstaculo obstaculo : obstaculos) {
-            obstaculo.imprimir();
+            return obstaculo.imprimir();
         }
         for(Sorpresa sorpresa : sorpresas) {
-            sorpresa.imprimir();
+            return sorpresa.imprimir();
         }
 
-        esquinaDos.imprimirEsquina();
-        System.out.println("");
+        return "Nada";
     }
 
     public boolean mismaCuadra(Esquina esquinaInicial, Esquina esquinaFinal) { //siempre devuelve true porque mismaEsquina siempre da true

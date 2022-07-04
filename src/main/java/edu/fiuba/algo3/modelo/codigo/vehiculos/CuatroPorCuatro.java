@@ -38,4 +38,8 @@ public class CuatroPorCuatro extends Vehiculo{
     public Vehiculo obtenerSiguiente() {
         return new Moto(super.posicion, super.jugador);
     }
+
+    public String imprimir(){
+        return ("boton-cuatroPorCuatro");
+    }
 }

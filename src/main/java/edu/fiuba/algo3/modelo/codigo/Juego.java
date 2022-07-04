@@ -22,13 +22,9 @@ public class Juego {
 
     public Juego(String[] nombresJugadores) {
         Mapa mapa = new Mapa();
-        //mapa = mapa.crearMapa(); // Hardcodeado, hay que ver donde se crea el mapa
+
         jugadores = new ArrayList<>();
         cantidadJugadores = nombresJugadores.length;
-
-        if(cantidadJugadores == 0) {
-            throw new RuntimeException("Debe haber al menos un jugador");
-        }
 
         for(int i = 0; i < cantidadJugadores; i++) {
             jugadores.add(new Jugador(mapa, nombresJugadores[i]));
@@ -38,6 +34,7 @@ public class Juego {
     }
 
 
+    public Mapa obtenerMapa() {return this.mapa;}
 
     public void moverVehiculo(Direccion unaDireccion) { jugadorTurno.moverVehiculo(unaDireccion); }
     public void siguienteTurno() {
@@ -57,13 +54,16 @@ public class Juego {
 
     public Juego() {
         this.mapa = new Mapa();
-    }
-    public void crearMapa() {
-        mapa.crearMapa();
+        this.jugadores = new ArrayList<>();
+        this.cantidadJugadores = 0;
     }
 
-    public void getNombreJugador(String nombre)  {
-        jugadorTurno = new Jugador(mapa, nombre);
+    public void agregarJugador(String nombre)  {
+        Jugador jugador = new Jugador(mapa, nombre);
+        jugadores.add(jugador);
+        jugadorTurno = jugador;
+        cantidadJugadores ++;
+        System.out.println("JUGADOR AGREGADO");
     }
 
     public void asignarMoto()  {
@@ -75,13 +75,22 @@ public class Juego {
     }
 
     public void asignaCuatroPorCuatro()  {
-        getJugadorTurno().asignarVehiculo(new CuatroPorCuatro(mapa.getEsquinaIncial(),jugadorTurno));
+        getJugadorTurno().asignarVehiculo(new CuatroPorCuatro(mapa.getEsquinaIncial(), jugadorTurno));
     }
 
     public boolean juegoTerminado() {
         return jugadores.size() == 0;
     }
 
+    public ArrayList<Jugador> getJugadores() {return jugadores;}
+
+    public int getCantidadJugadores() { return cantidadJugadores; }
+    public void asignarNombre(String nombre) {jugadorTurno.asignarNombre(nombre);}
+
+    public void imprimirEstado() {
+        System.out.println(jugadorTurno.nombre() + " tiene movimientos = " + jugadorTurno.cantidadDeMovimientos());
+        System.out.println("Posición = " + jugadorTurno.obtenerVehiculo().obtenerPosicion().posicion_x + " " + jugadorTurno.obtenerVehiculo().obtenerPosicion().posicion_y);
+    }
 }
 
 

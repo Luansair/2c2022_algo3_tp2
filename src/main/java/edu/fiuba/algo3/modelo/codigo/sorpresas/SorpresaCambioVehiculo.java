@@ -7,7 +7,7 @@ public class SorpresaCambioVehiculo implements Sorpresa{
         jugador.cambiarVehiculo();
     }
 
-    public void imprimir(){
-        System.out.print(" SorpresaCambioVehiculo ");
+    public String imprimir(){
+        return ("boton-cambioVehiculo");
     }
 }
