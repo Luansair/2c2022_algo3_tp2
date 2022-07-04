@@ -155,12 +155,7 @@ public class Mapa {
 
     public Boolean posicionValida(Vehiculo vehiculo) {
         Esquina posVehiculo = vehiculo.obtenerPosicion();
-        for(Esquina esquina:esquinas) {
-            if(esquina.mismaEsquina(posVehiculo))
-                return true;
-        }
-
-        return false;
+        return posVehiculo.coordenadasValidas(0,0,dimension_x-1, dimension_y-1);
     }
 
     public void aplicarObstaculos(Vehiculo unVehiculo, Esquina esquinaUno, Esquina esquinaDos) {

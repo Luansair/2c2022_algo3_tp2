@@ -26,6 +26,11 @@ public class Esquina {
         return posicion_x == coordenadaX && posicion_y == coordenadaY;
     }
 
+    public boolean coordenadasValidas(int minimo_x, int minimo_y, int maximo_x, int maximo_y){
+        return posicion_x >= minimo_x && posicion_x <= maximo_x &&
+                posicion_y >= minimo_y && posicion_y <= maximo_y;
+    }
+
     public Esquina obtenerSiguiente(int incremento_x, int incremento_y) {
 
         return new Esquina(posicion_x + incremento_x, posicion_y + incremento_y);
