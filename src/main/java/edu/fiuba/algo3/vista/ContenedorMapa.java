@@ -8,6 +8,7 @@ import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverArriba;
 import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverDerecha;
 import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverIzquierda;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -109,25 +110,33 @@ public class ContenedorMapa extends BorderPane {
             gridPane.add(caja0, 2 * posicion.posicion_x, 2 * posicion.posicion_y);
         }
 
+        //Esquina posCirculoNegro = juego.getJugadorTurno().obtenerVehiculo().obtenerPosicion();
+
+
+
         Button botonArriba = new Button("Arriba");
         BotonMoverArriba opcionArriba = new BotonMoverArriba(juego, stage);
         botonArriba.setOnAction(opcionArriba);
-        gridPane.add(botonArriba, 21, 1);
+        gridPane.add(botonArriba, 22, 1);
 
         Button botonAbajo = new Button("Abajo");
         BotonMoverAbajo opcionAbajo = new BotonMoverAbajo(juego, stage);
         botonAbajo.setOnAction(opcionAbajo);
-        gridPane.add(botonAbajo, 21, 2);
+        gridPane.add(botonAbajo, 22, 2);
 
         Button botonDerecha = new Button("Derecha");
         BotonMoverDerecha opcionDerecha = new BotonMoverDerecha(juego, stage);
         botonDerecha.setOnAction(opcionDerecha);
-        gridPane.add(botonDerecha, 22, 2);
+        gridPane.add(botonDerecha, 23, 2);
 
         Button botonIzquierda = new Button("Izquierda");
         BotonMoverIzquierda opcionIzquierda = new BotonMoverIzquierda(juego, stage);
         botonIzquierda.setOnAction(opcionIzquierda);
-        gridPane.add(botonIzquierda, 20, 2);
+        gridPane.add(botonIzquierda, 21, 2);
+
+        Label turno = new Label("Es el Turno de " + juego.getJugadorTurno().nombre());
+        turno.getStyleClass().add("texto-turno");
+        gridPane.add(turno, 25, 11);
 
         this.setCenter(gridPane);
     }

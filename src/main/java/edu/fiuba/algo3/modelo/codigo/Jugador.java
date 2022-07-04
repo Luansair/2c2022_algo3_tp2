@@ -35,7 +35,8 @@ public class Jugador {
         // Al mover se crea una nueva instancia de Esquina en lugar de actualizar la existente
         sumarMovimientos(1);
         vehiculo.mover(unaDireccion);
-
+        if(!mapa.posicionValida(vehiculo))
+            vehiculo.pegarLaVuelta();
         mapa.aplicarObstaculos(vehiculo, vehiculo.obtenerPosicion(), vehiculo.obtenerPosicionAnterior());
         mapa.aplicarSorpresas(this, vehiculo.obtenerPosicion(), vehiculo.obtenerPosicionAnterior());
     }

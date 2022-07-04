@@ -29,7 +29,6 @@ public class App extends Application {
         stage.setScene(escenaBienvenidos);
 
         stage.show();
-
     }
 
     private Juego crearModelo() {

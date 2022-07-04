@@ -27,6 +27,8 @@ public class Esquina {
     }
 
     public Esquina obtenerSiguiente(int incremento_x, int incremento_y) {
+
         return new Esquina(posicion_x + incremento_x, posicion_y + incremento_y);
     }
+
 }

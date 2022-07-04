@@ -14,10 +14,14 @@ import java.util.Random;
 public class Mapa {
     private ArrayList<Cuadra> cuadras;
     private ArrayList<Esquina> esquinas;
+    private int dimension_x;
+    private int dimension_y;
 
     public Mapa() {
         cuadras = new ArrayList<>();
         esquinas = new ArrayList<>();
+        dimension_x = 10;
+        dimension_y = 10;
     }
 
     public void crearMapa() {
@@ -107,7 +111,6 @@ public class Mapa {
         cuadras.get(75).agregarSorpresa(new SorpresaCambioVehiculo());
         cuadras.get(86).agregarSorpresa(new SorpresaFavorable());
 
-
         /*
         for (Cuadra cuadra:mapa.cuadras){
             // Es probable que la cuadra no tenga nada basandonos en la imagen de la consigna
@@ -150,7 +153,15 @@ public class Mapa {
         return cuadras;
     }
 
+    public Boolean posicionValida(Vehiculo vehiculo) {
+        Esquina posVehiculo = vehiculo.obtenerPosicion();
+        for(Esquina esquina:esquinas) {
+            if(esquina.mismaEsquina(posVehiculo))
+                return true;
+        }
 
+        return false;
+    }
 
     public void aplicarObstaculos(Vehiculo unVehiculo, Esquina esquinaUno, Esquina esquinaDos) {
         for (Cuadra cuadra : cuadras) {
