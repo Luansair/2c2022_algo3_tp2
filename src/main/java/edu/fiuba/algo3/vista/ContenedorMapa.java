@@ -84,6 +84,18 @@ public class ContenedorMapa extends VBox  {
             }
         }
 
+        for(int columna = 0; columna < 10; columna++) {
+            for(int fila = 0; fila < 9; fila++) {
+                String dibujoBoton = cuadras.get(contador).imprimirCuadra();
+                if (!Objects.equals(dibujoBoton, "Nada")) {
+                    VBox caja = new VBox();
+                    caja.getStyleClass().add(cuadras.get(contador).imprimirCuadra());
+                    gridPane.add(caja, 2 * columna, 2 * fila + 1);
+                }
+                contador ++;
+            }
+        }
+
 
         for(Jugador jugador:juego.getJugadores()) {
             VBox caja0 = new VBox();
