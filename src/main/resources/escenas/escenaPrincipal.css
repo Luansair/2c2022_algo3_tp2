@@ -4,13 +4,28 @@
 
 .texto-predeterminado {
     -fx-spacing: 10;
-    -fx-font-size: 35;
+    -fx-font-size: 30;
     -fx-text-fill: rgb(255,255,255);
     -fx-label-padding: 5;
     -fx-effect: dropshadow(three-pass-box,black, 0,0,0,3);
     -fx-font-family: 'Secular One', sans-serif;
 }
 
+.boton-predeterminado {
+    -fx-background-color: rgba(255, 255,255,0);
+    -fx-border-color: rgb(255,255,255);
+    -fx-border-radius: 30px;
+    -fx-text-fill: rgb(255,255,255);
+    -fx-font-size: 20;
+    -fx-font-family: Arial;
+    -fx-border-width: 5px;
+}
+
+.boton-movimiento {
+    -fx-min-width: 75;
+    -fx-min-height: 75;
+    -fx-border-radius: 10px;
+}
 .texto-turno {
     -fx-spacing: 0;
     -fx-font-size: 25;
@@ -31,9 +46,6 @@
     -fx-text-fill: rgb(255,255,255);
     -fx-highlight-text-fill: rgb(255,255,255);
 
-
-
-
 }
 
 .border-vox {
@@ -44,145 +56,7 @@
     -fx-background-color: rgba(0,0,0,0.4);
 }
 
-.boton-esquina {
-    -fx-min-height: 25px;
-    -fx-min-width: 25px;
-    -fx-background-image: url('../imagenes/interseccion.png');
-}
 
-.boton-calleVertical {
-    -fx-min-height: 75px;
-    -fx-min-width: 25px;
-    -fx-background-image: url('../imagenes/calleVertical.png');
-}
-
-.boton-calleHorizontal {
-    -fx-min-height: 25px;
-    -fx-min-width: 75px;
-    -fx-background-image: url('../imagenes/calleHorizontal.png');
-}
-
-.boton-manzana {
-    -fx-min-height: 75px;
-    -fx-min-width: 75px;
-    -fx-background-image: url('../imagenes/casa.png');
-}
-
-.boton-manzana2 {
-    -fx-min-height: 75px;
-    -fx-min-width: 75px;
-    -fx-background-image: url('../imagenes/casa2.png');
-}
-
-.boton-manzana3 {
-    -fx-min-height: 75px;
-    -fx-min-width: 75px;
-    -fx-background-image: url('../imagenes/casa3.png');
-}
-
-.boton-manzana4 {
-    -fx-min-height: 75px;
-    -fx-min-width: 75px;
-    -fx-background-image: url('../imagenes/casa4.png');
-}
-
-.boton-auto {
-    -fx-min-height: 25px;
-    -fx-min-width: 25px;
-    -fx-background-image: url('../imagenes/auto.png');
-    -fx-background-repeat: no-repeat;
-}
-
-.boton-pozo {
-    -fx-min-height: 25px;
-    -fx-min-width: 25px;
-    -fx-background-image: url('../imagenes/pozo.png');
-    -fx-background-repeat: no-repeat;
-}
-
-.boton-control {
-    -fx-min-height: 25px;
-    -fx-min-width: 25px;
-    -fx-background-image: url('../imagenes/controlPolicial.png');
-    -fx-background-repeat: no-repeat;
-}
-
-.boton-piquete {
-    -fx-min-height: 25px;
-    -fx-min-width: 25px;
-    -fx-background-image: url('../imagenes/piquete.png');
-    -fx-background-repeat: no-repeat;
-}
-
-.boton-favorable {
-    -fx-min-height: 25px;
-    -fx-min-width: 25px;
-    -fx-background-image: url('../imagenes/sorpresa.png');
-    -fx-background-repeat: no-repeat;
-}
-
-.boton-desfavorable {
-    -fx-min-height: 25px;
-    -fx-min-width: 25px;
-    -fx-background-image: url('../imagenes/sorpresa.png');
-    -fx-background-repeat: no-repeat;
-}
-
-.boton-cambioVehiculo {
-    -fx-min-height: 25px;
-    -fx-min-width: 25px;
-    -fx-background-image: url('../imagenes/sorpresa.png');
-    -fx-background-repeat: no-repeat;
-}
-
-.boton-auto:hover {
-    -fx-border-color: rgb(239, 21, 106);
-    -fx-border-width: 3px;
-    -fx-border-radius: 2px;
-}
-
-.boton-auto:pressed {
-    -fx-border-color: rgb(239, 21, 106);
-    -fx-border-width: 3px;
-    -fx-border-radius: 2px;
-}
-.boton-moto {
-    -fx-min-height: 25px;
-    -fx-min-width: 25px;
-    -fx-background-color: rgba(255,255,255,0);
-    -fx-background-image: url('../imagenes/moto.png');
-}
-
-.boton-moto:hover {
-    -fx-border-color: rgb(239, 21, 106);
-    -fx-border-width: 3px;
-    -fx-border-radius: 2px;
-}
-
-.boton-moto:pressed {
-    -fx-border-color: rgb(239, 21, 106);
-    -fx-border-width: 3px;
-    -fx-border-radius: 2px;
-}
-
-.boton-cuatroPorCuatro {
-    -fx-min-height: 25px;
-    -fx-min-width: 25px;
-    -fx-background-color: rgba(255,255,255,0);
-    -fx-background-image: url('../imagenes/CuatroPorCuatro.png');
-}
-
-.boton-cuatroPorCuatro:hover {
-    -fx-border-color: rgb(239, 21, 106);
-    -fx-border-width: 3px;
-    -fx-border-radius: 2px;
-}
-
-.boton-cuatroPorCuatro:pressed {
-    -fx-border-color: rgb(239, 21, 106);
-    -fx-border-width: 3px;
-    -fx-border-radius: 2px;
-}
 .boton-continuar {
     -fx-background-color: rgba(0, 0, 0,0.5);
     -fx-border-color: rgb(255,255,255);
@@ -204,9 +78,195 @@
     -fx-text-fill: rgb(255,255,255);
     -fx-font-family: 'Secular One', sans-serif;
     -fx-border-style: hidden hidden solid hidden;
+}
+
+/*BOTONES PARA ELEGIR VEHICULO*/
+.boton-cuatroPorCuatro {
+    -fx-min-height: 130px;
+    -fx-min-width: 130px;
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/CuatroPorCuatro130.png');
+}
+
+.boton-cuatroPorCuatro:hover {
+    -fx-border-color: rgb(239, 21, 106);
+    -fx-border-width: 3px;
+    -fx-border-radius: 2px;
+}
+
+.boton-cuatroPorCuatro:pressed {
+    -fx-border-color: rgb(239, 21, 106);
+    -fx-border-width: 3px;
+    -fx-border-radius: 2px;
+}
+
+.boton-moto {
+    -fx-min-height: 130px;
+    -fx-min-width: 130px;
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/moto130.png');
+}
+
+.boton-moto:hover {
+    -fx-border-color: rgb(239, 21, 106);
+    -fx-border-width: 3px;
+    -fx-border-radius: 2px;
+}
+
+.boton-moto:pressed {
+    -fx-border-color: rgb(239, 21, 106);
+    -fx-border-width: 3px;
+    -fx-border-radius: 2px;
+}
 
 
+.boton-auto {
+    -fx-min-height: 130px;
+    -fx-min-width: 130px;
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/auto130.png');
+
+}
+
+.boton-auto:hover {
+    -fx-border-color: rgb(239, 21, 106);
+    -fx-border-width: 3px;
+    -fx-border-radius: 2px;
+}
+
+.boton-auto:pressed {
+    -fx-border-color: rgb(239, 21, 106);
+    -fx-border-width: 3px;
+    -fx-border-radius: 2px;
+}
 
 
+/*BOTONES DEL MAPA*/
+.boton-cuatroPorCuatro-mapa {
+    -fx-min-height: 25px;
+    -fx-min-width: 25px;
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/CuatroPorCuatro25.png');
+}
+
+.boton-moto-mapa {
+    -fx-min-height: 25px;
+    -fx-min-width: 25px;
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/moto25.png');
+}
+
+
+.boton-auto-mapa {
+    -fx-min-height: 25px;
+    -fx-min-width: 25px;
+    -fx-background-image: url('../imagenes/auto25.png');
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-repeat: no-repeat;
+}
+
+
+.boton-esquina {
+    -fx-min-height: 25px;
+    -fx-min-width: 25px;
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/interseccion.png');
+}
+
+.boton-calleVertical {
+    -fx-min-height: 75px;
+    -fx-min-width: 25px;
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/calleVertical.png');
+}
+
+.boton-calleHorizontal {
+    -fx-min-height: 25px;
+    -fx-min-width: 75px;
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/calleHorizontal.png');
+}
+
+.boton-manzana {
+    -fx-min-height: 75px;
+    -fx-min-width: 75px;
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/casa.png');
+}
+
+.boton-manzana2 {
+    -fx-min-height: 75px;
+    -fx-min-width: 75px;
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/casa2.png');
+}
+
+.boton-manzana3 {
+    -fx-min-height: 75px;
+    -fx-min-width: 75px;
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/casa3.png');
+}
+
+.boton-manzana4 {
+    -fx-min-height: 75px;
+    -fx-min-width: 75px;
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/casa4.png');
+}
+
+.boton-pozo {
+    -fx-min-height: 25px;
+    -fx-min-width: 25px;
+    -fx-background-image: url('../imagenes/pozo.png');
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-repeat: no-repeat;
+}
+
+.boton-control {
+    -fx-min-height: 25px;
+    -fx-min-width: 25px;
+    -fx-background-image: url('../imagenes/controlPolicial.png');
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-repeat: no-repeat;
+}
+
+.boton-piquete {
+    -fx-min-height: 25px;
+    -fx-min-width: 25px;
+    -fx-background-image: url('../imagenes/piquete.png');
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-repeat: no-repeat;
+}
+
+.boton-favorable {
+    -fx-min-height: 25px;
+    -fx-min-width: 25px;
+    -fx-background-image: url('../imagenes/sorpresa.png');
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-repeat: no-repeat;
+}
+
+.boton-desfavorable {
+    -fx-min-height: 25px;
+    -fx-min-width: 25px;
+    -fx-background-image: url('../imagenes/sorpresa.png');
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-repeat: no-repeat;
+}
+
+.boton-cambioVehiculo {
+    -fx-min-height: 25px;
+    -fx-min-width: 25px;
+    -fx-background-image: url('../imagenes/sorpresa.png');
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-repeat: no-repeat;
+}
+
+.fondo-mapa {
+    -fx-border-color: rgb(255,255,255);
+    -fx-border-width: 5px;
+    -fx-border-radius: 2px;
 
 }

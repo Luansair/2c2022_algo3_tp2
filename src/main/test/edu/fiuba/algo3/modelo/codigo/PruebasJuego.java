@@ -22,7 +22,7 @@ public class PruebasJuego {
         String[] jugadores = {"Facundo", "Felipe", "Franco"};
         Juego juego = new Juego(jugadores);
 
-        assertEquals(juego.getJugadorTurno().nombre(), jugadores[0]);
+        assertEquals(juego.getJugadorTurno(), jugadores[0]);
     }
 
     @Test
@@ -31,7 +31,7 @@ public class PruebasJuego {
         Juego juego = new Juego(jugadores);
         juego.siguienteTurno();
 
-        assertEquals(juego.getJugadorTurno().nombre(), jugadores[1]);
+        assertEquals(juego.getJugadorTurno(), jugadores[1]);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class PruebasJuego {
         juego.siguienteTurno();
         juego.siguienteTurno();
 
-        assertEquals(juego.getJugadorTurno().nombre(), jugadores[0]);
+        assertEquals(juego.getJugadorTurno(), jugadores[0]);
     }
 
     /* Da bien el siguiente test pero no se como hacer el assert

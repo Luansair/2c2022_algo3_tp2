@@ -7,7 +7,8 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
-import org.w3c.dom.Text;
+
+import javafx.scene.control.Label;
 
 import java.awt.*;
 
@@ -17,22 +18,32 @@ public class BotonSubmitEventHandler implements EventHandler<ActionEvent> {
     private Juego juego;
     private TextField text;
 
-    public BotonSubmitEventHandler(Stage stage, Juego juego, TextField nombre) {
+    private Label labelVacio;
+
+    public BotonSubmitEventHandler(Stage stage, Juego juego, TextField nombre, Label labelVacio) {
         this.stage = stage;
         this.juego = juego;
         this.text = nombre;
+        this.labelVacio = labelVacio;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        juego.asignarNombre(text.getText());
+        if (text.getText() == "") {
+            labelVacio.setText("Escribe un nombre para el jugador");
+            labelVacio.getStyleClass().add("texto-predeterminado");
+        }
+        else {
+            juego.asignarNombre(text.getText());
 
-        ContenedorJugadores contenedorJugadores = new ContenedorJugadores(stage, juego);
+            ContenedorJugadores contenedorJugadores = new ContenedorJugadores(stage, juego);
 
-        Scene escenaJugadores = new Scene(contenedorJugadores,1100,700);
-        escenaJugadores.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
-        stage.setScene(escenaJugadores);
-        stage.setFullScreenExitHint("");
-        stage.setFullScreen(false);
+            Scene escenaJugadores = new Scene(contenedorJugadores,1100,1100);
+            escenaJugadores.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
+            stage.setScene(escenaJugadores);
+            stage.setFullScreenExitHint("");
+            stage.setFullScreen(false);
+        }
+
     }
 }

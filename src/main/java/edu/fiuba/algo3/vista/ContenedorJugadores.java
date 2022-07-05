@@ -31,14 +31,14 @@ public class ContenedorJugadores extends VBox {
         this.setPadding(new Insets(95,20,20,20));
         this.setSpacing(60);
 
-        Label label = new Label("Jugadores");
-        label.getStyleClass().add("texto-predeterminado");
+        Label labelJugadores = new Label("Jugadores");
+        labelJugadores.getStyleClass().add("texto-predeterminado");
 
-        this.getChildren().add(label);
+        this.getChildren().add(labelJugadores);
 
         Button botonAgregar = new Button();
         botonAgregar.setText("Agregar Jugador");
-        botonAgregar.getStyleClass().add("boton-comienzo");
+        botonAgregar.getStyleClass().add("boton-predeterminado");
         botonAgregar.setMinSize(75,25);
 
 
@@ -53,28 +53,25 @@ public class ContenedorJugadores extends VBox {
         etiquetaTitulo.getStyleClass().add("texto-predeterminado");
 
         if(jugadores != null) {
-            for(int i = 0; i < jugadores.size(); i++) {
-                this.getStyleClass().add("border-vox");
-                this.setAlignment(Pos.TOP_CENTER);
-                this.setPadding(new Insets(95,20,20,20));
-                this.setSpacing(30);
-
-                Label jugador = new Label(jugadores.get(i).nombre());
-                jugador.getStyleClass().add("texto-predeterminado");
-                this.getChildren().add(jugador);
+            for(Jugador jugador : jugadores) {
+                Label nombreJugador = new Label("~ " + jugador.getNombre());
+                nombreJugador.getStyleClass().add("texto-predeterminado");
+                this.getChildren().add(nombreJugador);
             }
         }
 
         Button botonJugar = new Button();
         botonJugar.setText("Jugar");
-        botonJugar.getStyleClass().add("boton-comienzo");
+        botonJugar.getStyleClass().add("boton-predeterminado");
         botonJugar.setMinSize(75,25);
 
+        Label label = new Label();
 
-        OpcionJugar opcionJugar = new OpcionJugar(stage, juego);
+
+        OpcionJugar opcionJugar = new OpcionJugar(stage, juego,label);
         botonJugar.setOnAction(opcionJugar);
 
-        this.getChildren().addAll(botonAgregar, botonJugar);
+        this.getChildren().addAll(botonAgregar, botonJugar, label);
 
     }
 

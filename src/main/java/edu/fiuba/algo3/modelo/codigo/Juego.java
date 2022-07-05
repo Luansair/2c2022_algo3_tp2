@@ -46,8 +46,8 @@ public class Juego {
     }
 
     //Sirve solo para las pruebas
-    public Jugador getJugadorTurno() {
-        return jugadorTurno;
+    public String getJugadorTurno() {
+        return jugadorTurno.getNombre();
     }
 
     public Juego() {
@@ -65,15 +65,15 @@ public class Juego {
     }
 
     public void asignarMoto()  {
-        getJugadorTurno().asignarVehiculo(new Moto(mapa.getEsquinaIncial(), jugadorTurno));
+        jugadorTurno.asignarVehiculo(new Moto(mapa.getEsquinaIncial(), jugadorTurno));
     }
 
     public void asignarAuto()  {
-        getJugadorTurno().asignarVehiculo(new Auto(mapa.getEsquinaIncial(), jugadorTurno));
+        jugadorTurno.asignarVehiculo(new Auto(mapa.getEsquinaIncial(), jugadorTurno));
     }
 
     public void asignaCuatroPorCuatro()  {
-        getJugadorTurno().asignarVehiculo(new CuatroPorCuatro(mapa.getEsquinaIncial(), jugadorTurno));
+        jugadorTurno.asignarVehiculo(new CuatroPorCuatro(mapa.getEsquinaIncial(), jugadorTurno));
     }
 
     public boolean juegoTerminado() {
@@ -86,8 +86,12 @@ public class Juego {
     public void asignarNombre(String nombre) {jugadorTurno.asignarNombre(nombre);}
 
     public void imprimirEstado() {
-        System.out.println(jugadorTurno.nombre() + " tiene movimientos = " + jugadorTurno.cantidadDeMovimientos());
+        System.out.println(jugadorTurno.getNombre() + " tiene movimientos = " + jugadorTurno.cantidadDeMovimientos());
         System.out.println("Posición = " + jugadorTurno.obtenerVehiculo().obtenerPosicion().posicion_x + " " + jugadorTurno.obtenerVehiculo().obtenerPosicion().posicion_y);
+    }
+
+    public int puntaje() {
+        return jugadorTurno.cantidadDeMovimientos();
     }
 }
 

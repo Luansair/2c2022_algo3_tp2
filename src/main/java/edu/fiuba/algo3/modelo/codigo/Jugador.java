@@ -48,7 +48,7 @@ public class Jugador {
         this.vehiculo = vehiculo.obtenerSiguiente();
     }
 
-    public String nombre() {return nombre;}
+    public String getNombre() {return nombre;}
 
     public Jugador(String nombre) {
         this.nombre = nombre;

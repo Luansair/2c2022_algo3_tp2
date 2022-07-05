@@ -3,17 +3,26 @@ package edu.fiuba.algo3.vista.eventos;
 import edu.fiuba.algo3.modelo.codigo.Juego;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 
 public class BotonCuatroPorCuatroEventHandler implements EventHandler<ActionEvent> {
 
     private Juego juego;
+    private Button botonAuto;
+    private Button botonMoto;
 
-    public BotonCuatroPorCuatroEventHandler(Juego juego) {
+    public BotonCuatroPorCuatroEventHandler(Juego juego, Button botonAuto, Button botonMoto) {
         this.juego = juego;
+        this.botonAuto = botonAuto;
+        this.botonMoto = botonMoto;
+
     }
+
 
         @Override
     public void handle(ActionEvent actionEvent) {
         juego.asignaCuatroPorCuatro();
+        botonMoto.setDisable(true);
+        botonAuto.setDisable(true);
     }
 }

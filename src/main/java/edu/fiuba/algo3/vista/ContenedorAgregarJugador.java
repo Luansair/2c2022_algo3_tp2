@@ -10,6 +10,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -45,7 +46,6 @@ public class ContenedorAgregarJugador extends BorderPane {
 
         TextField textoNombre = new TextField();
         textoNombre.setPromptText("Ingresar nombre del jugador");
-
         textoNombre.getStyleClass().add("textfill-nombre");
 
         pantallaNombre.getChildren().addAll(etiquetaNombre,textoNombre);
@@ -55,6 +55,9 @@ public class ContenedorAgregarJugador extends BorderPane {
         GridPane pantallaVehiculo = new GridPane();
         pantallaVehiculo.getStyleClass().add("panel-semitransparente");
         pantallaVehiculo.setPadding(new Insets(0,120,0,120));
+        pantallaVehiculo.setAlignment(Pos.CENTER);
+        pantallaVehiculo.setVgap(30);
+        pantallaVehiculo.setHgap(30);
 
         Button botonAuto = new Button("");
         botonAuto.getStyleClass().add("boton-auto");
@@ -65,40 +68,47 @@ public class ContenedorAgregarJugador extends BorderPane {
         Button botonCuatroPorCuatro = new Button("");
         botonCuatroPorCuatro.getStyleClass().add("boton-cuatroPorCuatro");
 
-        Button submit = new Button();
-        submit.setText("Agregar");
-        submit.getStyleClass().add("boton-comienzo");
-        submit.setMinSize(75,25);
+
 
         pantallaVehiculo.add(botonMoto,0,0);
         pantallaVehiculo.add(botonAuto,2,0);
         pantallaVehiculo.add(botonCuatroPorCuatro,1,1);
-        pantallaVehiculo.add(submit,3,3);
-
-        pantallaVehiculo.setAlignment(Pos.CENTER);
-        pantallaVehiculo.setVgap(30);
-        pantallaVehiculo.setHgap(30);
 
 
-        BotonAutoEventHandler botonAutoEventHandler = new BotonAutoEventHandler(juego);
+
+        BotonAutoEventHandler botonAutoEventHandler = new BotonAutoEventHandler(juego, botonMoto, botonCuatroPorCuatro);
         botonAuto.setOnAction(botonAutoEventHandler);
 
-        BotonMotoEventHandler botonMotoEventHandler = new BotonMotoEventHandler(juego);
+        BotonMotoEventHandler botonMotoEventHandler = new BotonMotoEventHandler(juego, botonAuto,botonCuatroPorCuatro);
         botonMoto.setOnAction(botonMotoEventHandler);
 
-        BotonCuatroPorCuatroEventHandler botonCuatroPorCuatroEventHandler = new BotonCuatroPorCuatroEventHandler(juego);
+        BotonCuatroPorCuatroEventHandler botonCuatroPorCuatroEventHandler = new BotonCuatroPorCuatroEventHandler(juego, botonAuto, botonMoto);
         botonCuatroPorCuatro.setOnAction(botonCuatroPorCuatroEventHandler);
 
-        BotonSubmitEventHandler botonSubmitEventHandler = new BotonSubmitEventHandler(stage, juego, textoNombre);
+
+        HBox pantallaAgregar = new HBox();
+        Button submit = new Button();
+        submit.setText("Agregar");
+        submit.getStyleClass().add("boton-predeterminado");
+
+        Label labelVacio = new Label();
+        pantallaAgregar.setAlignment(Pos.BOTTOM_RIGHT);
+        pantallaAgregar.setPadding(new Insets(0,60,60,60));
+        pantallaAgregar.getChildren().addAll(submit, labelVacio);
+
+
+        BotonSubmitEventHandler botonSubmitEventHandler = new BotonSubmitEventHandler(stage, juego, textoNombre, labelVacio);
         submit.setOnAction(botonSubmitEventHandler);
 
-        pantallaPrincipal.getChildren().addAll(pantallaNombre, pantallaVehiculo);
+        pantallaPrincipal.getChildren().addAll(pantallaNombre, pantallaVehiculo, pantallaAgregar);
         pantallaPrincipal.setPadding(new Insets(70,100,100,100));
         pantallaPrincipal.setSpacing(90);
+
         this.setCenter(pantallaPrincipal);
-
-
     }
+
+
+
 
 }
 

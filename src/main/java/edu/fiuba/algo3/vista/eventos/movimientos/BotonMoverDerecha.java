@@ -3,6 +3,7 @@ package edu.fiuba.algo3.vista.eventos.movimientos;
 import edu.fiuba.algo3.modelo.codigo.Direccion.DireccionDerecha;
 import edu.fiuba.algo3.modelo.codigo.Juego;
 import edu.fiuba.algo3.vista.ContenedorMapa;
+import edu.fiuba.algo3.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -25,11 +26,11 @@ public class BotonMoverDerecha implements EventHandler<ActionEvent> {
         juego.imprimirEstado();
         juego.siguienteTurno();
 
-        ContenedorMapa contenedorMapa = new ContenedorMapa(stage, juego);
+        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, juego);
 
-        Scene escenaMapa = new Scene(contenedorMapa,2200,1400);
-        escenaMapa.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
-        stage.setScene(escenaMapa);
+        Scene escenaPrincipal = new Scene(contenedorPrincipal,1235,957);
+        escenaPrincipal.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
+        stage.setScene(escenaPrincipal);
         stage.setFullScreenExitHint("");
         stage.setFullScreen(false);
     }
