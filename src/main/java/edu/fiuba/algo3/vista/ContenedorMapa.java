@@ -23,10 +23,10 @@ public class ContenedorMapa extends VBox  {
     public ContenedorMapa( Juego juego ) {
         this.juego = juego;
 
-        this.setCentro(juego.obtenerMapa());
+        this.setCentro();
     }
 
-    public void setCentro(Mapa mapa) {
+    public void setCentro() {
 
         GridPane gridPane = new GridPane();
         int dimension_x = 10;
@@ -54,23 +54,22 @@ public class ContenedorMapa extends VBox  {
                     gridPane.add(boton, j, i);
                 }
 
-                else if (i % 2 == 0 && j % 2 != 0) {
+                else if (i % 2 == 0 ) {
                     Button boton = new Button("");
                     boton.getStyleClass().add("boton-calleHorizontal");
                     gridPane.add(boton, j, i);
                 }
 
-                else if (i % 2 != 0 && j % 2 == 0) {
+                else {
                     Button boton = new Button("");
                     boton.getStyleClass().add("boton-calleVertical");
                     gridPane.add(boton, j, i);
                 }
 
-
             }
         }
 
-        ArrayList<Cuadra> cuadras = mapa.getCuadras();
+        ArrayList<Cuadra> cuadras = juego.getCuadras();
 
         int contador = 0;
         for(int fila = 0; fila < 10; fila++) {
@@ -85,17 +84,6 @@ public class ContenedorMapa extends VBox  {
             }
         }
 
-        for(int i = 0; i < 10; i++) {
-            for(int j = 0; j < 9; j++) {
-                String dibujoBoton = cuadras.get(contador).imprimirCuadra();
-                if (!Objects.equals(dibujoBoton, "Nada")) {
-                    VBox caja = new VBox();
-                    caja.getStyleClass().add(cuadras.get(contador).imprimirCuadra());
-                    gridPane.add(caja, 2 * i, 2 * j + 1);
-                }
-                contador ++;
-            }
-        }
 
         for(Jugador jugador:juego.getJugadores()) {
             VBox caja0 = new VBox();

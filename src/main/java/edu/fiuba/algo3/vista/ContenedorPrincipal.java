@@ -48,8 +48,17 @@ public class ContenedorPrincipal extends BorderPane {
         ContenedorMapa contenedorMapa = new ContenedorMapa( juego);
 
         canvas.getGraphicsContext2D().setFill(Paint.valueOf("#000000"));
-        canvas.getGraphicsContext2D().fillRect(0,0,925,925);
-        canvas.getGraphicsContext2D().clearRect(150,150, 200,200);
+        int radio = 200;
+        int posicionAutoX = 500;
+        int poscionAutoY = 500;
+        //canvas.getGraphicsContext2D().fillRect(0,0,925,925);
+        //canvas.getGraphicsContext2D().clearRect(posicionAutoX-radio,poscionAutoY-radio, radio * 2,radio*2);
+        canvas.getGraphicsContext2D().beginPath();
+        canvas.getGraphicsContext2D().arc(200,200,100,100,79,50);
+
+        //canvas.getGraphicsContext2D().lineTo(75,50);
+        //canvas.getGraphicsContext2D().closePath();
+        canvas.getGraphicsContext2D().stroke();
 
 
         mapaFinal.add(contenedorMapa,0,0);

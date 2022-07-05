@@ -33,8 +33,6 @@ public class App extends Application {
 
     private Juego crearModelo() {
         Juego juego = new Juego();
-        Mapa mapa = juego.obtenerMapa();
-        mapa.crearMapa();
         return juego;
     }
 

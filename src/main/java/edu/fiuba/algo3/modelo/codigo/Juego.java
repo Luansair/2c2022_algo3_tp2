@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.codigo;
 
-import edu.fiuba.algo3.modelo.codigo.Direccion.Direccion;
+import edu.fiuba.algo3.modelo.codigo.Direccion.*;
 import edu.fiuba.algo3.modelo.codigo.obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.codigo.vehiculos.Auto;
 import edu.fiuba.algo3.modelo.codigo.vehiculos.CuatroPorCuatro;
@@ -16,7 +16,12 @@ public class Juego {
     private int cantidadJugadores;
     private Mapa mapa;
 
-
+    public Juego() {
+        this.mapa = new Mapa();
+        mapa.crearMapa();
+        this.jugadores = new ArrayList<>();
+        this.cantidadJugadores = 0;
+    }
 
     public Juego(String[] nombresJugadores) {
         Mapa mapa = new Mapa();
@@ -32,9 +37,6 @@ public class Juego {
     }
 
 
-    public Mapa obtenerMapa() {return this.mapa;}
-
-    public void moverVehiculo(Direccion unaDireccion) { jugadorTurno.moverVehiculo(unaDireccion); }
     public void siguienteTurno() {
         int indice = jugadores.indexOf(jugadorTurno);
 
@@ -50,11 +52,6 @@ public class Juego {
         return jugadorTurno.getNombre();
     }
 
-    public Juego() {
-        this.mapa = new Mapa();
-        this.jugadores = new ArrayList<>();
-        this.cantidadJugadores = 0;
-    }
 
     public void agregarJugador(String nombre)  {
         Jugador jugador = new Jugador(mapa, nombre);
@@ -93,6 +90,33 @@ public class Juego {
     public int puntaje() {
         return jugadorTurno.cantidadDeMovimientos();
     }
+
+    public void moverhaciaArriba() {
+        DireccionInferior direccionInferior = new DireccionInferior(mapa);
+        jugadorTurno.moverVehiculo(direccionInferior);
+    }
+
+    public void moverHaciaAbajo() {
+        DireccionSuperior direccionSuperior = new DireccionSuperior(mapa);
+        jugadorTurno.moverVehiculo(direccionSuperior);
+    }
+
+    public void moverHaciaDerecha() {
+        DireccionDerecha direccionDerecha = new DireccionDerecha(mapa);
+        jugadorTurno.moverVehiculo(direccionDerecha);
+
+    }
+
+    public void moverHaciaIzquierda() {
+        DireccionIzquierda direccionIzquierda = new DireccionIzquierda(mapa);
+        jugadorTurno.moverVehiculo(direccionIzquierda);
+    }
+
+    public ArrayList<Cuadra> getCuadras() {
+        return mapa.getCuadras();
+    }
+
+
 }
 
 

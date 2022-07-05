@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.vista.eventos.movimientos;
 
-import edu.fiuba.algo3.modelo.codigo.Direccion.DireccionIzquierda;
 import edu.fiuba.algo3.modelo.codigo.Juego;
-import edu.fiuba.algo3.vista.ContenedorMapa;
 import edu.fiuba.algo3.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -21,8 +19,7 @@ public class BotonMoverIzquierda implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        DireccionIzquierda direccionIzquierda = new DireccionIzquierda(juego.obtenerMapa());
-        juego.moverVehiculo(direccionIzquierda);
+        juego.moverHaciaIzquierda();
         juego.imprimirEstado();
         juego.siguienteTurno();
 

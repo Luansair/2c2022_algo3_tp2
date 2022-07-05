@@ -24,8 +24,7 @@ public class BotonMoverAbajo implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        DireccionSuperior direccionSuperior = new DireccionSuperior(juego.obtenerMapa());
-        juego.moverVehiculo(direccionSuperior);
+        juego.moverHaciaAbajo();
         juego.imprimirEstado();
         juego.siguienteTurno();
 

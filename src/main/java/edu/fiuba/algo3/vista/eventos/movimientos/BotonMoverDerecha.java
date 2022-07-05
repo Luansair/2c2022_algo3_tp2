@@ -21,8 +21,7 @@ public class BotonMoverDerecha implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        DireccionDerecha direccionDerecha = new DireccionDerecha(juego.obtenerMapa());
-        juego.moverVehiculo(direccionDerecha);
+        juego.moverHaciaDerecha();
         juego.imprimirEstado();
         juego.siguienteTurno();
 
