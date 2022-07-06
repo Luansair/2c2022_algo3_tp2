@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.codigo.Direccion.DireccionInferior;
 import edu.fiuba.algo3.modelo.codigo.Direccion.DireccionInferior;
 import edu.fiuba.algo3.modelo.codigo.Juego;
 import edu.fiuba.algo3.vista.ContenedorMapa;
+import edu.fiuba.algo3.vista.ContenedorMeta;
 import edu.fiuba.algo3.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -26,14 +27,18 @@ public class BotonMoverArriba implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         juego.moverhaciaArriba();
         juego.imprimirEstado();
-
-
-        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, juego);
-
-        Scene escenaPrincipal = new Scene(contenedorPrincipal,1235,957);
-        escenaPrincipal.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
-        stage.setScene(escenaPrincipal);
-        stage.setFullScreenExitHint("");
-        stage.setFullScreen(false);
+        if (juego.juegoTerminado())  {
+            ContenedorMeta contenedorMeta = new ContenedorMeta(juego);
+            Scene escenaMeta = new Scene(contenedorMeta,1100,700);
+            escenaMeta.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
+            stage.setScene(escenaMeta);
+        } else {
+            ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal( stage, juego);
+            Scene escenaPrincipal = new Scene(contenedorPrincipal,1235,957);
+            escenaPrincipal.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
+            stage.setScene(escenaPrincipal);
+            stage.setFullScreenExitHint("");
+            stage.setFullScreen(false);
+        }
     }
 }

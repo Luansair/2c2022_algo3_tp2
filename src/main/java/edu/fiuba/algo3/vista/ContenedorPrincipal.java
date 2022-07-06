@@ -19,6 +19,11 @@ public class ContenedorPrincipal extends BorderPane {
     private Juego juego;
     private BarraDeMenu menuBar;
 
+    //MEDIDOS EN PIXELES
+    private int TAMANIOMAPA = 925;
+    private int RADIOVISIBLE = 125;
+    private int DISTANCIARECORRIDA = 100;
+
 
     public ContenedorPrincipal(Stage stage, Juego juego) {
         this.stage = stage;
@@ -39,33 +44,22 @@ public class ContenedorPrincipal extends BorderPane {
         pantallaPrincipal.setSpacing(10);
 
 
-        Canvas canvas = new Canvas(925,925);
+        Canvas canvas = new Canvas(TAMANIOMAPA,TAMANIOMAPA);
         VBox mapaCamuflado = new VBox(canvas);
+
+        ContenedorMapa contenedorMapa = new ContenedorMapa( juego,stage);
 
         GridPane mapaFinal = new GridPane();
         mapaFinal.getStyleClass().add("fondo-mapa");
 
-        ContenedorMapa contenedorMapa = new ContenedorMapa( juego);
-
         canvas.getGraphicsContext2D().setFill(Paint.valueOf("#000000"));
-        int radio = 200;
-        int posicionAutoX = 500;
-        int poscionAutoY = 500;
-        //canvas.getGraphicsContext2D().fillRect(0,0,925,925);
-        //canvas.getGraphicsContext2D().clearRect(posicionAutoX-radio,poscionAutoY-radio, radio * 2,radio*2);
-        canvas.getGraphicsContext2D().beginPath();
-        canvas.getGraphicsContext2D().arc(200,200,100,100,79,50);
-
-        //canvas.getGraphicsContext2D().lineTo(75,50);
-        //canvas.getGraphicsContext2D().closePath();
-        canvas.getGraphicsContext2D().stroke();
-
+        canvas.getGraphicsContext2D().fillRect(0,0,TAMANIOMAPA,TAMANIOMAPA);
+        canvas.getGraphicsContext2D().clearRect(juego.getPosicionX() * DISTANCIARECORRIDA - RADIOVISIBLE, juego.getPosicionY() * DISTANCIARECORRIDA - RADIOVISIBLE, RADIOVISIBLE * 2,RADIOVISIBLE *2);
 
         mapaFinal.add(contenedorMapa,0,0);
         mapaFinal.add(mapaCamuflado,0,0 );
 
         ContenedorBotonesMovimiento contenedorBotonesMovimiento = new ContenedorBotonesMovimiento(stage, juego);
-
 
         pantallaPrincipal.getChildren().addAll(mapaFinal, contenedorBotonesMovimiento);
         this.setCenter(pantallaPrincipal);

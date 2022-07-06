@@ -8,6 +8,7 @@ import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverArriba;
 import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverDerecha;
 import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverIzquierda;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
@@ -19,24 +20,14 @@ import java.util.Objects;
 
 public class ContenedorMapa extends VBox  {
     private Juego juego;
+    private Stage stage;
 
-    public ContenedorMapa( Juego juego ) {
+    public ContenedorMapa( Juego juego,Stage stage ) {
+        this.stage = stage;
         this.juego = juego;
-        if (juego.juegoTerminado()) {
-            termino();
-        }
-
         this.setCentro();
     }
 
-    public void termino() {
-        GridPane gridPane = new GridPane();
-        Button boton = new Button("");
-        boton.getStyleClass().add("boton-esquina");
-        gridPane.add(boton, 1, 1);
-        this.getChildren().add(gridPane);
-
-    }
 
     public void setCentro() {
 
@@ -109,12 +100,12 @@ public class ContenedorMapa extends VBox  {
         }
 
         for(Jugador jugador:juego.getJugadores()) {
-            VBox caja0 = new VBox();
+            VBox cajaVehiculo = new VBox();
             Vehiculo vehiculo = jugador.obtenerVehiculo();
             Esquina posicion = vehiculo.obtenerPosicion();
 
-            caja0.getStyleClass().add(vehiculo.imprimir() + "-mapa");
-            gridPane.add(caja0, 2 * posicion.posicion_x, 2 * posicion.posicion_y);
+            cajaVehiculo.getStyleClass().add(vehiculo.imprimir() + "-mapa");
+            gridPane.add(cajaVehiculo, 2 * posicion.getPosicionX(), 2 * posicion.getPosicionY());
         }
 
         VBox caja0 = new VBox();

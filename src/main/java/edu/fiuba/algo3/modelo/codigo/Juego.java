@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.codigo.obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.codigo.vehiculos.Auto;
 import edu.fiuba.algo3.modelo.codigo.vehiculos.CuatroPorCuatro;
 import edu.fiuba.algo3.modelo.codigo.vehiculos.Moto;
+import edu.fiuba.algo3.modelo.codigo.vehiculos.Vehiculo;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -36,6 +37,8 @@ public class Juego {
         jugadorTurno = jugadores.get(0);
     }
 
+
+
     // Si el jugador actual llego a la meta -> obtengo el jugador siguiente -> saco al que llego a la meta
     // Si no llego -> normal
     public void siguienteTurno() {
@@ -55,10 +58,13 @@ public class Juego {
 
     public void llegueAMeta() {
         // Guardar Score
+
         Jugador ganador = jugadorTurno;
-        jugadorTurno = jugadores.get(indiceSiguiente());
         jugadores.remove(ganador);
         cantidadJugadores --;
+        if (!juegoTerminado()) {
+            jugadorTurno = jugadores.get(indiceSiguiente());
+        }
     }
 
     private int indiceSiguiente() {
@@ -107,7 +113,7 @@ public class Juego {
 
     public void imprimirEstado() {
         System.out.println(jugadorTurno.getNombre() + " tiene movimientos = " + jugadorTurno.cantidadDeMovimientos());
-        System.out.println("Posición = " + jugadorTurno.obtenerVehiculo().obtenerPosicion().posicion_x + " " + jugadorTurno.obtenerVehiculo().obtenerPosicion().posicion_y);
+        System.out.println("Posición = " + jugadorTurno.obtenerVehiculo().obtenerPosicion().getPosicionX() + " " + jugadorTurno.obtenerVehiculo().obtenerPosicion().getPosicionY());
     }
 
     public int puntaje() {
@@ -145,6 +151,15 @@ public class Juego {
     }
 
 
+    public int getPosicionX() {
+        Vehiculo vehiculo = jugadorTurno.obtenerVehiculo();
+        return vehiculo.obtenerPosicion().getPosicionX();
+    }
+
+    public int getPosicionY() {
+        Vehiculo vehiculo = jugadorTurno.obtenerVehiculo();
+        return vehiculo.obtenerPosicion().getPosicionY();
+    }
 }
 
 
