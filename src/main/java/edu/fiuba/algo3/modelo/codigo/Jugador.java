@@ -9,6 +9,7 @@ public class Jugador {
     private Vehiculo vehiculo;
     private Mapa mapa;
 
+
     public Jugador(Mapa unMapa, String unNombre) {
         this.nombre = unNombre;
         this.cantidadMovimientos = new ContadorMovimiento();
@@ -40,6 +41,11 @@ public class Jugador {
         mapa.aplicarObstaculos(vehiculo, vehiculo.obtenerPosicion(), vehiculo.obtenerPosicionAnterior());
         mapa.aplicarSorpresas(this, vehiculo.obtenerPosicion(), vehiculo.obtenerPosicionAnterior());
     }
+
+    public Boolean llegoAMeta() {
+        return mapa.llegueAMeta(vehiculo.obtenerPosicion());
+    }
+
     public void sumarMovimientos(int movimientos) {
         cantidadMovimientos.aumentar(movimientos);
     }

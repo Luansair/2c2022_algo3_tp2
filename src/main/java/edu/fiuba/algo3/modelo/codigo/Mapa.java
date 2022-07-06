@@ -17,11 +17,18 @@ public class Mapa {
     private int dimension_x;
     private int dimension_y;
 
+    private Esquina meta;
+
     public Mapa() {
         cuadras = new ArrayList<>();
         esquinas = new ArrayList<>();
         dimension_x = 10;
         dimension_y = 10;
+        meta = new Esquina(9, 9);
+    }
+
+    public Boolean llegueAMeta(Esquina posicion) {
+        return posicion.mismaEsquina(meta);
     }
 
     public void crearMapa() {
@@ -47,6 +54,7 @@ public class Mapa {
                 this.agregarCuadra(new Cuadra(esquinas[x][y], esquinas[x][y+1]));
             }
         }
+
 
         cuadras.get(2).agregarObstaculo(new Pozo());
         cuadras.get(11).agregarObstaculo(new Pozo());

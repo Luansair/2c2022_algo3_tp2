@@ -26,7 +26,7 @@ public class BotonMoverArriba implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         juego.moverhaciaArriba();
         juego.imprimirEstado();
-        juego.siguienteTurno();
+
 
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, juego);
 

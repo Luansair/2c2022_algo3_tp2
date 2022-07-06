@@ -36,14 +36,37 @@ public class Juego {
         jugadorTurno = jugadores.get(0);
     }
 
-
+    // Si el jugador actual llego a la meta -> obtengo el jugador siguiente -> saco al que llego a la meta
+    // Si no llego -> normal
     public void siguienteTurno() {
-        int indice = jugadores.indexOf(jugadorTurno);
-
-        if(indice == jugadores.size() - 1) {
-            jugadorTurno = jugadores.get(0);
+        if (jugadorTurno.llegoAMeta()) {
+            // Guardar Score
+            llegueAMeta();
         } else {
-            jugadorTurno = jugadores.get(indice + 1);
+            int indice = jugadores.indexOf(jugadorTurno);
+
+            if(indice == jugadores.size() - 1) {
+                jugadorTurno = jugadores.get(0);
+            } else {
+                jugadorTurno = jugadores.get(indice + 1);
+            }
+        }
+    }
+
+    public void llegueAMeta() {
+        // Guardar Score
+        Jugador ganador = jugadorTurno;
+        jugadorTurno = jugadores.get(indiceSiguiente());
+        jugadores.remove(ganador);
+        cantidadJugadores --;
+    }
+
+    private int indiceSiguiente() {
+        int indice = jugadores.indexOf(jugadorTurno);
+        if (indice == jugadores.size() - 1) {
+            return 0;
+        } else {
+            return indice + 1;
         }
     }
 
@@ -94,23 +117,28 @@ public class Juego {
     public void moverhaciaArriba() {
         DireccionInferior direccionInferior = new DireccionInferior(mapa);
         jugadorTurno.moverVehiculo(direccionInferior);
+        siguienteTurno();
     }
 
     public void moverHaciaAbajo() {
         DireccionSuperior direccionSuperior = new DireccionSuperior(mapa);
         jugadorTurno.moverVehiculo(direccionSuperior);
+        siguienteTurno();
     }
 
     public void moverHaciaDerecha() {
         DireccionDerecha direccionDerecha = new DireccionDerecha(mapa);
         jugadorTurno.moverVehiculo(direccionDerecha);
-
+        siguienteTurno();
     }
 
     public void moverHaciaIzquierda() {
         DireccionIzquierda direccionIzquierda = new DireccionIzquierda(mapa);
         jugadorTurno.moverVehiculo(direccionIzquierda);
+        siguienteTurno();
     }
+
+
 
     public ArrayList<Cuadra> getCuadras() {
         return mapa.getCuadras();

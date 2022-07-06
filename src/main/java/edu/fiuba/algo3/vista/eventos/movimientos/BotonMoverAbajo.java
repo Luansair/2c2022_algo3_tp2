@@ -26,7 +26,6 @@ public class BotonMoverAbajo implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         juego.moverHaciaAbajo();
         juego.imprimirEstado();
-        juego.siguienteTurno();
 
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal( stage, juego);
 

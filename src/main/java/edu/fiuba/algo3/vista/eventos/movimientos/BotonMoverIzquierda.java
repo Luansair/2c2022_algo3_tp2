@@ -21,7 +21,6 @@ public class BotonMoverIzquierda implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         juego.moverHaciaIzquierda();
         juego.imprimirEstado();
-        juego.siguienteTurno();
 
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage,  juego);
 

@@ -22,8 +22,20 @@ public class ContenedorMapa extends VBox  {
 
     public ContenedorMapa( Juego juego ) {
         this.juego = juego;
+        if (juego.juegoTerminado()) {
+            termino();
+        }
 
         this.setCentro();
+    }
+
+    public void termino() {
+        GridPane gridPane = new GridPane();
+        Button boton = new Button("");
+        boton.getStyleClass().add("boton-esquina");
+        gridPane.add(boton, 1, 1);
+        this.getChildren().add(gridPane);
+
     }
 
     public void setCentro() {
@@ -96,7 +108,6 @@ public class ContenedorMapa extends VBox  {
             }
         }
 
-
         for(Jugador jugador:juego.getJugadores()) {
             VBox caja0 = new VBox();
             Vehiculo vehiculo = jugador.obtenerVehiculo();
@@ -106,6 +117,9 @@ public class ContenedorMapa extends VBox  {
             gridPane.add(caja0, 2 * posicion.posicion_x, 2 * posicion.posicion_y);
         }
 
+        VBox caja0 = new VBox();
+        caja0.getStyleClass().add("boton-moto-mapa");
+        gridPane.add(caja0, 2 * 9, 2 * 9);
 
         this.getChildren().add(gridPane);
     }
