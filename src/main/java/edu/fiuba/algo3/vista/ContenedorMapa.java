@@ -108,6 +108,7 @@ public class ContenedorMapa extends VBox  {
             gridPane.add(cajaVehiculo, 2 * posicion.getPosicionX(), 2 * posicion.getPosicionY());
         }
 
+        // DIBUJO META
         VBox caja0 = new VBox();
         caja0.getStyleClass().add("boton-moto-mapa");
         gridPane.add(caja0, 2 * 9, 2 * 9);

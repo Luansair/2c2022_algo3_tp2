@@ -24,7 +24,7 @@ public class PiqueteTest {
         Mapa mapa = new Mapa();
         Esquina origen = new Esquina(0, 0);
         Esquina esquina1 = new Esquina(0,0);
-        Esquina esquina2 = new Esquina(0,-1);
+        Esquina esquina2 = new Esquina(0,1);
         Cuadra cuadra1 = new Cuadra(esquina1, esquina2); cuadra1.agregarObstaculo(new Piquete());
 
 
@@ -34,7 +34,7 @@ public class PiqueteTest {
 
         mapa.agregarCuadra(cuadra1);
 
-        jugador.moverVehiculo(new DireccionInferior(mapa)); //o direccion abajo
+        jugador.moverVehiculo(new DireccionSuperior(mapa)); //o direccion abajo
 
         assertTrue(origen.mismaEsquina(auto.obtenerPosicion()));
     }
@@ -47,7 +47,7 @@ public class PiqueteTest {
         Mapa mapa = new Mapa();
         Esquina origen = new Esquina(0, 0);
         Esquina esquina1 = new Esquina(0,0);
-        Esquina esquina2 = new Esquina(0,-1);
+        Esquina esquina2 = new Esquina(0,1);
         Cuadra cuadra1 = new Cuadra(esquina1, esquina2); cuadra1.agregarObstaculo(new Piquete());
 
 
@@ -57,7 +57,7 @@ public class PiqueteTest {
 
         mapa.agregarCuadra(cuadra1);
 
-        jugador.moverVehiculo(new DireccionInferior(mapa)); //o direccion abajo
+        jugador.moverVehiculo(new DireccionSuperior(mapa)); //o direccion abajo
 
         assertEquals(jugador.cantidadDeMovimientos(), movimientos);
     }
@@ -67,7 +67,7 @@ public class PiqueteTest {
         Mapa mapa = new Mapa();
         Esquina origen = new Esquina(0, 0);
         Esquina esquina1 = new Esquina(0,0);
-        Esquina esquina2 = new Esquina(0,-1);
+        Esquina esquina2 = new Esquina(0,1);
         Cuadra cuadra1 = new Cuadra(esquina1, esquina2); cuadra1.agregarObstaculo(new Piquete());
 
 
@@ -77,7 +77,7 @@ public class PiqueteTest {
 
         mapa.agregarCuadra(cuadra1);
 
-        jugador.moverVehiculo(new DireccionInferior(mapa)); //o direccion abajo
+        jugador.moverVehiculo(new DireccionSuperior(mapa)); //o direccion abajo
 
         assertTrue(esquina2.mismaEsquina(moto.obtenerPosicion()));
     }
