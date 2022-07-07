@@ -26,12 +26,12 @@ public class PruebasJugador {
         jugador.asignarVehiculo(new Auto(new Esquina(0,0),jugador));
 
         Esquina esquina1 = new Esquina(0,0);
-        Esquina esquina2 = new Esquina(0,-1); Cuadra cuadra1 = new Cuadra(esquina1, esquina2);
+        Esquina esquina2 = new Esquina(0,1); Cuadra cuadra1 = new Cuadra(esquina1, esquina2);
 
         mapa.agregarCuadra(cuadra1);
 
-        jugador.moverVehiculo(new DireccionInferior(mapa)); //o direccion abajo
         jugador.moverVehiculo(new DireccionSuperior(mapa)); //o direccion arriba
+        jugador.moverVehiculo(new DireccionInferior(mapa)); //o direccion abajo
 
         assertEquals(movTotal, jugador.cantidadDeMovimientos());
     }

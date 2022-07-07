@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.codigo.vehiculos.Moto;
 import edu.fiuba.algo3.modelo.codigo.vehiculos.Vehiculo;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.util.Pair;
 
 import java.util.ArrayList;
 
@@ -17,33 +18,20 @@ public class Juego {
     private int cantidadJugadores;
     private Mapa mapa;
 
+    public ArrayList<Pair<Jugador, Integer>> scores;
+
     public Juego() {
         this.mapa = new Mapa();
-        mapa.crearMapa();
+        this.mapa.crearMapa();
         this.jugadores = new ArrayList<>();
         this.cantidadJugadores = 0;
+        this.scores = new ArrayList<>();
     }
-
-    public Juego(String[] nombresJugadores) {
-        Mapa mapa = new Mapa();
-
-        jugadores = new ArrayList<>();
-        cantidadJugadores = nombresJugadores.length;
-
-        for(int i = 0; i < cantidadJugadores; i++) {
-            jugadores.add(new Jugador(mapa, nombresJugadores[i]));
-        }
-
-        jugadorTurno = jugadores.get(0);
-    }
-
-
 
     // Si el jugador actual llego a la meta -> obtengo el jugador siguiente -> saco al que llego a la meta
     // Si no llego -> normal
     public void siguienteTurno() {
         if (jugadorTurno.llegoAMeta()) {
-            // Guardar Score
             llegueAMeta();
         } else {
             int indice = jugadores.indexOf(jugadorTurno);
@@ -58,9 +46,8 @@ public class Juego {
 
     public void llegueAMeta() {
         // Guardar Score
-
-        Jugador ganador = jugadorTurno;
-        jugadores.remove(ganador);
+        this.scores.add(new Pair<>(jugadorTurno, jugadorTurno.cantidadDeMovimientos()));
+        jugadores.remove(jugadorTurno);
         cantidadJugadores --;
         if (!juegoTerminado()) {
             jugadorTurno = jugadores.get(indiceSiguiente());
@@ -85,8 +72,8 @@ public class Juego {
     public void agregarJugador(String nombre)  {
         Jugador jugador = new Jugador(mapa, nombre);
         jugadores.add(jugador);
-        jugadorTurno = jugador;
         cantidadJugadores ++;
+        jugadorTurno = jugador;
         System.out.println("JUGADOR AGREGADO");
     }
 

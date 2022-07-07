@@ -18,38 +18,48 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PruebasJuego {
 
     @Test
-    public void test01SeCreaUnJuegoConTresJugadoresYElJugadorDeTurnoEsElPrimero() {
+    public void test01SeCreaUnJuegoConTresJugadoresYElJugadorDeTurnoEsElUltimo() {
         String[] jugadores = {"Facundo", "Felipe", "Franco"};
-        Juego juego = new Juego(jugadores);
+        Juego juego = new Juego();
+        juego.agregarJugador("Facundo");
+        juego.asignarMoto();
+        juego.agregarJugador("Felipe");
+        juego.asignarMoto();
+        juego.agregarJugador("Franco");
+        juego.asignarMoto();
+
+        assertEquals(juego.getJugadorTurno(), jugadores[2]);
+    }
+
+    @Test
+    public void test02SeCreaUnJuegoConTresJugadoresYAlPasarUnTurnoElJugadorDeTurnoEsElPrimero() {
+        String[] jugadores = {"Facundo", "Felipe", "Franco"};
+        Juego juego = new Juego();
+        juego.agregarJugador("Facundo");
+        juego.asignarMoto();
+        juego.agregarJugador("Felipe");
+        juego.asignarMoto();
+        juego.agregarJugador("Franco");
+        juego.asignarMoto();
+        juego.siguienteTurno();
 
         assertEquals(juego.getJugadorTurno(), jugadores[0]);
     }
 
     @Test
-    public void test02SeCreaUnJuegoConTresJugadoresYAlPasarUnTurnoElJugadorDeTurnoEsElSegundo() {
+    public void test03SeCreaUnJuegoConTresJugadoresYAlPasarTresVecesElTurnoElJugadorDeTurnoEsElUltimoDeNuevo() {
         String[] jugadores = {"Facundo", "Felipe", "Franco"};
-        Juego juego = new Juego(jugadores);
+        Juego juego = new Juego();
+        juego.agregarJugador("Facundo");
+        juego.asignarMoto();
+        juego.agregarJugador("Felipe");
+        juego.asignarMoto();
+        juego.agregarJugador("Franco");
+        juego.asignarMoto();
+        juego.siguienteTurno();
+        juego.siguienteTurno();
         juego.siguienteTurno();
 
-        assertEquals(juego.getJugadorTurno(), jugadores[1]);
+        assertEquals(juego.getJugadorTurno(), jugadores[2]);
     }
-
-    @Test
-    public void test03SeCreaUnJuegoConTresJugadoresYAlPasarTresVecesElTurnoElJugadorDeTurnoEsElPrimeroDeNuevo() {
-        String[] jugadores = {"Facundo", "Felipe", "Franco"};
-        Juego juego = new Juego(jugadores);
-        juego.siguienteTurno();
-        juego.siguienteTurno();
-        juego.siguienteTurno();
-
-        assertEquals(juego.getJugadorTurno(), jugadores[0]);
-    }
-
-    /* Da bien el siguiente test pero no se como hacer el assert
-    @Test
-    public void test04SeCreaUnJuegoConCeroJugadoresYLanzaExcepcion() {
-        String[] jugadores = {};
-        Juego juego = new Juego(jugadores);
-    }
-     */
 }
