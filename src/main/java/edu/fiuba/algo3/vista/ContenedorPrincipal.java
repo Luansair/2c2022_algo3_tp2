@@ -31,7 +31,6 @@ public class ContenedorPrincipal extends BorderPane {
         this.getStyleClass().add("border-vox");
         this.setMenu();
         this.setCentro();
-
     }
 
     private void setMenu() {
@@ -55,6 +54,7 @@ public class ContenedorPrincipal extends BorderPane {
         canvas.getGraphicsContext2D().setFill(Paint.valueOf("#000000"));
         canvas.getGraphicsContext2D().fillRect(0,0,TAMANIOMAPA,TAMANIOMAPA);
         canvas.getGraphicsContext2D().clearRect(juego.getPosicionX() * DISTANCIARECORRIDA - RADIOVISIBLE, juego.getPosicionY() * DISTANCIARECORRIDA - RADIOVISIBLE, RADIOVISIBLE * 2,RADIOVISIBLE *2);
+        canvas.getGraphicsContext2D().clearRect(juego.getMeta().getPosicionX() * DISTANCIARECORRIDA, juego.getMeta().getPosicionY() * DISTANCIARECORRIDA, RADIOVISIBLE,RADIOVISIBLE);
 
         mapaFinal.add(contenedorMapa,0,0);
         mapaFinal.add(mapaCamuflado,0,0 );

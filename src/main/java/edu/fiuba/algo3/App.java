@@ -12,55 +12,46 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.io.*;
+import java.util.Arrays;
+import java.util.Scanner;
+
 /**
  * JavaFX App
  */
 
 public class App extends Application {
-    private HBox contenedorHorizontal;
-    private VBox contenedorPrincipal;
+
+    public static final String SEPARADOR = ",";
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setTitle("Mi primera ventana");
-        StackPane layout = new StackPane();
-
-        Button botonEnviar = new Button();
-        botonEnviar.setText("Enviar");
-        botonEnviar.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Enviado");
+        String csvFile = "C:\\archivo.csv";
+        BufferedReader br = null;
+        String line = "";
+//Se define separador ","
+        String cvsSplitBy = ",";
+        try {
+            br = new BufferedReader(new FileReader(csvFile));
+            while ((line = br.readLine()) != null) {
+                String[] datos = line.split(cvsSplitBy);
+                //Imprime datos.
+                System.out.println(datos[0] + ", " + datos[1]);
             }
-        });
-
-        Button botonLimpiar = new Button();
-        botonLimpiar.setText("Limpiar cuadro de texto");
-        botonLimpiar.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Limpiado");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-        });
+        }
 
-        contenedorHorizontal = new HBox(botonEnviar, botonLimpiar);
-        contenedorHorizontal.setSpacing(10);
-
-        Label label = new Label();
-        label.setText("TEXTO DE LA ETIQUETA");
-        layout.getChildren().add(label);
-
-        TextField texto = new TextField();
-        texto.setPromptText("Ingrese texto");
-
-        contenedorPrincipal = new VBox(texto, contenedorHorizontal, label);
-        contenedorPrincipal.setSpacing(10);
-        contenedorPrincipal.setPadding(new Insets(20, 10, 20, 10));
-        contenedorPrincipal.setBackground(new Background(new BackgroundFill(Color.ORANGE, null, null)));
-
-        Scene scene = new Scene(contenedorPrincipal, 300, 250);
-        stage.setScene(scene);
-        stage.show();
     }
 
     public static void main(String[] args) {

@@ -110,7 +110,7 @@ public class ContenedorMapa extends VBox  {
 
         // DIBUJO META
         VBox caja0 = new VBox();
-        caja0.getStyleClass().add("boton-moto-mapa");
+        caja0.getStyleClass().add("boton-meta");
         gridPane.add(caja0, 2 * 9, 2 * 9);
 
         this.getChildren().add(gridPane);

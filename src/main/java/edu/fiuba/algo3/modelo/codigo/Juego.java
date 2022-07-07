@@ -17,8 +17,7 @@ public class Juego {
     private Jugador jugadorTurno;
     private int cantidadJugadores;
     private Mapa mapa;
-
-    public ArrayList<Pair<Jugador, Integer>> scores;
+    public ArrayList<Jugador> scores;
 
     public Juego() {
         this.mapa = new Mapa();
@@ -28,8 +27,6 @@ public class Juego {
         this.scores = new ArrayList<>();
     }
 
-    // Si el jugador actual llego a la meta -> obtengo el jugador siguiente -> saco al que llego a la meta
-    // Si no llego -> normal
     public void siguienteTurno() {
         if (jugadorTurno.llegoAMeta()) {
             llegueAMeta();
@@ -45,8 +42,7 @@ public class Juego {
     }
 
     public void llegueAMeta() {
-        // Guardar Score
-        this.scores.add(new Pair<>(jugadorTurno, jugadorTurno.cantidadDeMovimientos()));
+        this.scores.add(jugadorTurno);
         jugadores.remove(jugadorTurno);
         cantidadJugadores --;
         if (!juegoTerminado()) {
@@ -92,6 +88,8 @@ public class Juego {
     public boolean juegoTerminado() {
         return jugadores.size() == 0;
     }
+
+    public Esquina getMeta() {return mapa.getMeta();}
 
     public ArrayList<Jugador> getJugadores() {return jugadores;}
 

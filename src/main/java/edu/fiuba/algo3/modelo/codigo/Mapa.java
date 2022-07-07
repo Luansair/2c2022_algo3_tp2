@@ -118,48 +118,14 @@ public class Mapa {
         cuadras.get(72).agregarSorpresa(new SorpresaDesfavorable());
         cuadras.get(75).agregarSorpresa(new SorpresaCambioVehiculo());
         cuadras.get(86).agregarSorpresa(new SorpresaFavorable());
-
-        /*
-        for (Cuadra cuadra:mapa.cuadras){
-            // Es probable que la cuadra no tenga nada basandonos en la imagen de la consigna
-            if(Math.random() < 0.65) { continue; }
-
-            double numero = Math.random();
-            int maxElementos; //determina la cantidad de cosas en una misma cuadra
-
-            if(numero < 0.8) {
-                maxElementos = 1;
-            } else if(numero < 0.95) {
-                maxElementos = 2;
-            } else {
-                maxElementos = 3;
-            }
-
-            for (int i = 0; i < maxElementos; i++) {
-                int elemento = new Random().nextInt(7); // determina que se guarda
-                if(elemento == 1){
-                    cuadra.agregarSorpresa(new SorpresaFavorable());
-                } else if(elemento == 2){
-                    cuadra.agregarSorpresa(new SorpresaDesfavorable());
-                } else if(elemento == 3){
-                    cuadra.agregarSorpresa(new SorpresaCambioVehiculo());
-                } else if(elemento == 4) {
-                    cuadra.agregarObstaculo(new Pozo());
-                } else if(elemento == 5) {
-                    cuadra.agregarObstaculo(new Piquete()); // Agregar boolean para que no haya 2 piquetes en misma cuadra
-                } else if(elemento == 6) {
-                    cuadra.agregarObstaculo(new ControlPolicial());
-                }
-            }
-        }
-        */
-
     }
 
     //Getter para dibujar el mapa
     public ArrayList<Cuadra> getCuadras() {
         return cuadras;
     }
+
+    public Esquina getMeta() {return this.meta;}
 
     public Boolean posicionValida(Vehiculo vehiculo) {
         Esquina posVehiculo = vehiculo.obtenerPosicion();

@@ -270,3 +270,11 @@
     -fx-border-radius: 2px;
 
 }
+
+.boton-meta {
+    -fx-min-height: 25px;
+    -fx-min-width: 25px;
+    -fx-background-image: url('../imagenes/meta.png');
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-repeat: no-repeat;
+}

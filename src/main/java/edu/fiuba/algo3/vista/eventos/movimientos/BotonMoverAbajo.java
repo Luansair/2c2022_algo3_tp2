@@ -28,12 +28,14 @@ public class BotonMoverAbajo implements EventHandler<ActionEvent> {
         juego.moverHaciaAbajo();
         juego.imprimirEstado();
         if (juego.juegoTerminado())  {
-            ContenedorMeta contenedorMeta = new ContenedorMeta(juego);
+            ContenedorMeta contenedorMeta = new ContenedorMeta(juego, stage);
             Scene escenaMeta = new Scene(contenedorMeta,1100,700);
             escenaMeta.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
             stage.setScene(escenaMeta);
+            stage.setFullScreenExitHint("");
+            stage.setFullScreen(false);
         } else {
-            ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal( stage, juego);
+            ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, juego);
             Scene escenaPrincipal = new Scene(contenedorPrincipal,1235,957);
             escenaPrincipal.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
             stage.setScene(escenaPrincipal);

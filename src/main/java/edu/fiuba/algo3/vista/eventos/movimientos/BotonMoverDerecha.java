@@ -25,7 +25,7 @@ public class BotonMoverDerecha implements EventHandler<ActionEvent> {
         juego.moverHaciaDerecha();
         juego.imprimirEstado();
         if (juego.juegoTerminado())  {
-            ContenedorMeta contenedorMeta = new ContenedorMeta(juego);
+            ContenedorMeta contenedorMeta = new ContenedorMeta(juego, stage);
             Scene escenaMeta = new Scene(contenedorMeta,1100,700);
             escenaMeta.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
             stage.setScene(escenaMeta);

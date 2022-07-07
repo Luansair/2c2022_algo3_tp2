@@ -21,7 +21,7 @@ public class App extends Application {
 
         stage.setTitle("Trabajo practico 2 - GPS Challenge");
 
-        Juego juego = crearModelo();
+        Juego juego = new Juego();
 
         ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, juego);
         Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 1100,  700);
@@ -29,11 +29,6 @@ public class App extends Application {
         stage.setScene(escenaBienvenidos);
 
         stage.show();
-    }
-
-    private Juego crearModelo() {
-        Juego juego = new Juego();
-        return juego;
     }
 
     public static void main(String[] args) {
