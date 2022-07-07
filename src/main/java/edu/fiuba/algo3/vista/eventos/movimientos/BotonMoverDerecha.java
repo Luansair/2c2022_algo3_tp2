@@ -10,6 +10,9 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class BotonMoverDerecha implements EventHandler<ActionEvent> {
 
     private Juego juego;
@@ -25,7 +28,14 @@ public class BotonMoverDerecha implements EventHandler<ActionEvent> {
         juego.moverHaciaDerecha();
         juego.imprimirEstado();
         if (juego.juegoTerminado())  {
-            ContenedorMeta contenedorMeta = new ContenedorMeta(juego, stage);
+            ContenedorMeta contenedorMeta = null;
+            try {
+                contenedorMeta = new ContenedorMeta(juego, stage);
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             Scene escenaMeta = new Scene(contenedorMeta,1100,700);
             escenaMeta.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
             stage.setScene(escenaMeta);

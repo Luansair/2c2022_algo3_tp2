@@ -36,10 +36,10 @@ public class ContenedorBienvenidos extends VBox {
         botonEntrar.getStyleClass().add("boton-comienzo");
         botonEntrar.setMinSize(75,25);
 
-        Button botonCreditos = new Button();
-        botonCreditos.setText("Creditos");
-        botonCreditos.getStyleClass().add("boton-comienzo");
-        botonCreditos.setMinSize(75,25);
+        Button botonPuntuaciones = new Button();
+        botonPuntuaciones.setText("Puntuaciones");
+        botonPuntuaciones.getStyleClass().add("boton-comienzo");
+        botonPuntuaciones.setMinSize(75,25);
 
         Button botonSalir = new Button();
         botonSalir.setText("Salir");
@@ -49,13 +49,13 @@ public class ContenedorBienvenidos extends VBox {
         OpcionEntrarEventHandler opcionEntrarEventHandler = new OpcionEntrarEventHandler(stage, juego);
         botonEntrar.setOnAction(opcionEntrarEventHandler);
 
-        BotonCreditosEventHandler botonCreditosEventHandler = new BotonCreditosEventHandler();
-        botonCreditos.setOnAction(botonCreditosEventHandler);
+        BotonCreditosEventHandler botonCreditosEventHandler = new BotonCreditosEventHandler(juego, stage);
+        botonPuntuaciones.setOnAction(botonCreditosEventHandler);
 
         OpcionSalirEventHandler opcionSalirEventHandler = new OpcionSalirEventHandler();
         botonSalir.setOnAction(opcionSalirEventHandler);
 
-        this.getChildren().addAll(label, botonEntrar,botonCreditos, botonSalir);
+        this.getChildren().addAll(label, botonEntrar,botonPuntuaciones, botonSalir);
 
     }
 

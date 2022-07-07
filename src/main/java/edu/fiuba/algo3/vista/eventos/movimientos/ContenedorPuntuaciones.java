@@ -11,14 +11,12 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 
 
-public class ContenedorMeta extends VBox {
+public class ContenedorPuntuaciones extends VBox {
 
-    public ContenedorMeta(Juego juego, Stage stage) throws IOException {
+    public ContenedorPuntuaciones(Juego juego, Stage stage) throws Exception {
         this.getStyleClass().add("border-vox");
         this.setAlignment(Pos.TOP_CENTER);
 
@@ -30,14 +28,14 @@ public class ContenedorMeta extends VBox {
         titulo.getStyleClass().add("texto-predeterminado");
         this.getChildren().addAll(titulo);
 
-        for(Jugador jugador : juego.scores) {
-            Label etiqueta = new Label(jugador.getNombre() + "         " + jugador.cantidadDeMovimientos());
+        ArchivoPuntuacion archivo = new ArchivoPuntuacion();
+        ArrayList<Pair<String, Integer>> puntuaciones = archivo.leerArchivo("src/main/resources/archivo.csv");
+
+        for(Pair<String, Integer> tupla: puntuaciones) {
+            Label etiqueta = new Label(tupla.getValue() + "         " + tupla.getKey());
             etiqueta.getStyleClass().add("texto-predeterminado");
             this.getChildren().addAll(etiqueta);
         }
-
-        ArchivoPuntuacion archivo = new ArchivoPuntuacion();
-        archivo.escribirArchivo("src/main/resources/archivo.csv", juego.scores);
 
         Button volverMenu = new Button("Volver al menú principal");
         volverMenu.getStyleClass().add("boton-comienzo");

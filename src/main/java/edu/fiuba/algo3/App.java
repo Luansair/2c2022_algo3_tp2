@@ -36,7 +36,7 @@ public class App extends Application {
             while ((line = br.readLine()) != null) {
                 String[] datos = line.split(cvsSplitBy);
                 //Imprime datos.
-                System.out.println(datos[0] + ", " + datos[1]);
+                System.out.println(datos[0] + " " + datos[1]);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
