@@ -136,6 +136,7 @@ public class Mapa {
         for (Cuadra cuadra : cuadras) {
             if (cuadra.mismaCuadra(esquinaUno, esquinaDos)) {
                 cuadra.aplicarObstaculos(unVehiculo);
+                break;
             }
         }
     }
@@ -144,6 +145,7 @@ public class Mapa {
         for (Cuadra cuadra : cuadras) {
             if (cuadra.mismaCuadra(esquinaUno, esquinaDos)) {
                 cuadra.aplicarSorpresas(unJugador);
+                break;
             }
         }
     }
