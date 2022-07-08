@@ -115,6 +115,22 @@
 
 }
 
+.boton-reliant {
+    -fx-min-height: 130px;
+    -fx-min-width: 130px;
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/Raven130px.png');
+
+}
+
+.boton-reliant-mapa {
+    -fx-min-height: 25px;
+    -fx-min-width: 25px;
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-background-image: url('../imagenes/Raven25px.png');
+
+}
+
 .boton-auto:hover {
     -fx-border-color: rgb(239, 21, 106);
     -fx-border-width: 3px;

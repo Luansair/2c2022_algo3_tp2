@@ -68,11 +68,13 @@ public class ContenedorAgregarJugador extends BorderPane {
         Button botonCuatroPorCuatro = new Button("");
         botonCuatroPorCuatro.getStyleClass().add("boton-cuatroPorCuatro");
 
+        Button botonReliant = new Button("");
+        botonAuto.getStyleClass().add("boton-reliant");
 
         pantallaVehiculo.add(botonMoto,0,0);
-        pantallaVehiculo.add(botonAuto,2,0);
+        pantallaVehiculo.add(botonAuto,1,0);
         pantallaVehiculo.add(botonCuatroPorCuatro,1,1);
-
+        pantallaVehiculo.add(botonReliant,2,2);
 
         Button submit = new Button();
         submit.setText("Agregar");
@@ -89,6 +91,8 @@ public class ContenedorAgregarJugador extends BorderPane {
         BotonCuatroPorCuatroEventHandler botonCuatroPorCuatroEventHandler = new BotonCuatroPorCuatroEventHandler(juego, botonAuto, botonMoto,submit);
         botonCuatroPorCuatro.setOnAction(botonCuatroPorCuatroEventHandler);
 
+        BotonReliantEventHandler botonReliantEventHandler = new BotonReliantEventHandler(juego, botonMoto, botonCuatroPorCuatro,submit);
+        botonReliant.setOnAction(botonReliantEventHandler);
 
         HBox pantallaAgregar = new HBox();
 

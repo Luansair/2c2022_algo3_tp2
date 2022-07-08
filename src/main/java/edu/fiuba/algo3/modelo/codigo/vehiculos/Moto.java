@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.codigo.obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.codigo.obstaculos.Piquete;
 
 public class Moto extends Vehiculo{
+
     public Moto(Esquina unaEsquina, Jugador unJugador) {
         this.cantidadPozos = new ContadorMovimiento();
         this.jugador = unJugador;
