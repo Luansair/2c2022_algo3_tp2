@@ -28,10 +28,6 @@ public class ArchivoPuntuacion {
 
         }
 
-        for(Pair<String, Integer> tupla:tuplas) {
-            System.out.println(tupla.getKey() + " " + tupla.getValue());
-        }
-
         return tuplas;
     }
 
