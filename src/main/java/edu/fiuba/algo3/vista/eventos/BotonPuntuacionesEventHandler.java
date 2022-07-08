@@ -7,11 +7,11 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class BotonCreditosEventHandler implements EventHandler<ActionEvent> {
+public class BotonPuntuacionesEventHandler implements EventHandler<ActionEvent> {
     private Juego juego;
     private Stage stage;
 
-    public BotonCreditosEventHandler(Juego juego, Stage stage)  {
+    public BotonPuntuacionesEventHandler(Juego juego, Stage stage)  {
         this.stage = stage;
         this.juego = juego;
     }

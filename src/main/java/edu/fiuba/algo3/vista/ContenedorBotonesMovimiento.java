@@ -1,10 +1,7 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.codigo.Juego;
-import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverAbajo;
-import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverArriba;
-import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverDerecha;
-import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverIzquierda;
+import edu.fiuba.algo3.vista.eventos.movimientos.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -50,10 +47,10 @@ public class ContenedorBotonesMovimiento extends VBox {
 
         GridPane pantallaBotones = new GridPane();
         pantallaBotones.getStyleClass().addAll("panel-semitransparente");
-        botonArriba = new Button("");
-        botonAbajo = new Button("");
-        botonDerecha = new Button( "");
-        botonIzquierda = new Button("");
+        botonArriba = new Button("↑");
+        botonAbajo = new Button("↓");
+        botonDerecha = new Button( "→");
+        botonIzquierda = new Button("←");
 
         botonArriba.getStyleClass().add("boton-movimiento");
         botonAbajo.getStyleClass().add("boton-movimiento");
@@ -65,17 +62,17 @@ public class ContenedorBotonesMovimiento extends VBox {
         pantallaBotones.add(botonIzquierda,0,1);
         pantallaBotones.add(botonAbajo,1,2);
 
-        BotonMoverArriba botonMoverArriba = new BotonMoverArriba(juego, stage);
-        botonArriba.setOnAction(botonMoverArriba);
+        BotonMoverArribaEventHandler botonMoverArribaEventHandler = new BotonMoverArribaEventHandler(juego, stage);
+        botonArriba.setOnAction(botonMoverArribaEventHandler);
 
-        BotonMoverAbajo botonMoverAbajo = new BotonMoverAbajo(juego, stage);
-        botonAbajo.setOnAction(botonMoverAbajo);
+        BotonMoverAbajoEventHandler botonMoverAbajoEventHandler = new BotonMoverAbajoEventHandler(juego, stage);
+        botonAbajo.setOnAction(botonMoverAbajoEventHandler);
 
-        BotonMoverIzquierda botonMoverIzquierda = new BotonMoverIzquierda(juego,stage);
-        botonIzquierda.setOnAction(botonMoverIzquierda);
+        BotonMoverIzquierdaEventHandler botonMoverIzquierdaEventHandler = new BotonMoverIzquierdaEventHandler(juego,stage);
+        botonIzquierda.setOnAction(botonMoverIzquierdaEventHandler);
 
-        BotonMoverDerecha botonMoverDerecha = new BotonMoverDerecha(juego,stage);
-        botonDerecha.setOnAction(botonMoverDerecha);
+        BotonMoverDerechaEventHandler botonMoverDerechaEventHandler = new BotonMoverDerechaEventHandler(juego,stage);
+        botonDerecha.setOnAction(botonMoverDerechaEventHandler);
 
         this.getChildren().addAll(pantallaInformacionJugador, pantallaBotones);
     }

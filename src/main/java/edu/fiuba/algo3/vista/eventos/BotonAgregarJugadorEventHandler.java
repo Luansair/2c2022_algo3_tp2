@@ -7,11 +7,11 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class OpcionAgregarJugador implements EventHandler<ActionEvent> {
+public class BotonAgregarJugadorEventHandler implements EventHandler<ActionEvent> {
     private Stage stage;
     private Juego juego;
 
-    public OpcionAgregarJugador(Stage stage, Juego juego) {
+    public BotonAgregarJugadorEventHandler(Stage stage, Juego juego) {
         this.stage = stage;
         this.juego = juego;
     }

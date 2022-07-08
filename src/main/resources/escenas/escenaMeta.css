@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+
+.boton {
+    -fx-background-color: rgba(255, 255,255,0);
+    -fx-border-color: rgb(0, 0, 0);
+    -fx-border-radius: 30px;
+    -fx-text-fill: rgb(0, 0, 0);
+    -fx-font-size: 30;
+    -fx-font-family: Arial;
+    -fx-cursor: pointer;
+    -fx-border-width: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgb(0, 0, 0), 0,0,0,3);
+}
+
+.label-titulo {
+    -fx-spacing: 10;
+    -fx-font-size: 50;
+    -fx-text-fill: rgb(255,2,108);
+    -fx-font-family: 'Titan One', cursive;
+    -fx-label-padding: 5;
+    -fx-effect: dropshadow(three-pass-box, rgb(126, 12, 0), 0,0,0,3);
+}
+
+.label-jugadores {
+    -fx-font-size: 45;
+    -fx-text-fill: rgb(0, 0, 0);
+    -fx-font-family: 'Titan One', cursive;
+    -fx-label-padding: 5;
+}
+
+.pantalla-final {
+    -fx-background-image: url('../imagenes/pantallaFinal.png');
+}

@@ -1,17 +1,8 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.codigo.*;
-import edu.fiuba.algo3.modelo.codigo.sorpresas.Sorpresa;
 import edu.fiuba.algo3.modelo.codigo.vehiculos.Vehiculo;
-import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverAbajo;
-import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverArriba;
-import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverDerecha;
-import edu.fiuba.algo3.vista.eventos.movimientos.BotonMoverIzquierda;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuBar;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 

@@ -7,11 +7,11 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class OpcionEntrarEventHandler implements EventHandler<ActionEvent> {
+public class BotonEntrarEventHandler implements EventHandler<ActionEvent> {
     private Stage stage;
     private Juego juego;
 
-    public OpcionEntrarEventHandler(Stage stage, Juego juego) {
+    public BotonEntrarEventHandler(Stage stage, Juego juego) {
         this.stage = stage;
         this.juego = juego;
     }

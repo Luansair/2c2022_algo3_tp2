@@ -40,8 +40,9 @@ public class ContenedorPrincipal extends BorderPane {
 
     private void setCentro() {
         HBox pantallaPrincipal = new HBox();
-        pantallaPrincipal.setSpacing(10);
-
+        pantallaPrincipal.setMaxHeight(935);
+        pantallaPrincipal.setMinHeight(935);
+        pantallaPrincipal.setSpacing(15);
 
         Canvas canvas = new Canvas(TAMANIOMAPA,TAMANIOMAPA);
         VBox mapaCamuflado = new VBox(canvas);

@@ -39,7 +39,7 @@ public class ContenedorAgregarJugador extends BorderPane {
 
         //INGRESAR NOMBRE
         VBox pantallaNombre = new VBox();
-        pantallaNombre.setPadding(new Insets(0,200,0,80));
+        pantallaNombre.setPadding(new Insets(0,200,0,0));
 
         Label etiquetaNombre = new Label("Jugador:");
         etiquetaNombre.getStyleClass().add("texto-predeterminado");
@@ -92,17 +92,20 @@ public class ContenedorAgregarJugador extends BorderPane {
         submit.getStyleClass().add("boton-predeterminado");
 
         Label labelVacio = new Label();
-        pantallaAgregar.setAlignment(Pos.BOTTOM_RIGHT);
+        labelVacio.getStyleClass().add("texto-preventivo");
+
+        pantallaAgregar.setAlignment(Pos.TOP_RIGHT);
         pantallaAgregar.setPadding(new Insets(0,60,60,60));
-        pantallaAgregar.getChildren().addAll(submit, labelVacio);
+        pantallaAgregar.setSpacing(60);
+        pantallaAgregar.getChildren().addAll(labelVacio, submit);
 
 
         BotonSubmitEventHandler botonSubmitEventHandler = new BotonSubmitEventHandler(stage, juego, textoNombre, labelVacio);
         submit.setOnAction(botonSubmitEventHandler);
 
         pantallaPrincipal.getChildren().addAll(pantallaNombre, pantallaVehiculo, pantallaAgregar);
-        pantallaPrincipal.setPadding(new Insets(70,100,100,100));
-        pantallaPrincipal.setSpacing(90);
+        pantallaPrincipal.setPadding(new Insets(70,100,100,70));
+        pantallaPrincipal.setSpacing(65);
 
         this.setCenter(pantallaPrincipal);
     }

@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.vista.eventos.movimientos;
 
+
 import edu.fiuba.algo3.modelo.codigo.Direccion.DireccionDerecha;
+import edu.fiuba.algo3.modelo.codigo.Direccion.DireccionInferior;
+import edu.fiuba.algo3.modelo.codigo.Direccion.DireccionSuperior;
 import edu.fiuba.algo3.modelo.codigo.Juego;
 import edu.fiuba.algo3.vista.ContenedorMapa;
 import edu.fiuba.algo3.vista.ContenedorMeta;
@@ -13,19 +16,19 @@ import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class BotonMoverDerecha implements EventHandler<ActionEvent> {
+public class BotonMoverAbajoEventHandler implements EventHandler<ActionEvent> {
 
     private Juego juego;
     private Stage stage;
 
-    public BotonMoverDerecha(Juego juego, Stage stage)  {
+    public BotonMoverAbajoEventHandler(Juego juego, Stage stage)  {
         this.stage = stage;
         this.juego = juego;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        juego.moverHaciaDerecha();
+        juego.moverHaciaAbajo();
         juego.imprimirEstado();
         if (juego.juegoTerminado())  {
             ContenedorMeta contenedorMeta = null;
@@ -37,11 +40,13 @@ public class BotonMoverDerecha implements EventHandler<ActionEvent> {
                 throw new RuntimeException(e);
             }
             Scene escenaMeta = new Scene(contenedorMeta,1100,700);
-            escenaMeta.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
+            escenaMeta.getStylesheets().add(getClass().getResource("/escenas/escenaMeta.css").toExternalForm());
             stage.setScene(escenaMeta);
+            stage.setFullScreenExitHint("");
+            stage.setFullScreen(false);
         } else {
-            ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal( stage, juego);
-            Scene escenaPrincipal = new Scene(contenedorPrincipal,1235,957);
+            ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, juego);
+            Scene escenaPrincipal = new Scene(contenedorPrincipal,1258,957);
             escenaPrincipal.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
             stage.setScene(escenaPrincipal);
             stage.setFullScreenExitHint("");

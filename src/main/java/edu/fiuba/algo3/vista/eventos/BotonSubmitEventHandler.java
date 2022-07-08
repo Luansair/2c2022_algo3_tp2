@@ -31,14 +31,13 @@ public class BotonSubmitEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         if (text.getText() == "") {
             labelVacio.setText("Escribe un nombre para el jugador");
-            labelVacio.getStyleClass().add("texto-predeterminado");
         }
         else {
             juego.asignarNombre(text.getText());
 
             ContenedorJugadores contenedorJugadores = new ContenedorJugadores(stage, juego);
 
-            Scene escenaJugadores = new Scene(contenedorJugadores,1100,1100);
+            Scene escenaJugadores = new Scene(contenedorJugadores,1100,700);
             escenaJugadores.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
             stage.setScene(escenaJugadores);
             stage.setFullScreenExitHint("");

@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.util.Pair;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Juego {
@@ -144,6 +145,16 @@ public class Juego {
     public int getPosicionY() {
         Vehiculo vehiculo = jugadorTurno.obtenerVehiculo();
         return vehiculo.obtenerPosicion().getPosicionY();
+    }
+
+    public  ArrayList<Pair<String, Integer>> leerPuntajes() throws Exception {
+        ArchivoPuntuacion archivo = new ArchivoPuntuacion();
+        return archivo.leerArchivo("src/main/resources/archivo.csv");
+    }
+
+    public void escribirPuntajes() throws IOException {
+        ArchivoPuntuacion archivo = new ArchivoPuntuacion();
+        archivo.escribirArchivo("src/main/resources/archivo.csv", scores);
     }
 }
 

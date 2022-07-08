@@ -11,12 +11,12 @@ import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class BotonMoverIzquierda implements EventHandler<ActionEvent> {
+public class BotonMoverIzquierdaEventHandler implements EventHandler<ActionEvent> {
 
     private Juego juego;
     private Stage stage;
 
-    public BotonMoverIzquierda(Juego juego, Stage stage)  {
+    public BotonMoverIzquierdaEventHandler(Juego juego, Stage stage)  {
         this.stage = stage;
         this.juego = juego;
     }
@@ -35,11 +35,11 @@ public class BotonMoverIzquierda implements EventHandler<ActionEvent> {
                 throw new RuntimeException(e);
             }
             Scene escenaMeta = new Scene(contenedorMeta,1100,700);
-            escenaMeta.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
+            escenaMeta.getStylesheets().add(getClass().getResource("/escenas/escenaMeta.css").toExternalForm());
             stage.setScene(escenaMeta);
         } else {
             ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal( stage, juego);
-            Scene escenaPrincipal = new Scene(contenedorPrincipal,1235,957);
+            Scene escenaPrincipal = new Scene(contenedorPrincipal,1258,957);
             escenaPrincipal.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
             stage.setScene(escenaPrincipal);
             stage.setFullScreenExitHint("");

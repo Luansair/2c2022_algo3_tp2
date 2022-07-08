@@ -19,7 +19,6 @@ public class BotonVolverMenuEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        guardarScores();
         this.juego = new Juego();
 
         ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, juego);
@@ -30,7 +29,4 @@ public class BotonVolverMenuEventHandler implements EventHandler<ActionEvent> {
         stage.show();
     }
 
-    public void guardarScores() {
-
-    }
 }

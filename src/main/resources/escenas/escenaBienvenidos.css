@@ -20,9 +20,6 @@
     -fx-effect: dropshadow(three-pass-box,black, 0,0,0,3);
 }
 
-.pantalla-final {
-    -fx-background-image: url('../imagenes/pantallaFinal.png');
-}
 
 .border-vox {
     -fx-background-image: url('../imagenes/pantallaComienzo.png');

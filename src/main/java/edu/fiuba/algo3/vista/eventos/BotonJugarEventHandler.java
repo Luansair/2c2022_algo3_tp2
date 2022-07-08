@@ -11,13 +11,13 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class OpcionJugar implements EventHandler<ActionEvent> {
+public class BotonJugarEventHandler implements EventHandler<ActionEvent> {
     private Stage stage;
     private Juego juego;
 
     private Label label;
 
-    public OpcionJugar(Stage stage, Juego juego, Label label) {
+    public BotonJugarEventHandler(Stage stage, Juego juego, Label label) {
         this.stage = stage;
         this.juego = juego;
         this.label = label;
@@ -31,7 +31,7 @@ public class OpcionJugar implements EventHandler<ActionEvent> {
         else  {
             ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, juego);
 
-            Scene escenaPrincipal = new Scene(contenedorPrincipal,1235,957);
+            Scene escenaPrincipal = new Scene(contenedorPrincipal,1258,957);
             escenaPrincipal.getStylesheets().add(getClass().getResource("/escenas/escenaPrincipal.css").toExternalForm());
             stage.setScene(escenaPrincipal);
             stage.setFullScreenExitHint("");

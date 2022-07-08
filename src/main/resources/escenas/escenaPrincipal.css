@@ -7,8 +7,18 @@
     -fx-font-size: 30;
     -fx-text-fill: rgb(255,255,255);
     -fx-label-padding: 5;
-    -fx-effect: dropshadow(three-pass-box,black, 0,0,0,3);
+    -fx-effect: dropshadow(three-pass-box, #000000, 0,0,0,4);
     -fx-font-family: 'Secular One', sans-serif;
+}
+
+.texto-preventivo {
+    -fx-spacing: 10;
+    -fx-font-size: 27;
+    -fx-text-fill: rgb(252, 56, 152);
+    -fx-label-padding: 5;
+    -fx-font-family: 'Secular One', sans-serif;
+    -fx-background-color: rgba(0,0,0,0.4);
+
 }
 
 .boton-predeterminado {
@@ -16,7 +26,7 @@
     -fx-border-color: rgb(255,255,255);
     -fx-border-radius: 30px;
     -fx-text-fill: rgb(255,255,255);
-    -fx-font-size: 20;
+    -fx-font-size: 25;
     -fx-font-family: Arial;
     -fx-border-width: 5px;
 }
@@ -24,29 +34,15 @@
 .boton-movimiento {
     -fx-min-width: 75;
     -fx-min-height: 75;
-    -fx-border-radius: 10px;
-}
-.texto-turno {
-    -fx-spacing: 0;
-    -fx-font-size: 25;
-    -fx-text-fill: rgb(0,0,0);
-    -fx-label-padding: 0;
-    -fx-font-family: Arial;
-}
-
-.opcion {
-    -fx-min-width: 200;
-    -fx-min-height: 50;
-    -fx-border-color: black;
-    -fx-border-width: 2px;
-    -fx-background-color: rgb(255,255,255);
-    -fx-font-size: 20;
-    -fx-font-family: 'Secular One', sans-serif;
-    -fx-prompt-text-fill: rgb(255,255,255);
+    -fx-border-radius: 15px;
+    -fx-border-color: rgb(255,255,255);
+    -fx-background-color: rgba(0, 0,0,0.4);
+    -fx-border-width: 6px;
     -fx-text-fill: rgb(255,255,255);
-    -fx-highlight-text-fill: rgb(255,255,255);
+    -fx-font-size: 39;
 
 }
+
 
 .border-vox {
     -fx-background-image: url('../imagenes/pantallaComienzo.png');
@@ -56,16 +52,6 @@
     -fx-background-color: rgba(0,0,0,0.4);
 }
 
-
-.boton-continuar {
-    -fx-background-color: rgba(0, 0, 0,0.5);
-    -fx-border-color: rgb(255,255,255);
-    -fx-border-radius: 40px;
-    -fx-text-fill: rgb(255,255,255);
-    -fx-font-size: 45;
-    -fx-font-family: 'Titan One', cursiva;
-    -fx-border-width: 8px;
-}
 
 .textfill-nombre {
     -fx-background-color: rgba(255,255,255,0);
@@ -78,6 +64,7 @@
     -fx-text-fill: rgb(255,255,255);
     -fx-font-family: 'Secular One', sans-serif;
     -fx-border-style: hidden hidden solid hidden;
+    -fx-font-size: 23;
 }
 
 /*BOTONES PARA ELEGIR VEHICULO*/

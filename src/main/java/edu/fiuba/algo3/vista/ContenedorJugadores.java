@@ -41,9 +41,9 @@ public class ContenedorJugadores extends VBox {
         botonAgregar.getStyleClass().add("boton-predeterminado");
         botonAgregar.setMinSize(75,25);
 
+        BotonAgregarJugadorEventHandler botonAgregarJugadorEventHandler = new BotonAgregarJugadorEventHandler(stage,juego);
+        botonAgregar.setOnAction(botonAgregarJugadorEventHandler);
 
-        OpcionAgregarJugador opcionAgregarJugador = new OpcionAgregarJugador(stage, juego);
-        botonAgregar.setOnAction(opcionAgregarJugador);
 
         //Jugadores de momento
         ArrayList<Jugador> jugadores = juego.getJugadores();
@@ -65,13 +65,13 @@ public class ContenedorJugadores extends VBox {
         botonJugar.getStyleClass().add("boton-predeterminado");
         botonJugar.setMinSize(75,25);
 
-        Label label = new Label();
+        Label labelVacio = new Label();
+        labelVacio.getStyleClass().add("texto-preventivo");
 
+        BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(stage, juego,labelVacio);
+        botonJugar.setOnAction(botonJugarEventHandler);
 
-        OpcionJugar opcionJugar = new OpcionJugar(stage, juego,label);
-        botonJugar.setOnAction(opcionJugar);
-
-        this.getChildren().addAll(botonAgregar, botonJugar, label);
+        this.getChildren().addAll(botonAgregar, botonJugar, labelVacio);
 
     }
 
