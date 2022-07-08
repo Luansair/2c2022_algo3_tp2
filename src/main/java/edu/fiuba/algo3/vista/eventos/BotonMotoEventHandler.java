@@ -13,16 +13,19 @@ public class BotonMotoEventHandler implements EventHandler<ActionEvent> {
     private Button botonAuto;
     private Button botonCuatroPorCuatro;
 
-    public BotonMotoEventHandler(Juego juego, Button botonAuto, Button botonCuatroPorCuatro) {
+    private Button botonDeshabilitado;
+    public BotonMotoEventHandler(Juego juego, Button botonAuto, Button botonCuatroPorCuatro, Button botonDeshabilitado) {
         this.juego = juego;
         this.botonAuto = botonAuto;
         this.botonCuatroPorCuatro = botonCuatroPorCuatro;
+        this.botonDeshabilitado = botonDeshabilitado;
+
     }
         @Override
     public void handle(ActionEvent actionEvent) {
         juego.asignarMoto();
         botonAuto.setDisable(true);
         botonCuatroPorCuatro.setDisable(true);
-        System.out.println("Moto Asignada");
+        botonDeshabilitado.setDisable(false);
     }
 }

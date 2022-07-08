@@ -26,7 +26,6 @@ public class BotonMoverDerechaEventHandler implements EventHandler<ActionEvent> 
     @Override
     public void handle(ActionEvent actionEvent) {
         juego.moverHaciaDerecha();
-        juego.imprimirEstado();
         if (juego.juegoTerminado())  {
             ContenedorMeta contenedorMeta = null;
             try {

@@ -11,11 +11,13 @@ public class BotonCuatroPorCuatroEventHandler implements EventHandler<ActionEven
     private Button botonAuto;
     private Button botonMoto;
 
-    public BotonCuatroPorCuatroEventHandler(Juego juego, Button botonAuto, Button botonMoto) {
+    private Button botonDeshabilitado;
+
+    public BotonCuatroPorCuatroEventHandler(Juego juego, Button botonAuto, Button botonMoto, Button botonDesabilitado) {
         this.juego = juego;
         this.botonAuto = botonAuto;
         this.botonMoto = botonMoto;
-
+        this.botonDeshabilitado = botonDesabilitado;
     }
 
 
@@ -24,5 +26,6 @@ public class BotonCuatroPorCuatroEventHandler implements EventHandler<ActionEven
         juego.asignaCuatroPorCuatro();
         botonMoto.setDisable(true);
         botonAuto.setDisable(true);
+        botonDeshabilitado.setDisable(false);
     }
 }

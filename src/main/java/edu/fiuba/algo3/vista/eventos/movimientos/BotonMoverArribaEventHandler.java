@@ -29,7 +29,6 @@ public class BotonMoverArribaEventHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         juego.moverhaciaArriba();
-        juego.imprimirEstado();
         if (juego.juegoTerminado())  {
             ContenedorMeta contenedorMeta = null;
             try {

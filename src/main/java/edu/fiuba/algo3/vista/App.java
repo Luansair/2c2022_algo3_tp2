@@ -19,7 +19,7 @@ import java.security.AlgorithmConstraints;
 public class App extends Application {
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         stage.setTitle("Trabajo practico 2 - GPS Challenge");
 
         Juego juego = new Juego();

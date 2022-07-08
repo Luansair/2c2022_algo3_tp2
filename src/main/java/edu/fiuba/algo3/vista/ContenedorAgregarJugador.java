@@ -69,27 +69,29 @@ public class ContenedorAgregarJugador extends BorderPane {
         botonCuatroPorCuatro.getStyleClass().add("boton-cuatroPorCuatro");
 
 
-
         pantallaVehiculo.add(botonMoto,0,0);
         pantallaVehiculo.add(botonAuto,2,0);
         pantallaVehiculo.add(botonCuatroPorCuatro,1,1);
 
 
+        Button submit = new Button();
+        submit.setText("Agregar");
+        submit.getStyleClass().add("boton-predeterminado");
+        submit.setDisable(true);
 
-        BotonAutoEventHandler botonAutoEventHandler = new BotonAutoEventHandler(juego, botonMoto, botonCuatroPorCuatro);
+
+        BotonAutoEventHandler botonAutoEventHandler = new BotonAutoEventHandler(juego, botonMoto, botonCuatroPorCuatro, submit);
         botonAuto.setOnAction(botonAutoEventHandler);
 
-        BotonMotoEventHandler botonMotoEventHandler = new BotonMotoEventHandler(juego, botonAuto,botonCuatroPorCuatro);
+        BotonMotoEventHandler botonMotoEventHandler = new BotonMotoEventHandler(juego, botonAuto,botonCuatroPorCuatro,submit);
         botonMoto.setOnAction(botonMotoEventHandler);
 
-        BotonCuatroPorCuatroEventHandler botonCuatroPorCuatroEventHandler = new BotonCuatroPorCuatroEventHandler(juego, botonAuto, botonMoto);
+        BotonCuatroPorCuatroEventHandler botonCuatroPorCuatroEventHandler = new BotonCuatroPorCuatroEventHandler(juego, botonAuto, botonMoto,submit);
         botonCuatroPorCuatro.setOnAction(botonCuatroPorCuatroEventHandler);
 
 
         HBox pantallaAgregar = new HBox();
-        Button submit = new Button();
-        submit.setText("Agregar");
-        submit.getStyleClass().add("boton-predeterminado");
+
 
         Label labelVacio = new Label();
         labelVacio.getStyleClass().add("texto-preventivo");

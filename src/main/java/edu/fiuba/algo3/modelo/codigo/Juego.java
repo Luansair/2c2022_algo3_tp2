@@ -60,7 +60,6 @@ public class Juego {
         }
     }
 
-    //Sirve solo para las pruebas
     public String getJugadorTurno() {
         return jugadorTurno.getNombre();
     }
@@ -97,10 +96,6 @@ public class Juego {
     public int getCantidadJugadores() { return cantidadJugadores; }
     public void asignarNombre(String nombre) {jugadorTurno.asignarNombre(nombre);}
 
-    public void imprimirEstado() {
-        System.out.println(jugadorTurno.getNombre() + " tiene movimientos = " + jugadorTurno.cantidadDeMovimientos());
-        System.out.println("Posición = " + jugadorTurno.obtenerVehiculo().obtenerPosicion().getPosicionX() + " " + jugadorTurno.obtenerVehiculo().obtenerPosicion().getPosicionY());
-    }
 
     public int puntaje() {
         return jugadorTurno.cantidadDeMovimientos();
